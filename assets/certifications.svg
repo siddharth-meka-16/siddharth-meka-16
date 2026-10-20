@@ -17,58 +17,46 @@
   
     <g transform="translate(30, 25)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.7" stroke-width="1"/>
-      <!-- verified check icon -->
       <g transform="translate(24, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
-      <!-- issuer & title -->
       <text x="50" y="32" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="1">ANTHROPIC</text>
       <text x="50" y="52" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">AI Fluency: Framework and Foundations</text>
       <text x="50" y="70" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="10" fill="#E5B5C7" opacity="0.75">ISSUED 2026  ·  VERIFIED CREDENTIAL</text>
-      <!-- decorative badge on right -->
       <circle cx="438" cy="42" r="3" fill="#701A3D"/>
     </g>
     <g transform="translate(510, 25)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.7" stroke-width="1"/>
-      <!-- verified check icon -->
       <g transform="translate(24, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
-      <!-- issuer & title -->
       <text x="50" y="32" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="1">INFOSYS SPRINGBOARD</text>
       <text x="50" y="52" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Front End Development Certification</text>
       <text x="50" y="70" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="10" fill="#E5B5C7" opacity="0.75">ISSUED 2026  ·  PROFESSIONAL CERT</text>
-      <!-- decorative badge on right -->
       <circle cx="438" cy="42" r="3" fill="#701A3D"/>
     </g>
     <g transform="translate(30, 125)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.7" stroke-width="1"/>
-      <!-- verified check icon -->
       <g transform="translate(24, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
-      <!-- issuer & title -->
       <text x="50" y="32" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="1">CISCO NETWORKING ACADEMY</text>
       <text x="50" y="52" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Python Essentials 1</text>
       <text x="50" y="70" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="10" fill="#E5B5C7" opacity="0.75">ISSUED 2025  ·  FOUNDATIONAL</text>
-      <!-- decorative badge on right -->
       <circle cx="438" cy="42" r="3" fill="#701A3D"/>
     </g>
     <g transform="translate(510, 125)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.7" stroke-width="1"/>
-      <!-- verified check icon -->
       <g transform="translate(24, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
-      <!-- issuer & title -->
       <text x="50" y="32" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="1">CISCO NETWORKING ACADEMY</text>
       <text x="50" y="52" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Python Essentials 2</text>
       <text x="50" y="70" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="10" fill="#E5B5C7" opacity="0.75">ISSUED 2025  ·  INTERMEDIATE</text>
-      <!-- decorative badge on right -->
       <circle cx="438" cy="42" r="3" fill="#701A3D"/>
     </g>
 </svg>

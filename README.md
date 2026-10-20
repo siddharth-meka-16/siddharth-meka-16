@@ -4,12 +4,17 @@
 
 <p align="center">
   <a href="https://github.com/siddharth-meka-16"><img src="assets/link-github.svg" alt="GitHub: siddharth-meka-16" height="40"></a>
+  &nbsp;&nbsp;
   <a href="https://linkedin.com/in/siddharth-meka-a90138355"><img src="assets/link-linkedin.svg" alt="LinkedIn: siddharth-meka-a90138355" height="40"></a>
 </p>
 
 ## <img src="assets/section-01-introduction.svg" alt="Introduction" width="100%">
 
 I'm a Computer Science Engineering student at Prasad V Potluri Siddhartha Institute of Technology (B.Tech, 2024–2028) in Andhra Pradesh, India. I'm interested in AI/ML, full-stack development and problem-solving, and I like turning those interests into practical applications. I work with Java, Python, React, Next.js, FastAPI, Supabase and the Gemini API, and I'm looking for Software Development or AI/ML internships.
+
+<p align="center">
+  <img src="assets/terminal.svg" alt="Interactive Terminal — Siddharth Meka" width="100%">
+</p>
 
 ## <img src="assets/section-02-projects.svg" alt="Featured Projects" width="100%">
 
@@ -48,6 +53,12 @@ An end-to-end fraud detection system built on a highly imbalanced dataset. It co
 ## <img src="assets/section-05-activity.svg" alt="GitHub Activity" width="100%">
 
 <a href="https://github.com/siddharth-meka-16"><img src="assets/activity.svg" alt="GitHub activity for siddharth-meka-16, generated from GitHub data" width="100%"></a>
+
+<br/>
+
+<p align="center">
+  <img src="assets/github-contribution-grid-snake.svg" alt="Burgundy Contribution Matrix Snake" width="100%">
+</p>
 
 ## <img src="assets/section-06-links.svg" alt="Professional Links" width="100%">
 
