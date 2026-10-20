@@ -1,61 +1,203 @@
 <div align="center">
 
-<img src="assets/hero.svg" alt="Siddharth Meka, Full-Stack and AI/ML Developer" width="100%"/>
+<img src="assets/siddharth-hero.svg" alt="Siddharth Meka — Computer Science Engineering · AI/ML · Full-Stack Development" width="100%"/>
 
-<a href="https://github.com/siddharth-meka-16"><img src="https://img.shields.io/badge/GitHub-siddharth--meka--16-0B1230?style=for-the-badge&logo=github&logoColor=22D3EE" alt="GitHub"/></a>
-<a href="https://www.linkedin.com/in/siddharth-meka-a90138355"><img src="https://img.shields.io/badge/LinkedIn-Connect-0B1230?style=for-the-badge&logo=linkedin&logoColor=A855F7" alt="LinkedIn"/></a>
+<br/>
+
+<a href="https://github.com/siddharth-meka-16"><img src="https://img.shields.io/badge/GitHub-siddharth--meka--16-190B12?style=flat-square&logo=github&logoColor=C77B9B" alt="GitHub"/></a>&nbsp;&nbsp;
+<a href="https://linkedin.com/in/siddharth-meka-a90138355"><img src="https://img.shields.io/badge/LinkedIn-Siddharth_Meka-190B12?style=flat-square&logo=linkedin&logoColor=C77B9B" alt="LinkedIn"/></a>
 
 </div>
 
-## About
+<br/>
 
-I'm a Computer Science Engineering student at Prasad V Potluri Siddhartha Institute of Technology (2024-2028). I build AI-powered full-stack apps with React, Next.js, FastAPI and the Gemini API, and I enjoy data structures and algorithms in Java and Python.
+## About Me
 
-I'm looking for **Software Development** or **AI/ML** internships.
+I'm **Siddharth Meka**, a Computer Science Engineering student at **Prasad V Potluri Siddhartha Institute of Technology** (B.Tech, 2024–2028), based in Andhra Pradesh, India.
 
-## Projects
+I enjoy building practical, AI-powered applications and full-stack products. My current focus areas include working with **React**, **Next.js**, **FastAPI**, **Supabase**, and the **Gemini API** — along with strengthening problem-solving skills through data structures and algorithms in **Java** and **Python**.
 
-| Project | What it does | Stack |
-|---|---|---|
-| **[ResQ](https://github.com/siddharth-meka-16/ResQ)** | Real-time disaster coordination and AI relief platform. Incident dispatching, GIS maps, resource allocation, and AI flood-route replanning with a fail-safe rule engine. | Next.js, React, TypeScript, Supabase, Gemini API |
-| **[AI Code Explainer](https://github.com/siddharth-meka-16/AI-code-explainer)** | Explains source code, detects bugs, analyzes complexity and suggests optimizations. | React, FastAPI, Gemini API |
-| **[Fraud Shield](https://github.com/Shyam062006/FRAUD-SHIELD)** | End-to-end fraud detection on a dataset with 0.17% fraud. Random Forest reached 99.4% F1 and 99.5% ROC-AUC, served through a real-time FastAPI backend with plain-language explanations. | Python, FastAPI, scikit-learn, XGBoost, JavaScript, Three.js |
+I'm always exploring emerging technologies and looking for opportunities to learn and contribute through software development and AI/ML engineering.
 
-## Skills
+<br/>
 
-**Languages:** ![Java](https://img.shields.io/badge/Java-0B1230?style=flat-square&logo=openjdk&logoColor=22D3EE) ![Python](https://img.shields.io/badge/Python-0B1230?style=flat-square&logo=python&logoColor=22D3EE) ![C](https://img.shields.io/badge/C-0B1230?style=flat-square&logo=c&logoColor=22D3EE) ![TypeScript](https://img.shields.io/badge/TypeScript-0B1230?style=flat-square&logo=typescript&logoColor=22D3EE)
+---
 
-**Frontend:** ![HTML](https://img.shields.io/badge/HTML-0B1230?style=flat-square&logo=html5&logoColor=A855F7) ![CSS](https://img.shields.io/badge/CSS-0B1230?style=flat-square&logo=css3&logoColor=A855F7) ![JavaScript](https://img.shields.io/badge/JavaScript-0B1230?style=flat-square&logo=javascript&logoColor=A855F7) ![React](https://img.shields.io/badge/React-0B1230?style=flat-square&logo=react&logoColor=A855F7) ![Next.js](https://img.shields.io/badge/Next.js-0B1230?style=flat-square&logo=nextdotjs&logoColor=A855F7)
+<br/>
 
-**Backend:** ![Node.js](https://img.shields.io/badge/Node.js-0B1230?style=flat-square&logo=nodedotjs&logoColor=22D3EE) ![Express](https://img.shields.io/badge/Express-0B1230?style=flat-square&logo=express&logoColor=22D3EE) ![FastAPI](https://img.shields.io/badge/FastAPI-0B1230?style=flat-square&logo=fastapi&logoColor=22D3EE)
+## Featured Projects
 
-**AI/ML:** Machine Learning, NLP, Gemini API, scikit-learn, XGBoost
+<table>
+<tr>
+<td width="33%" valign="top">
 
-**Database and Cloud:** ![MySQL](https://img.shields.io/badge/MySQL-0B1230?style=flat-square&logo=mysql&logoColor=A855F7) ![Supabase](https://img.shields.io/badge/Supabase-0B1230?style=flat-square&logo=supabase&logoColor=A855F7) ![Vercel](https://img.shields.io/badge/Vercel-0B1230?style=flat-square&logo=vercel&logoColor=A855F7)
+### ResQ
+**Real-Time Disaster Coordination & AI Relief Platform**
 
-**Tools:** Git, GitHub, VS Code
+A full-stack disaster coordination platform with real-time incident dispatching, GIS map visualization, resource allocation, and response workflows. Features AI-powered incident classification and dynamic flood-route replanning using Gemini, with a fail-safe heuristic rule engine. Uses Supabase Row Level Security and includes disaster simulation environments.
 
-**CS fundamentals:** DSA, OOP, DBMS, OS, Computer Networks
+`Next.js` `React` `TypeScript` `Supabase` `Gemini API`
+
+<a href="https://github.com/siddharth-meka-16/ResQ">View Repository →</a>
+
+</td>
+<td width="33%" valign="top">
+
+### AI Code Explainer
+**AI-Powered Code Analysis Platform**
+
+An AI-powered code analysis platform that explains source code, detects bugs, analyzes algorithmic complexity, and suggests optimizations using Gemini. Features a React frontend and FastAPI backend for interactive code analysis and AI-generated insights. Presents structured feedback to help users understand, debug, and improve their code.
+
+`React` `FastAPI` `Gemini API`
+
+<a href="https://github.com/siddharth-meka-16/AI-code-explainer">View Repository →</a>
+
+</td>
+<td width="33%" valign="top">
+
+### Fraud Shield
+**AI Fraud Detection System**
+
+An end-to-end fraud detection system built on a highly imbalanced dataset (0.17% fraud rate). Compares Logistic Regression, Random Forest, and XGBoost — Random Forest achieved 99.4% F1 score and 99.5% ROC-AUC. Includes a FastAPI backend for risk predictions and plain-language explanations, alongside an interactive animated web interface built with Three.js.
+
+`Python` `FastAPI` `scikit-learn` `XGBoost` `JavaScript` `Three.js`
+
+<a href="https://github.com/Shyam062006/FRAUD-SHIELD">View Repository →</a>
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+---
+
+<br/>
 
 ## Certifications
 
-- Anthropic: AI Fluency, Framework and Foundations
-- Infosys Springboard: Front End Development
-- Cisco Networking Academy: Python Essentials 1 and 2
+| Certificate | Issuer |
+|---|---|
+| AI Fluency: Framework and Foundations | Anthropic |
+| Front End Development | Infosys Springboard |
+| Python Essentials 1 | Cisco Networking Academy |
+| Python Essentials 2 | Cisco Networking Academy |
 
-## GitHub activity
+<br/>
+
+---
+
+<br/>
+
+## Technical Skills
+
+<table>
+<tr>
+<td valign="top" width="25%">
+
+**Programming Languages**
+<br/><br/>
+Java · Python · C · TypeScript · JavaScript
+
+</td>
+<td valign="top" width="25%">
+
+**CS Fundamentals**
+<br/><br/>
+Data Structures & Algorithms · OOP · DBMS · Operating Systems · Computer Networks
+
+</td>
+<td valign="top" width="25%">
+
+**Frontend**
+<br/><br/>
+HTML · CSS · JavaScript · React · Next.js
+
+</td>
+<td valign="top" width="25%">
+
+**Backend**
+<br/><br/>
+Node.js · Express.js · FastAPI · REST APIs
+
+</td>
+</tr>
+<tr>
+<td valign="top" width="25%">
+
+**Databases & Cloud**
+<br/><br/>
+SQL · MySQL · Supabase · Vercel
+
+</td>
+<td valign="top" width="25%">
+
+**AI & Machine Learning**
+<br/><br/>
+Gemini API · scikit-learn · XGBoost
+
+</td>
+<td valign="top" width="25%">
+
+**Development Tools**
+<br/><br/>
+Git · GitHub · VS Code
+
+</td>
+<td valign="top" width="25%">
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+---
+
+<br/>
+
+## GitHub Activity
 
 <div align="center">
 
-<img src="https://ghchart.rshah.org/22D3EE/siddharth-meka-16" alt="Contribution heatmap" width="100%"/>
-
-<img src="https://github-readme-stats.vercel.app/api?username=siddharth-meka-16&show_icons=true&hide_border=true&bg_color=0B1230&title_color=22D3EE&icon_color=A855F7&text_color=E6F1FF" alt="GitHub stats" height="165"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=siddharth-meka-16&layout=compact&hide_border=true&bg_color=0B1230&title_color=22D3EE&text_color=E6F1FF" alt="Top languages" height="165"/>
+<img src="https://github-readme-stats.vercel.app/api?username=siddharth-meka-16&show_icons=true&hide_border=true&bg_color=10070C&title_color=C77B9B&icon_color=701A3D&text_color=E5B5C7&ring_color=701A3D" alt="GitHub Stats" width="48%"/>
+&nbsp;
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=siddharth-meka-16&layout=compact&hide_border=true&bg_color=10070C&title_color=C77B9B&text_color=E5B5C7" alt="Top Languages" width="40%"/>
 
 </div>
 
+<br/>
+
 <div align="center">
 
-<img src="assets/footer.svg" alt="Thanks for stopping by" width="100%"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=siddharth-meka-16&background=10070C&ring=701A3D&fire=C77B9B&currStreakLabel=C77B9B&sideLabels=E5B5C7&currStreakNum=F8F0F3&sideNums=E5B5C7&dates=451126&hide_border=true" alt="GitHub Streak" width="56%"/>
+
+</div>
+
+<br/>
+
+---
+
+<br/>
+
+## Connect
+
+<div align="center">
+
+<a href="https://github.com/siddharth-meka-16">
+<img src="https://img.shields.io/badge/GitHub-siddharth--meka--16-190B12?style=for-the-badge&logo=github&logoColor=C77B9B" alt="GitHub"/>
+</a>
+&nbsp;&nbsp;
+<a href="https://linkedin.com/in/siddharth-meka-a90138355">
+<img src="https://img.shields.io/badge/LinkedIn-Siddharth_Meka-190B12?style=for-the-badge&logo=linkedin&logoColor=C77B9B" alt="LinkedIn"/>
+</a>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="assets/siddharth-footer.svg" alt="Footer" width="100%"/>
 
 </div>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 120" width="960" height="120">
+  <defs>
+    <!-- Footer background gradient -->
+    <linearGradient id="smf-bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10070C"/>
+      <stop offset="50%" stop-color="#190B12"/>
+      <stop offset="100%" stop-color="#10070C"/>
+    </linearGradient>
+
+    <!-- Animated line gradient -->
+    <linearGradient id="smf-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10070C" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#701A3D" stop-opacity="0.6">
+        <animate attributeName="offset" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#C77B9B" stop-opacity="0.8">
+        <animate attributeName="offset" values="0.3;0.5;0.3" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="70%" stop-color="#701A3D" stop-opacity="0.6">
+        <animate attributeName="offset" values="0.5;0.7;0.5" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Footer glow -->
+    <radialGradient id="smf-glow" cx="50%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="#451126" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Grid pattern -->
+    <pattern id="smf-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#451126" stroke-width="0.25" stroke-opacity="0.1"/>
+    </pattern>
+
+    <!-- Clip -->
+    <clipPath id="smf-clip">
+      <rect x="0" y="0" width="960" height="120" rx="6" ry="6"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#smf-clip)">
+    <!-- Background -->
+    <rect width="960" height="120" fill="url(#smf-bg)"/>
+    <rect width="960" height="120" fill="url(#smf-glow)"/>
+    <rect width="960" height="120" fill="url(#smf-grid)" opacity="0.5"/>
+
+    <!-- Top animated line -->
+    <line x1="80" y1="2" x2="880" y2="2" stroke="url(#smf-line-grad)" stroke-width="1"/>
+
+    <!-- Thin separator lines -->
+    <line x1="200" y1="60" x2="380" y2="60" stroke="#451126" stroke-width="0.4" opacity="0.2"/>
+    <line x1="580" y1="60" x2="760" y2="60" stroke="#451126" stroke-width="0.4" opacity="0.2"/>
+
+    <!-- Corner accents -->
+    <path d="M 16 12 L 16 6 L 22 6" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
+    <path d="M 944 12 L 944 6 L 938 6" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
+    <path d="M 16 108 L 16 114 L 22 114" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
+    <path d="M 944 108 L 944 114 L 938 114" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
+
+    <!-- Geometric diamond motif -->
+    <g transform="translate(480, 38)" opacity="0.3">
+      <rect x="-6" y="-6" width="12" height="12" fill="none" stroke="#C77B9B" stroke-width="0.5" transform="rotate(45)">
+        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-10" y="-10" width="20" height="20" fill="none" stroke="#701A3D" stroke-width="0.3" transform="rotate(45)">
+        <animateTransform attributeName="transform" type="rotate" from="45" to="405" dur="20s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- Signature text -->
+    <text x="480" y="72" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#C77B9B" letter-spacing="4" opacity="0.55" font-weight="300">SIDDHARTH MEKA</text>
+
+    <!-- Tagline -->
+    <text x="480" y="92" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#E5B5C7" letter-spacing="2" opacity="0.3">Crafted with curiosity and code</text>
+
+    <!-- Status dot -->
+    <circle cx="424" cy="69" r="2" fill="#701A3D" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.15;0.4" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Bottom subtle line -->
+    <line x1="320" y1="108" x2="640" y2="108" stroke="#451126" stroke-width="0.3" opacity="0.2"/>
+  </g>
+</svg>

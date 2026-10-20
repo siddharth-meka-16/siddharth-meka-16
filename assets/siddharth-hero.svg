@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="smh-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10070C"/>
+      <stop offset="35%" stop-color="#190B12"/>
+      <stop offset="70%" stop-color="#451126">
+        <animate attributeName="stop-color" values="#451126;#2D0E1A;#451126" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#10070C"/>
+    </linearGradient>
+
+    <!-- Accent gradient for decorative elements -->
+    <linearGradient id="smh-accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#C77B9B" stop-opacity="0.8">
+        <animate attributeName="stop-opacity" values="0.8;0.4;0.8" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Radial glow -->
+    <radialGradient id="smh-glow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.15">
+        <animate attributeName="stop-opacity" values="0.15;0.25;0.15" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Name glow filter -->
+    <filter id="smh-name-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle underline glow -->
+    <filter id="smh-line-glow" x="-10%" y="-50%" width="120%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Orbital element gradient -->
+    <linearGradient id="smh-orbit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C77B9B" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#451126" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- Grid line pattern -->
+    <pattern id="smh-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#451126" stroke-width="0.3" stroke-opacity="0.15"/>
+    </pattern>
+
+    <!-- Clip for rounded corners -->
+    <clipPath id="smh-clip">
+      <rect x="0" y="0" width="960" height="380" rx="8" ry="8"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#smh-clip)">
+    <!-- Background -->
+    <rect width="960" height="380" fill="url(#smh-bg-grad)"/>
+    
+    <!-- Radial glow overlay -->
+    <rect width="960" height="380" fill="url(#smh-glow)"/>
+
+    <!-- Technical grid -->
+    <rect width="960" height="380" fill="url(#smh-grid)" opacity="0.6"/>
+
+    <!-- Orbital ring 1 -->
+    <ellipse cx="480" cy="190" rx="280" ry="160" fill="none" stroke="url(#smh-orbit-grad)" stroke-width="0.5" opacity="0.3">
+      <animateTransform attributeName="transform" type="rotate" from="0 480 190" to="360 480 190" dur="60s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Orbital ring 2 -->
+    <ellipse cx="480" cy="190" rx="340" ry="120" fill="none" stroke="#451126" stroke-width="0.4" opacity="0.15" stroke-dasharray="4 8">
+      <animateTransform attributeName="transform" type="rotate" from="360 480 190" to="0 480 190" dur="45s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Orbital ring 3 (inner) -->
+    <ellipse cx="480" cy="190" rx="200" ry="90" fill="none" stroke="#C77B9B" stroke-width="0.3" opacity="0.1" stroke-dasharray="2 12">
+      <animateTransform attributeName="transform" type="rotate" from="0 480 190" to="360 480 190" dur="30s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Small orbital dot 1 -->
+    <circle cx="0" cy="0" r="2.5" fill="#C77B9B" opacity="0.5">
+      <animateMotion dur="60s" repeatCount="indefinite" path="M480,30 A280,160 0 1,1 479,30 Z"/>
+      <animate attributeName="opacity" values="0.5;0.2;0.5" dur="4s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Small orbital dot 2 -->
+    <circle cx="0" cy="0" r="1.8" fill="#E5B5C7" opacity="0.3">
+      <animateMotion dur="45s" repeatCount="indefinite" path="M480,70 A340,120 0 1,0 479,70 Z"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Decorative line — left -->
+    <line x1="60" y1="190" x2="260" y2="190" stroke="#451126" stroke-width="0.5" opacity="0.25"/>
+    <line x1="60" y1="192" x2="220" y2="192" stroke="#701A3D" stroke-width="0.3" opacity="0.15"/>
+
+    <!-- Decorative line — right -->
+    <line x1="700" y1="190" x2="900" y2="190" stroke="#451126" stroke-width="0.5" opacity="0.25"/>
+    <line x1="740" y1="192" x2="900" y2="192" stroke="#701A3D" stroke-width="0.3" opacity="0.15"/>
+
+    <!-- Corner accents -->
+    <path d="M 20 40 L 20 20 L 40 20" fill="none" stroke="#701A3D" stroke-width="0.8" opacity="0.3"/>
+    <path d="M 920 40 L 940 40 L 940 20 L 920 20" fill="none" stroke="#701A3D" stroke-width="0.8" opacity="0.3"/>
+    <path d="M 20 340 L 20 360 L 40 360" fill="none" stroke="#701A3D" stroke-width="0.8" opacity="0.3"/>
+    <path d="M 920 360 L 940 360 L 940 340" fill="none" stroke="#701A3D" stroke-width="0.8" opacity="0.3"/>
+
+    <!-- Small status dot -->
+    <circle cx="48" cy="30" r="3" fill="#701A3D" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="58" y="34" font-family="'Courier New', Courier, monospace" font-size="9" fill="#C77B9B" opacity="0.4" letter-spacing="2">PORTFOLIO</text>
+
+    <!-- Main Name -->
+    <text x="480" y="155" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="700" fill="#F8F0F3" letter-spacing="6" filter="url(#smh-name-glow)">SIDDHARTH MEKA</text>
+
+    <!-- Animated glowing underline -->
+    <line x1="280" y1="172" x2="680" y2="172" stroke="url(#smh-accent-grad)" stroke-width="1.5" filter="url(#smh-line-glow)"/>
+
+    <!-- Thin separator -->
+    <line x1="360" y1="178" x2="600" y2="178" stroke="#451126" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Subtitle / Positioning -->
+    <text x="480" y="210" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="12" fill="#C77B9B" letter-spacing="4" opacity="0.85">COMPUTER SCIENCE ENGINEERING</text>
+    
+    <!-- Secondary subtitle with dividers -->
+    <text x="480" y="232" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="11" fill="#E5B5C7" letter-spacing="3" opacity="0.6">AI / ML  ·  FULL-STACK DEVELOPMENT</text>
+
+    <!-- Location line -->
+    <text x="480" y="260" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#C77B9B" letter-spacing="2" opacity="0.35">ANDHRA PRADESH, INDIA</text>
+
+    <!-- Bottom decorative code-like element -->
+    <text x="480" y="340" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#701A3D" opacity="0.25" letter-spacing="1">&lt;building the future, one commit at a time /&gt;</text>
+
+    <!-- Animated scan line -->
+    <rect x="0" y="0" width="960" height="1" fill="#C77B9B" opacity="0.03">
+      <animate attributeName="y" values="0;380;0" dur="12s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>
