@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="1000" height="260" role="img" aria-label="AI Code Explainer Showcase">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 336" width="1000" height="336" role="img" aria-label="AI Code Explainer Showcase">
   <defs>
     <linearGradient id="lxc-bg-project_code_explainer" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#14080F"/>
@@ -15,8 +15,8 @@
   </defs>
 
   <!-- Card Background -->
-  <rect width="1000" height="260" rx="16" fill="url(#lxc-bg-project_code_explainer)"/>
-  <rect width="1000" height="260" rx="16" fill="url(#lxc-glow-project_code_explainer)"/>
+  <rect width="1000" height="336" rx="16" fill="url(#lxc-bg-project_code_explainer)"/>
+  <rect width="1000" height="336" rx="16" fill="url(#lxc-glow-project_code_explainer)"/>
 
   <!-- Left Accent Notch -->
   <rect x="0" y="32" width="4" height="64" rx="2" fill="#C77B9B"/>
@@ -25,121 +25,140 @@
   <text x="36" y="44" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="2">02 — AI &amp; DEVELOPER TOOLS — 2024</text>
 
   <!-- Title -->
-  <text x="36" y="82" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="34" font-weight="700" fill="#F8F0F3" letter-spacing="0.3">AI Code Explainer</text>
+  <text x="36" y="80" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="32" font-weight="700" fill="#F8F0F3" letter-spacing="0.3">AI Code Explainer</text>
 
   <!-- One-liner Description -->
-  <text x="36" y="112" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13.5" fill="#E5B5C7" opacity="0.95">AI-Powered Code Analysis &amp; Algorithmic Complexity Platform</text>
+  <text x="36" y="104" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13" fill="#E5B5C7" opacity="0.95">AI-Powered Code Analysis &amp; Algorithmic Complexity Platform</text>
 
   <!-- BUILT Highlight Strip -->
-  <g transform="translate(36, 126)">
-    <rect width="560" height="26" rx="6" fill="#190B12" stroke="#451126" stroke-width="0.9"/>
-    <rect x="0" y="0" width="58" height="26" rx="6" fill="#701A3D"/>
-    <text x="29" y="17" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" fill="#F8F0F3" letter-spacing="1">BUILT</text>
-    <text x="70" y="17" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#E5B5C7">Python FastAPI + AST parser + bug localization + React feedback UI</text>
+  <g transform="translate(36, 118)">
+    <rect width="560" height="25" rx="6" fill="#190B12" stroke="#451126" stroke-width="0.9"/>
+    <rect x="0" y="0" width="54" height="25" rx="6" fill="#701A3D"/>
+    <text x="27" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" font-weight="700" fill="#F8F0F3" letter-spacing="1">BUILT</text>
+    <text x="66" y="16" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Python FastAPI + AST parser + bug localization + React feedback UI</text>
   </g>
+
+  <!-- Summary & Key Feature Bullets inside the card -->
+  
+    <g transform="translate(36, 164)">
+      <circle cx="3" cy="-3.5" r="2.5" fill="#C77B9B"/>
+      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11.5"><tspan font-weight="700" fill="#F8F0F3">Code Intelligence: </tspan><tspan fill="#E5B5C7" opacity="0.9">Explains syntax &amp; semantics, detects bugs &amp; audits complexity</tspan></text>
+    </g>
+    <g transform="translate(36, 185)">
+      <circle cx="3" cy="-3.5" r="2.5" fill="#C77B9B"/>
+      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11.5"><tspan font-weight="700" fill="#F8F0F3">FastAPI Backend: </tspan><tspan fill="#E5B5C7" opacity="0.9">Sub-180ms real-time AST parsing &amp; structured insights engine</tspan></text>
+    </g>
+    <g transform="translate(36, 206)">
+      <circle cx="3" cy="-3.5" r="2.5" fill="#C77B9B"/>
+      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11.5"><tspan font-weight="700" fill="#F8F0F3">Developer Feedback: </tspan><tspan fill="#E5B5C7" opacity="0.9">Clean diagnostics &amp; recommendations to debug and optimize</tspan></text>
+    </g>
 
   <!-- 3 Big Metric Counters -->
   
-      <g transform="translate(36, 184)">
-        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">O(N)</text>
-        <text x="0" y="16" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="500" fill="#C77B9B" letter-spacing="1">COMPLEXITY AUDIT</text>
+      <g transform="translate(36, 254)">
+        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="26" font-weight="700" fill="#F8F0F3">O(N)</text>
+        <text x="0" y="15" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" font-weight="500" fill="#C77B9B" letter-spacing="1">COMPLEXITY AUDIT</text>
       </g>
-      <g transform="translate(211, 184)">
-        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">100%</text>
-        <text x="0" y="16" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="500" fill="#C77B9B" letter-spacing="1">STRUCTURED AST</text>
+      <g transform="translate(211, 254)">
+        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="26" font-weight="700" fill="#F8F0F3">100%</text>
+        <text x="0" y="15" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" font-weight="500" fill="#C77B9B" letter-spacing="1">STRUCTURED AST</text>
       </g>
-      <g transform="translate(386, 184)">
-        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">&lt; 180ms</text>
-        <text x="0" y="16" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="500" fill="#C77B9B" letter-spacing="1">FASTAPI LATENCY</text>
+      <g transform="translate(386, 254)">
+        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="26" font-weight="700" fill="#F8F0F3">&lt; 180ms</text>
+        <text x="0" y="15" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" font-weight="500" fill="#C77B9B" letter-spacing="1">FASTAPI LATENCY</text>
       </g>
 
   <!-- Tech tags -->
   
-      <g transform="translate(36, 218)">
-        <rect width="55.5" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
-        <text x="27.75" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">React</text>
+      <g transform="translate(36, 292)">
+        <rect width="54.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="27.0" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" fill="#E5B5C7">React</text>
       </g>
-      <g transform="translate(99.5, 218)">
-        <rect width="70.5" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
-        <text x="35.25" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">FastAPI</text>
+      <g transform="translate(98.0, 292)">
+        <rect width="68.4" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="34.2" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" fill="#E5B5C7">FastAPI</text>
       </g>
-      <g transform="translate(178.0, 218)">
-        <rect width="63.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
-        <text x="31.5" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Python</text>
+      <g transform="translate(174.4, 292)">
+        <rect width="61.2" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="30.6" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" fill="#E5B5C7">Python</text>
       </g>
-      <g transform="translate(249.0, 218)">
-        <rect width="145.5" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
-        <text x="72.75" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Code Intelligence</text>
+      <g transform="translate(243.60000000000002, 292)">
+        <rect width="140.4" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="70.2" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" fill="#E5B5C7">Code Intelligence</text>
       </g>
-      <g transform="translate(402.5, 218)">
-        <rect width="108.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
-        <text x="54.0" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">AST Analyzer</text>
+      <g transform="translate(392.0, 292)">
+        <rect width="104.4" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="52.2" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" fill="#E5B5C7">AST Analyzer</text>
       </g>
-      <g transform="translate(518.5, 218)">
-        <rect width="78.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
-        <text x="39.0" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Tailwind</text>
+      <g transform="translate(504.4, 292)">
+        <rect width="75.6" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="37.8" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9.5" fill="#E5B5C7">Tailwind</text>
       </g>
 
   <!-- Right Architecture Flow Diagram -->
   
       <!-- Architecture Flow: Code Input -> AST Parser -> AI Analysis -->
-      <g transform="translate(630, 40)">
-        <rect width="330" height="180" rx="12" fill="#14080F" stroke="#451126" stroke-width="1"/>
-        <text x="16" y="24" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#C77B9B" letter-spacing="1.5">INTELLIGENCE PIPELINE</text>
+      <g transform="translate(620, 38)">
+        <rect width="344" height="258" rx="12" fill="#14080F" stroke="#451126" stroke-width="1"/>
+        <text x="18" y="26" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#C77B9B" letter-spacing="1.5">INTELLIGENCE PIPELINE</text>
         
-        <circle cx="304" cy="20" r="4" fill="#C77B9B">
+        <circle cx="316" cy="22" r="4" fill="#C77B9B">
           <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
 
         <!-- Scanning Beam across simulated code lines -->
-        <g transform="translate(24, 52)">
-          <line x1="0" y1="12" x2="80" y2="12" stroke="#701A3D" stroke-width="2"/>
-          <line x1="10" y1="24" x2="70" y2="24" stroke="#451126" stroke-width="2"/>
-          <line x1="10" y1="36" x2="85" y2="36" stroke="#701A3D" stroke-width="2"/>
-          <line x1="0" y1="48" x2="50" y2="48" stroke="#451126" stroke-width="2"/>
-          <rect x="0" y="0" width="3" height="60" fill="#C77B9B">
-            <animate attributeName="x" values="0;85;0" dur="2.5s" repeatCount="indefinite"/>
+        <g transform="translate(24, 62)">
+          <line x1="0" y1="14" x2="85" y2="14" stroke="#701A3D" stroke-width="2"/>
+          <line x1="10" y1="28" x2="75" y2="28" stroke="#451126" stroke-width="2"/>
+          <line x1="10" y1="42" x2="90" y2="42" stroke="#701A3D" stroke-width="2"/>
+          <line x1="0" y1="56" x2="55" y2="56" stroke="#451126" stroke-width="2"/>
+          <rect x="0" y="0" width="3" height="70" fill="#C77B9B">
+            <animate attributeName="x" values="0;90;0" dur="2.5s" repeatCount="indefinite"/>
           </rect>
         </g>
 
         <!-- Connector -->
-        <path d="M 125 80 L 150 80" stroke="#701A3D" stroke-width="1.8"/>
+        <path d="M 128 98 L 152 98" stroke="#701A3D" stroke-width="1.8"/>
 
         <!-- Center AI Analyzer -->
-        <g transform="translate(150, 65)">
-          <rect width="88" height="32" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
-          <text x="44" y="20" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" fill="#F8F0F3">AI ANALYZER</text>
+        <g transform="translate(152, 80)">
+          <rect width="94" height="36" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
+          <text x="47" y="22" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700" fill="#F8F0F3">AI ANALYZER</text>
         </g>
 
         <!-- Connector -->
-        <path d="M 238 80 L 265 80" stroke="#701A3D" stroke-width="1.8"/>
+        <path d="M 246 98 L 272 98" stroke="#701A3D" stroke-width="1.8"/>
 
         <!-- Verdict Node -->
-        <g transform="translate(265, 65)">
-          <rect width="50" height="32" rx="6" fill="#190B12" stroke="#701A3D" stroke-width="1"/>
-          <text x="25" y="20" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="9" fill="#E5B5C7">AUDIT</text>
+        <g transform="translate(272, 80)">
+          <rect width="52" height="36" rx="6" fill="#190B12" stroke="#701A3D" stroke-width="1"/>
+          <text x="26" y="22" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="9.5" fill="#E5B5C7">AUDIT</text>
         </g>
 
-        <text x="16" y="156" font-family="'SFMono-Regular', Consolas, monospace" font-size="9" fill="#C77B9B" opacity="0.8">TIME &amp; SPACE COMPLEXITY · BUG LOCALIZATION</text>
+        <!-- Bottom specs note -->
+        <g transform="translate(18, 194)">
+          <text x="0" y="14" font-family="'SFMono-Regular', Consolas, monospace" font-size="9.5" fill="#E5B5C7" font-weight="600">STRUCTURED FEEDBACK DIAGNOSTICS</text>
+          <text x="0" y="27" font-family="'SFMono-Regular', Consolas, monospace" font-size="8.5" fill="#C77B9B" opacity="0.8">TIME &amp; SPACE COMPLEXITY · BUG LOCALIZATION</text>
+        </g>
       </g>
 
   <!-- Animated Neon Pink Moving Border -->
   
   <!-- Static Base Border -->
-  <rect width="1000" height="260" rx="16" fill="none" stroke="#701A3D" stroke-opacity="0.5" stroke-width="1.2"/>
+  <rect width="1000" height="336" rx="16" fill="none" stroke="#701A3D" stroke-opacity="0.5" stroke-width="1.2"/>
 
   <!-- Neon Glow Soft Filter Layer -->
-  <rect width="998" height="258" x="1" y="1" rx="15" fill="none"
+  <rect width="998" height="334" x="1" y="1" rx="15" fill="none"
         stroke="#C77B9B" stroke-width="3" stroke-linecap="round" opacity="0.45"
-        stroke-dasharray="140 2352" stroke-dashoffset="0" filter="url(#neon-glow)">
-    <animate attributeName="stroke-dashoffset" from="0" to="-2492" dur="7s" repeatCount="indefinite"/>
+        stroke-dasharray="150 2494" stroke-dashoffset="0" filter="url(#neon-glow)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-2644" dur="7.5s" repeatCount="indefinite"/>
   </rect>
 
   <!-- Core Neon Moving Line -->
-  <rect width="998" height="258" x="1" y="1" rx="15" fill="none"
+  <rect width="998" height="334" x="1" y="1" rx="15" fill="none"
         stroke="#F8F0F3" stroke-width="1.8" stroke-linecap="round"
-        stroke-dasharray="140 2352" stroke-dashoffset="0">
-    <animate attributeName="stroke-dashoffset" from="0" to="-2492" dur="7s" repeatCount="indefinite"/>
+        stroke-dasharray="150 2494" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="-2644" dur="7.5s" repeatCount="indefinite"/>
   </rect>
     
 </svg>

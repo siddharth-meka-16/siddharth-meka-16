@@ -81,14 +81,14 @@
   <!-- Neon Glow Soft Filter Layer -->
   <rect width="998" height="318" x="1" y="1" rx="15" fill="none"
         stroke="#C77B9B" stroke-width="3" stroke-linecap="round" opacity="0.45"
-        stroke-dasharray="140 2472" stroke-dashoffset="0" filter="url(#neon-glow)">
+        stroke-dasharray="160 2452" stroke-dashoffset="0" filter="url(#neon-glow)">
     <animate attributeName="stroke-dashoffset" from="0" to="-2612" dur="8s" repeatCount="indefinite"/>
   </rect>
 
   <!-- Core Neon Moving Line -->
   <rect width="998" height="318" x="1" y="1" rx="15" fill="none"
         stroke="#F8F0F3" stroke-width="1.8" stroke-linecap="round"
-        stroke-dasharray="140 2472" stroke-dashoffset="0">
+        stroke-dasharray="160 2452" stroke-dashoffset="0">
     <animate attributeName="stroke-dashoffset" from="0" to="-2612" dur="8s" repeatCount="indefinite"/>
   </rect>
     

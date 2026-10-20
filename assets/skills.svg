@@ -14,7 +14,8 @@
 
   
       <g transform="translate(20, 24)">
-        <rect width="300" height="150" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+        <!-- Box Background -->
+        <rect width="300" height="150" rx="12" fill="#14080F"/>
         <rect x="0" y="0" width="300" height="28" rx="12" fill="#190B12"/>
         <rect x="0" y="16" width="300" height="12" fill="#190B12"/>
         <line x1="0" y1="28" x2="300" y2="28" stroke="#451126" stroke-width="1"/>
@@ -33,9 +34,25 @@
         
         <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">TypeScript · JavaScript</text>
         
+
+        <!-- Base box border -->
+        <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
+
+        <!-- Animated Moving Neon Pink Border for THIS box -->
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#C77B9B" stroke-width="2.6" stroke-linecap="round" opacity="0.45"
+              stroke-dasharray="70 809" stroke-dashoffset="0" filter="url(#neon-glow)">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.2s" repeatCount="indefinite"/>
+        </rect>
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#F8F0F3" stroke-width="1.6" stroke-linecap="round"
+              stroke-dasharray="70 809" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.2s" repeatCount="indefinite"/>
+        </rect>
       </g>
       <g transform="translate(350, 24)">
-        <rect width="300" height="150" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+        <!-- Box Background -->
+        <rect width="300" height="150" rx="12" fill="#14080F"/>
         <rect x="0" y="0" width="300" height="28" rx="12" fill="#190B12"/>
         <rect x="0" y="16" width="300" height="12" fill="#190B12"/>
         <line x1="0" y1="28" x2="300" y2="28" stroke="#451126" stroke-width="1"/>
@@ -54,9 +71,25 @@
         
         <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Feature Engineering</text>
         
+
+        <!-- Base box border -->
+        <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
+
+        <!-- Animated Moving Neon Pink Border for THIS box -->
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#C77B9B" stroke-width="2.6" stroke-linecap="round" opacity="0.45"
+              stroke-dasharray="70 809" stroke-dashoffset="0" filter="url(#neon-glow)">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.6s" repeatCount="indefinite"/>
+        </rect>
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#F8F0F3" stroke-width="1.6" stroke-linecap="round"
+              stroke-dasharray="70 809" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.6s" repeatCount="indefinite"/>
+        </rect>
       </g>
       <g transform="translate(680, 24)">
-        <rect width="300" height="150" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+        <!-- Box Background -->
+        <rect width="300" height="150" rx="12" fill="#14080F"/>
         <rect x="0" y="0" width="300" height="28" rx="12" fill="#190B12"/>
         <rect x="0" y="16" width="300" height="12" fill="#190B12"/>
         <line x1="0" y1="28" x2="300" y2="28" stroke="#451126" stroke-width="1"/>
@@ -75,9 +108,25 @@
         
         <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Responsive &amp; GIS UI</text>
         
+
+        <!-- Base box border -->
+        <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
+
+        <!-- Animated Moving Neon Pink Border for THIS box -->
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#C77B9B" stroke-width="2.6" stroke-linecap="round" opacity="0.45"
+              stroke-dasharray="70 809" stroke-dashoffset="0" filter="url(#neon-glow)">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.0s" repeatCount="indefinite"/>
+        </rect>
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#F8F0F3" stroke-width="1.6" stroke-linecap="round"
+              stroke-dasharray="70 809" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.0s" repeatCount="indefinite"/>
+        </rect>
       </g>
       <g transform="translate(20, 196)">
-        <rect width="300" height="150" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+        <!-- Box Background -->
+        <rect width="300" height="150" rx="12" fill="#14080F"/>
         <rect x="0" y="0" width="300" height="28" rx="12" fill="#190B12"/>
         <rect x="0" y="16" width="300" height="12" fill="#190B12"/>
         <line x1="0" y1="28" x2="300" y2="28" stroke="#451126" stroke-width="1"/>
@@ -96,9 +145,25 @@
         
         <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">JWT Auth · RBAC</text>
         
+
+        <!-- Base box border -->
+        <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
+
+        <!-- Animated Moving Neon Pink Border for THIS box -->
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#C77B9B" stroke-width="2.6" stroke-linecap="round" opacity="0.45"
+              stroke-dasharray="70 809" stroke-dashoffset="0" filter="url(#neon-glow)">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.8s" repeatCount="indefinite"/>
+        </rect>
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#F8F0F3" stroke-width="1.6" stroke-linecap="round"
+              stroke-dasharray="70 809" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.8s" repeatCount="indefinite"/>
+        </rect>
       </g>
       <g transform="translate(350, 196)">
-        <rect width="300" height="150" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+        <!-- Box Background -->
+        <rect width="300" height="150" rx="12" fill="#14080F"/>
         <rect x="0" y="0" width="300" height="28" rx="12" fill="#190B12"/>
         <rect x="0" y="16" width="300" height="12" fill="#190B12"/>
         <line x1="0" y1="28" x2="300" y2="28" stroke="#451126" stroke-width="1"/>
@@ -117,9 +182,25 @@
         
         <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Vercel Deployment</text>
         
+
+        <!-- Base box border -->
+        <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
+
+        <!-- Animated Moving Neon Pink Border for THIS box -->
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#C77B9B" stroke-width="2.6" stroke-linecap="round" opacity="0.45"
+              stroke-dasharray="70 809" stroke-dashoffset="0" filter="url(#neon-glow)">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.4s" repeatCount="indefinite"/>
+        </rect>
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#F8F0F3" stroke-width="1.6" stroke-linecap="round"
+              stroke-dasharray="70 809" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.4s" repeatCount="indefinite"/>
+        </rect>
       </g>
       <g transform="translate(680, 196)">
-        <rect width="300" height="150" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+        <!-- Box Background -->
+        <rect width="300" height="150" rx="12" fill="#14080F"/>
         <rect x="0" y="0" width="300" height="28" rx="12" fill="#190B12"/>
         <rect x="0" y="16" width="300" height="12" fill="#190B12"/>
         <line x1="0" y1="28" x2="300" y2="28" stroke="#451126" stroke-width="1"/>
@@ -138,9 +219,24 @@
         
         <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Git · GitHub · VS Code</text>
         
+
+        <!-- Base box border -->
+        <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
+
+        <!-- Animated Moving Neon Pink Border for THIS box -->
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#C77B9B" stroke-width="2.6" stroke-linecap="round" opacity="0.45"
+              stroke-dasharray="70 809" stroke-dashoffset="0" filter="url(#neon-glow)">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.3s" repeatCount="indefinite"/>
+        </rect>
+        <rect width="298" height="148" x="1" y="1" rx="11" fill="none"
+              stroke="#F8F0F3" stroke-width="1.6" stroke-linecap="round"
+              stroke-dasharray="70 809" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="0" to="-879" dur="4.3s" repeatCount="indefinite"/>
+        </rect>
       </g>
 
-  <!-- Animated Neon Pink Moving Border -->
+  <!-- Outer container moving neon pink border -->
   
   <!-- Static Base Border -->
   <rect width="1000" height="370" rx="16" fill="none" stroke="#701A3D" stroke-opacity="0.5" stroke-width="1.2"/>
@@ -148,14 +244,14 @@
   <!-- Neon Glow Soft Filter Layer -->
   <rect width="998" height="368" x="1" y="1" rx="15" fill="none"
         stroke="#C77B9B" stroke-width="3" stroke-linecap="round" opacity="0.45"
-        stroke-dasharray="140 2572" stroke-dashoffset="0" filter="url(#neon-glow)">
+        stroke-dasharray="160 2552" stroke-dashoffset="0" filter="url(#neon-glow)">
     <animate attributeName="stroke-dashoffset" from="0" to="-2712" dur="8s" repeatCount="indefinite"/>
   </rect>
 
   <!-- Core Neon Moving Line -->
   <rect width="998" height="368" x="1" y="1" rx="15" fill="none"
         stroke="#F8F0F3" stroke-width="1.8" stroke-linecap="round"
-        stroke-dasharray="140 2572" stroke-dashoffset="0">
+        stroke-dasharray="160 2552" stroke-dashoffset="0">
     <animate attributeName="stroke-dashoffset" from="0" to="-2712" dur="8s" repeatCount="indefinite"/>
   </rect>
     
