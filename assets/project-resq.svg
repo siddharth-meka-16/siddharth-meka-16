@@ -1,83 +1,122 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 118" width="1000" height="118" role="img" aria-label="ResQ Project Card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="1000" height="260" role="img" aria-label="ResQ Showcase">
   <defs>
-    <linearGradient id="p-bg-project_resq" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#190B12"/>
-      <stop offset="60%" stop-color="#14080F"/>
-      <stop offset="100%" stop-color="#10070C"/>
+    <linearGradient id="lxc-bg-project_resq" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14080F"/>
+      <stop offset="60%" stop-color="#10070C"/>
+      <stop offset="100%" stop-color="#190B12"/>
     </linearGradient>
-    <radialGradient id="p-glow-project_resq" cx="0.05" cy="0.3" r="0.4">
-      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.45"/>
+    <radialGradient id="lxc-glow-project_resq" cx="0.85" cy="0.3" r="0.6">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
-  <rect width="1000" height="118" rx="14" fill="url(#p-bg-project_resq)" stroke="#701A3D" stroke-opacity="0.8" stroke-width="1.2"/>
-  <rect width="1000" height="118" rx="14" fill="url(#p-glow-project_resq)"/>
+  <!-- Card Frame -->
+  <rect width="1000" height="260" rx="16" fill="url(#lxc-bg-project_resq)" stroke="#701A3D" stroke-opacity="0.85" stroke-width="1.2"/>
+  <rect width="1000" height="260" rx="16" fill="url(#lxc-glow-project_resq)"/>
 
-  <!-- Left Accent Bar -->
-  <rect x="0" y="24" width="4" height="70" rx="2" fill="#C77B9B"/>
+  <!-- Left Accent Notch -->
+  <rect x="0" y="32" width="4" height="64" rx="2" fill="#C77B9B"/>
 
-  <!-- Project Icon container with animated micro-demo -->
-  <g transform="translate(54, 42)">
-    <circle cx="0" cy="0" r="24" fill="#10070C" stroke="#701A3D" stroke-width="1.2"/>
-    
-        <!-- Radar Beacon Waves -->
-        <circle cx="0" cy="0" r="14" fill="none" stroke="#C77B9B" stroke-width="1.4">
-          <animate attributeName="r" values="14;34;14" dur="3s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.85;0;0.85" dur="3s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="0" cy="0" r="14" fill="none" stroke="#E5B5C7" stroke-width="1">
-          <animate attributeName="r" values="14;34;14" dur="3s" begin="1.5s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.7;0;0.7" dur="3s" begin="1.5s" repeatCount="indefinite"/>
-        </circle>
-        <!-- Rotating Radar Sweep Line -->
-        <line x1="0" y1="0" x2="22" y2="0" stroke="#E5B5C7" stroke-width="1.6" stroke-linecap="round">
-          <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/>
-        </line>
-        <!-- Center shield icon -->
-        <path d="M 0 -12 L 12 -4 L 12 8 L 0 16 L -12 8 L -12 -4 Z" fill="#190B12" stroke="#C77B9B" stroke-width="1.5"/>
-        <path d="M -4 2 L 4 2 M 0 -2 L 0 6" stroke="#E5B5C7" stroke-width="2" stroke-linecap="round"/>
-        
+  <!-- Eyebrow -->
+  <text x="36" y="44" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="2">01 — FULL-STACK &amp; AI — 2024</text>
+
+  <!-- Title -->
+  <text x="36" y="82" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="34" font-weight="700" fill="#F8F0F3" letter-spacing="0.3">ResQ</text>
+
+  <!-- One-liner Description -->
+  <text x="36" y="112" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13.5" fill="#E5B5C7" opacity="0.95">Real-Time Disaster Coordination &amp; Dynamic AI Relief Platform</text>
+
+  <!-- BUILT Highlight Strip -->
+  <g transform="translate(36, 126)">
+    <rect width="560" height="26" rx="6" fill="#190B12" stroke="#451126" stroke-width="0.9"/>
+    <rect x="0" y="0" width="58" height="26" rx="6" fill="#701A3D"/>
+    <text x="29" y="17" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" fill="#F8F0F3" letter-spacing="1">BUILT</text>
+    <text x="70" y="17" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#E5B5C7">Gemini flood-route replanning + heuristic fail-safe + Supabase RLS</text>
   </g>
 
-  <!-- Title & Subtitle -->
-  <text x="96" y="38" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="26" font-weight="600" fill="#F8F0F3" letter-spacing="0.5">ResQ</text>
-  <text x="96" y="58" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13" fill="#E5B5C7" opacity="0.9">Real-Time Disaster Coordination &amp; AI Relief Platform</text>
-
-  <!-- Right Metric / Live Status Pill -->
+  <!-- 3 Big Metric Counters -->
   
-        <g transform="translate(740, 24)">
-          <rect width="230" height="28" rx="14" fill="#10070C" stroke="#701A3D" stroke-width="1"/>
-          <circle cx="16" cy="14" r="4" fill="#C77B9B">
-            <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <text x="32" y="18" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" font-weight="700" fill="#E5B5C7" letter-spacing="1">LIVE COORDINATION</text>
-          <text x="180" y="18" font-family="'SFMono-Regular', Consolas, monospace" font-size="9.5" fill="#C77B9B" opacity="0.85">GIS MAP</text>
-        </g>
-        
+      <g transform="translate(36, 184)">
+        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">LIVE</text>
+        <text x="0" y="16" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="500" fill="#C77B9B" letter-spacing="1">DISPATCH ENGINE</text>
+      </g>
+      <g transform="translate(211, 184)">
+        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">100%</text>
+        <text x="0" y="16" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="500" fill="#C77B9B" letter-spacing="1">DATA ISOLATION</text>
+      </g>
+      <g transform="translate(386, 184)">
+        <text x="0" y="0" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">&lt; 2s</text>
+        <text x="0" y="16" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="500" fill="#C77B9B" letter-spacing="1">DYNAMIC RE-ROUTE</text>
+      </g>
 
-  <!-- Tags -->
-  <g>
-    
-    <g transform="translate(30, 76)">
-      <rect width="78" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
-      <text x="39.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">Next.js</text>
-    </g>
-    <g transform="translate(118, 76)">
-      <rect width="62" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
-      <text x="31.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">React</text>
-    </g>
-    <g transform="translate(190, 76)">
-      <rect width="102" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
-      <text x="51.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">TypeScript</text>
-    </g>
-    <g transform="translate(302, 76)">
-      <rect width="86" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
-      <text x="43.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">Supabase</text>
-    </g>
-    <g transform="translate(398, 76)">
-      <rect width="102" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
-      <text x="51.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">Gemini API</text>
-    </g>
-  </g>
+  <!-- Tech tags -->
+  
+      <g transform="translate(36, 218)">
+        <rect width="70.5" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="35.25" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Next.js</text>
+      </g>
+      <g transform="translate(114.5, 218)">
+        <rect width="55.5" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="27.75" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">React</text>
+      </g>
+      <g transform="translate(178.0, 218)">
+        <rect width="93.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="46.5" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">TypeScript</text>
+      </g>
+      <g transform="translate(279.0, 218)">
+        <rect width="78.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="39.0" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Supabase</text>
+      </g>
+      <g transform="translate(365.0, 218)">
+        <rect width="93.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="46.5" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Gemini API</text>
+      </g>
+      <g transform="translate(466.0, 218)">
+        <rect width="100.5" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="50.25" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Leaflet GIS</text>
+      </g>
+
+  <!-- Right Architecture Flow Diagram -->
+  
+      <!-- Architecture Flow: Incident -> Gemini Triage -> GIS Replanning -->
+      <g transform="translate(630, 40)">
+        <rect width="330" height="180" rx="12" fill="#14080F" stroke="#451126" stroke-width="1"/>
+        <text x="16" y="24" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#C77B9B" letter-spacing="1.5">ARCHITECTURE FLOW</text>
+        
+        <!-- Status dot -->
+        <circle cx="304" cy="20" r="4" fill="#C77B9B">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Connecting Bezier Lines with flowing pulse -->
+        <path d="M 60 75 C 95 75, 105 110, 145 110" fill="none" stroke="#701A3D" stroke-width="1.8"/>
+        <path d="M 195 110 C 225 110, 235 75, 270 75" fill="none" stroke="#701A3D" stroke-width="1.8"/>
+
+        <!-- Flowing photon pulse on path -->
+        <circle cx="60" cy="75" r="3" fill="#F8F0F3">
+          <animateMotion path="M 0 0 C 35 0, 45 35, 85 35 C 115 35, 125 0, 160 0 C 125 0, 115 35, 85 35 C 45 35, 35 0, 0 0" dur="4s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Node 1: Incident -->
+        <g transform="translate(20, 60)">
+          <rect width="80" height="30" rx="6" fill="#190B12" stroke="#701A3D" stroke-width="1"/>
+          <text x="40" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#E5B5C7">INCIDENT</text>
+        </g>
+
+        <!-- Node 2: Gemini Triage (Center) -->
+        <g transform="translate(130, 95)">
+          <rect width="90" height="30" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
+          <text x="45" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700" fill="#F8F0F3">GEMINI AI</text>
+        </g>
+
+        <!-- Node 3: Route Dispatch -->
+        <g transform="translate(230, 60)">
+          <rect width="80" height="30" rx="6" fill="#190B12" stroke="#701A3D" stroke-width="1"/>
+          <text x="40" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#E5B5C7">GIS ROUTE</text>
+        </g>
+
+        <!-- Bottom specs note -->
+        <text x="16" y="156" font-family="'SFMono-Regular', Consolas, monospace" font-size="9" fill="#C77B9B" opacity="0.8">FAIL-SAFE HEURISTIC · SUPABASE RLS</text>
+      </g>
 </svg>
