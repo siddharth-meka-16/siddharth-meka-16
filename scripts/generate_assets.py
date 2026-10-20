@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Luxury Editorial Profile Asset Generator (v3)
-Recreates the high-end editorial bento layout from reference screenshots:
+Luxury Editorial Profile Asset Generator (v4)
+Features:
+- Animated Moving Neon Pink Border Line on ALL cards (matching the profile logo arch effect)
+- Zero mentions of "Gemini" or "LLM" in animations, diagrams, or toolset
 - High-contrast Georgia serif titles & precision monospace eyebrows
-- Full-width Project Showcase cards with 3 big numerical stat counters & animated SVG architecture flow diagrams
+- 3 Large Numerical Counters on each project card
+- Integrated architecture flow diagrams with flowing light particles & dynamic gauges
 - 6-Box Bento Grid ("The tools I reach for.")
-- Unified Commit Log ("A year of building, one square at a time.") combining heatmap and animated snake
-- Signature Burgundy Palette: #0A0307, #10070C, #14080F, #190B12, #451126, #701A3D, #A24A70, #C77B9B, #E5B5C7, #F8F0F3
+- Unified Commit Log ("A year of building, one square at a time.") with real data & contribution snake
 """
 import os, json, urllib.request, xml.sax.saxutils as sax
 
@@ -26,8 +28,32 @@ def write_svg(filename, content):
         f.write(content.strip() + "\n")
     print(f"Generated {filename}")
 
+def neon_border(w, h, rx=16, dur="8s"):
+    """Generate SVG elements for the moving neon pink border line."""
+    p = int(2 * (w + h) - (8 - 6.283) * rx)
+    dash = 140
+    gap = p - dash
+    return f"""
+  <!-- Static Base Border -->
+  <rect width="{w}" height="{h}" rx="{rx}" fill="none" stroke="#701A3D" stroke-opacity="0.5" stroke-width="1.2"/>
+
+  <!-- Neon Glow Soft Filter Layer -->
+  <rect width="{w-2}" height="{h-2}" x="1" y="1" rx="{rx-1}" fill="none"
+        stroke="#C77B9B" stroke-width="3" stroke-linecap="round" opacity="0.45"
+        stroke-dasharray="{dash} {gap}" stroke-dashoffset="0" filter="url(#neon-glow)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-{p}" dur="{dur}" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Core Neon Moving Line -->
+  <rect width="{w-2}" height="{h-2}" x="1" y="1" rx="{rx-1}" fill="none"
+        stroke="#F8F0F3" stroke-width="1.8" stroke-linecap="round"
+        stroke-dasharray="{dash} {gap}" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="-{p}" dur="{dur}" repeatCount="indefinite"/>
+  </rect>
+    """
+
 # -------------------------------------------------------------
-# 1. Section Headers (Editorial Typography with Serif + Mono Eyebrow)
+# 1. Section Headers
 # -------------------------------------------------------------
 def make_section_header(num_str, eyebrow, title, filename):
     w, h = 1000, 72
@@ -52,7 +78,7 @@ def make_section_header(num_str, eyebrow, title, filename):
     write_svg(filename, svg)
 
 # -------------------------------------------------------------
-# 2. Luxury Project Architecture Cards (Screenshot 1 Reference)
+# 2. Luxury Project Architecture Cards with Moving Neon Border
 # -------------------------------------------------------------
 def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, metrics, tags, diag_type, filename):
     w, h = 1000, 260
@@ -81,15 +107,15 @@ def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, metrics
       </g>""")
         tx += tw + 8
 
-    # Right-side architecture diagram
+    # Right-side architecture diagram (ZERO mentions of Gemini or LLM!)
     if diag_type == "resq":
         diagram = """
-      <!-- Architecture Flow: Incident -> Gemini Triage -> GIS Replanning -->
+      <!-- Architecture Flow: Incident -> AI Triage -> GIS Route -->
       <g transform="translate(630, 40)">
         <rect width="330" height="180" rx="12" fill="#14080F" stroke="#451126" stroke-width="1"/>
         <text x="16" y="24" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#C77B9B" letter-spacing="1.5">ARCHITECTURE FLOW</text>
         
-        <!-- Status dot -->
+        <!-- Live pulsing status dot -->
         <circle cx="304" cy="20" r="4" fill="#C77B9B">
           <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
@@ -109,24 +135,24 @@ def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, metrics
           <text x="40" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#E5B5C7">INCIDENT</text>
         </g>
 
-        <!-- Node 2: Gemini Triage (Center) -->
-        <g transform="translate(130, 95)">
-          <rect width="90" height="30" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
-          <text x="45" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700" fill="#F8F0F3">GEMINI AI</text>
+        <!-- Node 2: AI Triage Engine -->
+        <g transform="translate(125, 95)">
+          <rect width="100" height="30" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
+          <text x="50" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" fill="#F8F0F3">AI TRIAGE</text>
         </g>
 
-        <!-- Node 3: Route Dispatch -->
+        <!-- Node 3: GIS Route -->
         <g transform="translate(230, 60)">
           <rect width="80" height="30" rx="6" fill="#190B12" stroke="#701A3D" stroke-width="1"/>
           <text x="40" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#E5B5C7">GIS ROUTE</text>
         </g>
 
         <!-- Bottom specs note -->
-        <text x="16" y="156" font-family="'SFMono-Regular', Consolas, monospace" font-size="9" fill="#C77B9B" opacity="0.8">FAIL-SAFE HEURISTIC · SUPABASE RLS</text>
+        <text x="16" y="156" font-family="'SFMono-Regular', Consolas, monospace" font-size="9" fill="#C77B9B" opacity="0.8">DYNAMIC REPLANNING · SUPABASE RLS</text>
       </g>"""
     elif diag_type == "code":
         diagram = """
-      <!-- Architecture Flow: Code Input -> AST Parser -> Gemini Analysis -->
+      <!-- Architecture Flow: Code Input -> AST Parser -> AI Analysis -->
       <g transform="translate(630, 40)">
         <rect width="330" height="180" rx="12" fill="#14080F" stroke="#451126" stroke-width="1"/>
         <text x="16" y="24" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#C77B9B" letter-spacing="1.5">INTELLIGENCE PIPELINE</text>
@@ -147,16 +173,16 @@ def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, metrics
         </g>
 
         <!-- Connector -->
-        <path d="M 125 80 L 155 80" stroke="#701A3D" stroke-width="1.8"/>
+        <path d="M 125 80 L 150 80" stroke="#701A3D" stroke-width="1.8"/>
 
-        <!-- Center Engine -->
-        <g transform="translate(155, 65)">
-          <rect width="80" height="32" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
-          <text x="40" y="20" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700" fill="#F8F0F3">AST + GEMINI</text>
+        <!-- Center AI Analyzer -->
+        <g transform="translate(150, 65)">
+          <rect width="88" height="32" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
+          <text x="44" y="20" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" fill="#F8F0F3">AI ANALYZER</text>
         </g>
 
         <!-- Connector -->
-        <path d="M 235 80 L 265 80" stroke="#701A3D" stroke-width="1.8"/>
+        <path d="M 238 80 L 265 80" stroke="#701A3D" stroke-width="1.8"/>
 
         <!-- Verdict Node -->
         <g transform="translate(265, 65)">
@@ -217,10 +243,13 @@ def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, metrics
       <stop offset="0%" stop-color="#701A3D" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
     </radialGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
 
-  <!-- Card Frame -->
-  <rect width="{w}" height="{h}" rx="16" fill="url(#lxc-bg-{key})" stroke="#701A3D" stroke-opacity="0.85" stroke-width="1.2"/>
+  <!-- Card Background -->
+  <rect width="{w}" height="{h}" rx="16" fill="url(#lxc-bg-{key})"/>
   <rect width="{w}" height="{h}" rx="16" fill="url(#lxc-glow-{key})"/>
 
   <!-- Left Accent Notch -->
@@ -251,11 +280,14 @@ def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, metrics
 
   <!-- Right Architecture Flow Diagram -->
   {diagram}
+
+  <!-- Animated Neon Pink Moving Border -->
+  {neon_border(w, h, rx=16, dur="7s")}
 </svg>"""
     write_svg(filename, svg)
 
 # -------------------------------------------------------------
-# 3. The 6-Box Bento Grid ("The tools I reach for." - Screenshot 2)
+# 3. The 6-Box Bento Grid ("The tools I reach for.")
 # -------------------------------------------------------------
 def make_bento_grid():
     w, h = 1000, 370
@@ -263,9 +295,9 @@ def make_bento_grid():
         # Col 0, Row 0
         {"idx": "01", "cat": "LANGUAGES", "x": 20, "y": 24, "w": 300, "h": 150,
          "items": [("Java", True), ("Python", False), ("C / C++", False), ("TypeScript · JavaScript", False)]},
-        # Col 1, Row 0
-        {"idx": "02", "cat": "AI · ML · LLMS", "x": 350, "y": 24, "w": 300, "h": 150,
-         "items": [("Gemini API", True), ("scikit-learn · XGBoost", False), ("Prompt Engineering", False), ("Deep Learning Basics", False)]},
+        # Col 1, Row 0 - ZERO mentions of Gemini or LLM!
+        {"idx": "02", "cat": "AI & MACHINE LEARNING", "x": 350, "y": 24, "w": 300, "h": 150,
+         "items": [("Deep Learning", True), ("scikit-learn · XGBoost", False), ("Neural Networks & NLP", False), ("Feature Engineering", False)]},
         # Col 2, Row 0
         {"idx": "03", "cat": "FRONTEND", "x": 680, "y": 24, "w": 300, "h": 150,
          "items": [("Next.js · React", True), ("HTML5 · Vanilla CSS", False), ("Tailwind CSS", False), ("Responsive & GIS UI", False)]},
@@ -316,24 +348,28 @@ def make_bento_grid():
       <stop offset="50%" stop-color="#14080F"/>
       <stop offset="100%" stop-color="#10070C"/>
     </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
 
-  <rect width="{w}" height="{h}" rx="16" fill="url(#bg-bento)" stroke="#701A3D" stroke-opacity="0.85" stroke-width="1.2"/>
+  <rect width="{w}" height="{h}" rx="16" fill="url(#bg-bento)"/>
 
   {"".join(card_elements)}
+
+  <!-- Animated Neon Pink Moving Border -->
+  {neon_border(w, h, rx=16, dur="8s")}
 </svg>"""
     write_svg("skills.svg", svg)
 
 # -------------------------------------------------------------
-# 4. Unified Commit Log & Snake Card (Screenshot 3 Reference)
+# 4. Unified Commit Log & Snake Card with Moving Neon Border
 # -------------------------------------------------------------
 def make_unified_commit_log():
     w, h = 1000, 320
 
-    # Fetch live GitHub data
     total_contribs = 51
     repos_count = 8
-    stars_count = 6
     longest_streak = 3
     days = []
 
@@ -343,7 +379,6 @@ def make_unified_commit_log():
             c_data = json.load(r)
         days = c_data.get("contributions", [])
         total_contribs = c_data.get("total", {}).get("lastYear", 51)
-        # calculate longest streak
         best = cur = 0
         for d in days:
             if d.get("count", 0) > 0:
@@ -371,14 +406,12 @@ def make_unified_commit_log():
             y = y0 + r * (cell + gap)
             rects.append(f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" fill="{LEVELS[lvl]}"/>')
 
-    # Month markers
     months = ["NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT"]
     month_svgs = []
     for i, m in enumerate(months):
         mx = x0 + int(i * 4.35 * (cell + gap))
         month_svgs.append(f'<text x="{mx}" y="{y0 - 10}" font-family="{MONO}" font-size="10" fill="#C77B9B" opacity="0.8">{m}</text>')
 
-    # Animated Burgundy Snake crawling along the real grid
     snake_animation = """
     <!-- Animated Burgundy Snake on live tiles -->
     <g>
@@ -402,9 +435,12 @@ def make_unified_commit_log():
       <stop offset="0%" stop-color="#701A3D" stop-opacity="0.4"/>
       <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
     </radialGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
 
-  <rect width="{w}" height="{h}" rx="16" fill="url(#act-bg)" stroke="#701A3D" stroke-opacity="0.85" stroke-width="1.2"/>
+  <rect width="{w}" height="{h}" rx="16" fill="url(#act-bg)"/>
   <rect width="{w}" height="{h}" rx="16" fill="url(#act-glow)"/>
 
   <!-- Left Eyebrow -->
@@ -452,11 +488,14 @@ def make_unified_commit_log():
     <rect x="92" y="0" width="10" height="10" rx="2" fill="#C77B9B"/>
     <text x="110" y="9" font-family="{MONO}" font-size="9.5" fill="#C77B9B">MORE</text>
   </g>
+
+  <!-- Animated Neon Pink Moving Border -->
+  {neon_border(w, h, rx=16, dur="8s")}
 </svg>"""
     write_svg("activity.svg", svg)
 
 # -------------------------------------------------------------
-# 5. Luxury Certifications Shelf
+# 5. Luxury Certifications Shelf with Moving Neon Border
 # -------------------------------------------------------------
 def make_certifications():
     w, h = 1000, 230
@@ -492,10 +531,16 @@ def make_certifications():
       <stop offset="50%" stop-color="#14080F"/>
       <stop offset="100%" stop-color="#10070C"/>
     </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
 
-  <rect width="{w}" height="{h}" rx="16" fill="url(#cert-bg)" stroke="#701A3D" stroke-opacity="0.85" stroke-width="1.2"/>
+  <rect width="{w}" height="{h}" rx="16" fill="url(#cert-bg)"/>
   {"".join(cards_svg)}
+
+  <!-- Animated Neon Pink Moving Border -->
+  {neon_border(w, h, rx=16, dur="7.5s")}
 </svg>"""
     write_svg("certifications.svg", svg)
 
@@ -542,7 +587,7 @@ def make_button(text, icon_type, w, filename):
     write_svg(filename, svg)
 
 def main():
-    # 1. Section headers (Editorial Serif + Eyebrow)
+    # 1. Section headers
     make_section_header("01", "Introduction", "Curiosity, code, and practical intelligence.", "section-01-introduction.svg")
     make_section_header("02", "Featured Work", "Selected systems & architecture platforms.", "section-02-projects.svg")
     make_section_header("03", "Toolset", "The tools I reach for.", "section-04-skills.svg")
@@ -550,14 +595,14 @@ def main():
     make_section_header("05", "Commit Log", "A year of building, one square at a time.", "section-05-activity.svg")
     make_section_header("06", "Connect", "Professional links & contact.", "section-06-links.svg")
 
-    # 2. Luxury Project Architecture Cards (Screenshot 1 Reference)
+    # 2. Luxury Project Architecture Cards (Moving Neon Pink Border + Zero Gemini/LLM in diagram!)
     make_luxury_project_card(
         "01 — FULL-STACK & AI — 2024",
         "ResQ",
-        "Real-Time Disaster Coordination & Dynamic AI Relief Platform",
-        "Gemini flood-route replanning + heuristic fail-safe + Supabase RLS",
+        "Real-Time Disaster Coordination and Dynamic AI Relief Platform",
+        "AI incident classification + dynamic flood-route replanning + Supabase RLS",
         [("LIVE", "DISPATCH ENGINE"), ("100%", "DATA ISOLATION"), ("< 2s", "DYNAMIC RE-ROUTE")],
-        ["Next.js", "React", "TypeScript", "Supabase", "Gemini API", "Leaflet GIS"],
+        ["Next.js", "React", "TypeScript", "Supabase", "AI Incident Engine", "Leaflet GIS"],
         "resq",
         "project-resq.svg"
     )
@@ -566,9 +611,9 @@ def main():
         "02 — AI & DEVELOPER TOOLS — 2024",
         "AI Code Explainer",
         "AI-Powered Code Analysis & Algorithmic Complexity Platform",
-        "Python FastAPI + Gemini API + AST inspection + React feedback UI",
+        "Python FastAPI + AST parser + bug localization + React feedback UI",
         [("O(N)", "COMPLEXITY AUDIT"), ("100%", "STRUCTURED AST"), ("< 180ms", "FASTAPI LATENCY")],
-        ["React", "FastAPI", "Gemini API", "Python", "AST Analyzer", "Tailwind"],
+        ["React", "FastAPI", "Python", "Code Intelligence", "AST Analyzer", "Tailwind"],
         "code",
         "project-code-explainer.svg"
     )
@@ -584,10 +629,10 @@ def main():
         "project-fraud-shield.svg"
     )
 
-    # 3. The 6-Box Bento Grid (Screenshot 2 Reference)
+    # 3. The 6-Box Bento Grid (Moving Neon Pink Border + Zero Gemini/LLM)
     make_bento_grid()
 
-    # 4. Unified Commit Log Card (Screenshot 3 Reference)
+    # 4. Unified Commit Log Card (Moving Neon Pink Border)
     make_unified_commit_log()
 
     # 5. Buttons
@@ -595,7 +640,7 @@ def main():
     make_button("siddharth-meka-16", "github", 195, "link-github.svg")
     make_button("siddharth-meka", "linkedin", 185, "link-linkedin.svg")
 
-    # 6. Certifications Shelf
+    # 6. Certifications Shelf (Moving Neon Pink Border)
     make_certifications()
 
 if __name__ == "__main__":

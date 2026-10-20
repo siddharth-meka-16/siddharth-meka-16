@@ -9,10 +9,13 @@
       <stop offset="0%" stop-color="#701A3D" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
     </radialGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
 
-  <!-- Card Frame -->
-  <rect width="1000" height="260" rx="16" fill="url(#lxc-bg-project_resq)" stroke="#701A3D" stroke-opacity="0.85" stroke-width="1.2"/>
+  <!-- Card Background -->
+  <rect width="1000" height="260" rx="16" fill="url(#lxc-bg-project_resq)"/>
   <rect width="1000" height="260" rx="16" fill="url(#lxc-glow-project_resq)"/>
 
   <!-- Left Accent Notch -->
@@ -25,14 +28,14 @@
   <text x="36" y="82" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="34" font-weight="700" fill="#F8F0F3" letter-spacing="0.3">ResQ</text>
 
   <!-- One-liner Description -->
-  <text x="36" y="112" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13.5" fill="#E5B5C7" opacity="0.95">Real-Time Disaster Coordination &amp; Dynamic AI Relief Platform</text>
+  <text x="36" y="112" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13.5" fill="#E5B5C7" opacity="0.95">Real-Time Disaster Coordination and Dynamic AI Relief Platform</text>
 
   <!-- BUILT Highlight Strip -->
   <g transform="translate(36, 126)">
     <rect width="560" height="26" rx="6" fill="#190B12" stroke="#451126" stroke-width="0.9"/>
     <rect x="0" y="0" width="58" height="26" rx="6" fill="#701A3D"/>
     <text x="29" y="17" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" fill="#F8F0F3" letter-spacing="1">BUILT</text>
-    <text x="70" y="17" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#E5B5C7">Gemini flood-route replanning + heuristic fail-safe + Supabase RLS</text>
+    <text x="70" y="17" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#E5B5C7">AI incident classification + dynamic flood-route replanning + Supabase RLS</text>
   </g>
 
   <!-- 3 Big Metric Counters -->
@@ -69,22 +72,22 @@
         <text x="39.0" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Supabase</text>
       </g>
       <g transform="translate(365.0, 218)">
-        <rect width="93.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
-        <text x="46.5" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Gemini API</text>
+        <rect width="153.0" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
+        <text x="76.5" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">AI Incident Engine</text>
       </g>
-      <g transform="translate(466.0, 218)">
+      <g transform="translate(526.0, 218)">
         <rect width="100.5" height="22" rx="11" fill="#14080F" stroke="#451126" stroke-width="0.9"/>
         <text x="50.25" y="15" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" fill="#E5B5C7">Leaflet GIS</text>
       </g>
 
   <!-- Right Architecture Flow Diagram -->
   
-      <!-- Architecture Flow: Incident -> Gemini Triage -> GIS Replanning -->
+      <!-- Architecture Flow: Incident -> AI Triage -> GIS Route -->
       <g transform="translate(630, 40)">
         <rect width="330" height="180" rx="12" fill="#14080F" stroke="#451126" stroke-width="1"/>
         <text x="16" y="24" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#C77B9B" letter-spacing="1.5">ARCHITECTURE FLOW</text>
         
-        <!-- Status dot -->
+        <!-- Live pulsing status dot -->
         <circle cx="304" cy="20" r="4" fill="#C77B9B">
           <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
@@ -104,19 +107,39 @@
           <text x="40" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#E5B5C7">INCIDENT</text>
         </g>
 
-        <!-- Node 2: Gemini Triage (Center) -->
-        <g transform="translate(130, 95)">
-          <rect width="90" height="30" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
-          <text x="45" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700" fill="#F8F0F3">GEMINI AI</text>
+        <!-- Node 2: AI Triage Engine -->
+        <g transform="translate(125, 95)">
+          <rect width="100" height="30" rx="6" fill="#190B12" stroke="#C77B9B" stroke-width="1.2"/>
+          <text x="50" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" fill="#F8F0F3">AI TRIAGE</text>
         </g>
 
-        <!-- Node 3: Route Dispatch -->
+        <!-- Node 3: GIS Route -->
         <g transform="translate(230, 60)">
           <rect width="80" height="30" rx="6" fill="#190B12" stroke="#701A3D" stroke-width="1"/>
           <text x="40" y="19" text-anchor="middle" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" fill="#E5B5C7">GIS ROUTE</text>
         </g>
 
         <!-- Bottom specs note -->
-        <text x="16" y="156" font-family="'SFMono-Regular', Consolas, monospace" font-size="9" fill="#C77B9B" opacity="0.8">FAIL-SAFE HEURISTIC · SUPABASE RLS</text>
+        <text x="16" y="156" font-family="'SFMono-Regular', Consolas, monospace" font-size="9" fill="#C77B9B" opacity="0.8">DYNAMIC REPLANNING · SUPABASE RLS</text>
       </g>
+
+  <!-- Animated Neon Pink Moving Border -->
+  
+  <!-- Static Base Border -->
+  <rect width="1000" height="260" rx="16" fill="none" stroke="#701A3D" stroke-opacity="0.5" stroke-width="1.2"/>
+
+  <!-- Neon Glow Soft Filter Layer -->
+  <rect width="998" height="258" x="1" y="1" rx="15" fill="none"
+        stroke="#C77B9B" stroke-width="3" stroke-linecap="round" opacity="0.45"
+        stroke-dasharray="140 2352" stroke-dashoffset="0" filter="url(#neon-glow)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-2492" dur="7s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Core Neon Moving Line -->
+  <rect width="998" height="258" x="1" y="1" rx="15" fill="none"
+        stroke="#F8F0F3" stroke-width="1.8" stroke-linecap="round"
+        stroke-dasharray="140 2352" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="-2492" dur="7s" repeatCount="indefinite"/>
+  </rect>
+    
 </svg>
