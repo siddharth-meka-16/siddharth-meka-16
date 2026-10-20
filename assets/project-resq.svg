@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 114" width="1000" height="114" role="img" aria-label="ResQ Project Card">
+  <defs>
+    <linearGradient id="p-bg-project_resq" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#190B12"/>
+      <stop offset="60%" stop-color="#14080F"/>
+      <stop offset="100%" stop-color="#10070C"/>
+    </linearGradient>
+    <radialGradient id="p-glow-project_resq" cx="0.05" cy="0.3" r="0.4">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="114" rx="14" fill="url(#p-bg-project_resq)" stroke="#701A3D" stroke-opacity="0.8" stroke-width="1.2"/>
+  <rect width="1000" height="114" rx="14" fill="url(#p-glow-project_resq)"/>
+
+  <!-- Left Accent Bar -->
+  <rect x="0" y="24" width="4" height="66" rx="2" fill="#C77B9B"/>
+
+  <!-- Project Icon container -->
+  <g transform="translate(52, 40)">
+    <circle cx="0" cy="0" r="22" fill="#10070C" stroke="#701A3D" stroke-width="1.2"/>
+    
+        <path d="M 0 -12 L 12 -4 L 12 8 L 0 16 L -12 8 L -12 -4 Z" fill="none" stroke="#C77B9B" stroke-width="1.5"/>
+        <path d="M -4 2 L 4 2 M 0 -2 L 0 6" stroke="#E5B5C7" stroke-width="2" stroke-linecap="round"/>
+        
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="88" y="37" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="26" font-weight="600" fill="#F8F0F3" letter-spacing="0.5">ResQ</text>
+  <text x="88" y="56" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13" fill="#E5B5C7" opacity="0.9">Real-Time Disaster Coordination &amp; AI Relief Platform</text>
+
+  <!-- Badge pill on top right -->
+  <g transform="translate(830, 24)">
+    <rect width="144" height="26" rx="13" fill="#10070C" stroke="#701A3D" stroke-width="1"/>
+    <circle cx="15" cy="13" r="3.5" fill="#C77B9B">
+      <animate attributeName="opacity" values="1;0.4;1" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="76" y="17" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="10" font-weight="600" fill="#E5B5C7" letter-spacing="1">AI RELIEF SYSTEM</text>
+  </g>
+
+  <!-- Tags -->
+  <g>
+    
+    <g transform="translate(30, 74)">
+      <rect width="78" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
+      <text x="39.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">Next.js</text>
+    </g>
+    <g transform="translate(118, 74)">
+      <rect width="62" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
+      <text x="31.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">React</text>
+    </g>
+    <g transform="translate(190, 74)">
+      <rect width="102" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
+      <text x="51.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">TypeScript</text>
+    </g>
+    <g transform="translate(302, 74)">
+      <rect width="86" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
+      <text x="43.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">Supabase</text>
+    </g>
+    <g transform="translate(398, 74)">
+      <rect width="102" height="24" rx="12" fill="#10070C" stroke="#451126" stroke-width="1"/>
+      <text x="51.0" y="16" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="11" fill="#E5B5C7">Gemini API</text>
+    </g>
+  </g>
+</svg>

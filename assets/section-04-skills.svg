@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 68" width="1000" height="68" role="img" aria-label="04 Technical Skills">
+  <defs>
+    <linearGradient id="sh-bg-04" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10070C"/>
+      <stop offset="40%" stop-color="#190B12"/>
+      <stop offset="100%" stop-color="#10070C"/>
+    </linearGradient>
+    <linearGradient id="sh-rule-04" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C77B9B" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#701A3D" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="68" rx="12" fill="url(#sh-bg-04)" stroke="#701A3D" stroke-opacity="0.6" stroke-width="1"/>
+
+  <!-- Index badge -->
+  <rect x="20" y="18" width="46" height="32" rx="16" fill="#10070C" stroke="#701A3D" stroke-width="1.2"/>
+  <text x="43" y="39" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="700" fill="#C77B9B" letter-spacing="1">04</text>
+
+  <!-- Title -->
+  <text x="82" y="42" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="24" font-weight="600" fill="#F8F0F3" letter-spacing="0.5">Technical Skills</text>
+
+  <!-- Subtitle -->
+  <text x="326" y="42" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="12" fill="#C77B9B" letter-spacing="2" opacity="0.85">  ·  CORE STACK &amp; TECHNOLOGIES</text>
+
+  <!-- Glowing underline rule -->
+  <line x1="20" y1="67" x2="980" y2="67" stroke="url(#sh-rule-04)" stroke-width="1.5"/>
+
+  <!-- Corner accent marks -->
+  <g stroke="#C77B9B" stroke-opacity="0.35" stroke-width="1" fill="none">
+    <path d="M 974 22 L 982 22 L 982 30"/>
+    <path d="M 982 38 L 982 46 L 974 46"/>
+  </g>
+</svg>

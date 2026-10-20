@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 40" width="185" height="40" role="img" aria-label="siddharth-meka">
+  <defs>
+    <linearGradient id="btn-bg-link_linkedin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#190B12"/>
+      <stop offset="100%" stop-color="#10070C"/>
+    </linearGradient>
+  </defs>
+  <rect width="185" height="40" rx="20" fill="url(#btn-bg-link_linkedin)" stroke="#701A3D" stroke-width="1.2"/>
+  
+        <g transform="translate(24, 20) scale(0.85)">
+          <rect x="-12" y="-12" width="24" height="24" rx="4" fill="#701A3D" opacity="0.3"/>
+          <path d="M-8 -3H-5V6H-8V-3ZM-6.5 -7.5C-5.5 -7.5 -4.8 -6.7 -4.8 -5.7C-4.8 -4.7 -5.5 -4 -6.5 -4C-7.4 -4 -8.2 -4.7 -8.2 -5.7C-8.2 -6.7 -7.4 -7.5 -6.5 -7.5ZM-3 -3H0V-1.8H0.1C0.5 -2.6 1.6 -3.3 2.9 -3.3C5.7 -3.3 6.3 -1.5 6.3 0.9V6H3.3V1.6C3.3 0.5 3.3 -0.9 1.9 -0.9C0.5 -0.9 0.3 0.2 0.3 1.5V6H-3V-3Z" fill="#C77B9B"/>
+        </g>
+        
+  <text x="42" y="25" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="600" fill="#F8F0F3" letter-spacing="0.5">siddharth-meka</text>
+</svg>
