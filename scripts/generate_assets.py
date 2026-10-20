@@ -72,141 +72,7 @@ def make_section_header(num_str, title, subtitle, filename):
     write_svg(filename, svg)
 
 # -------------------------------------------------------------
-# 2. Animated Interactive Terminal Generator (v2)
-# -------------------------------------------------------------
-def make_terminal():
-    w, h = 1000, 310
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="Interactive Terminal — Siddharth Meka">
-  <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="term-bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#14080F"/>
-      <stop offset="60%" stop-color="#10070C"/>
-      <stop offset="100%" stop-color="#190B12"/>
-    </linearGradient>
-
-    <!-- Header Gradient -->
-    <linearGradient id="term-hdr" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#190B12"/>
-      <stop offset="100%" stop-color="#14080F"/>
-    </linearGradient>
-
-    <!-- Master loop timer: 14s cycle -->
-    <rect id="t_loop" width="0" height="0">
-      <animate attributeName="width" from="0" to="100" dur="14s" repeatCount="indefinite"/>
-    </rect>
-
-    <!-- Clip path for Command 1: 'whoami' (width 0 to 100) -->
-    <clipPath id="cp-cmd1">
-      <rect x="230" y="55" width="0" height="30">
-        <animate attributeName="width" from="0" to="120" dur="0.8s" begin="0.3s; t_loop.repeat(1)" fill="freeze"/>
-      </rect>
-    </clipPath>
-
-    <!-- Clip path for Command 2: 'cat current_stack.json' (width 0 to 280) -->
-    <clipPath id="cp-cmd2">
-      <rect x="230" y="135" width="0" height="30">
-        <animate attributeName="width" from="0" to="260" dur="1.1s" begin="2.6s; t_loop.repeat(1)+2.3s" fill="freeze"/>
-      </rect>
-    </clipPath>
-
-    <!-- Clip path for Command 3: 'python -m status' (width 0 to 220) -->
-    <clipPath id="cp-cmd3">
-      <rect x="230" y="215" width="0" height="30">
-        <animate attributeName="width" from="0" to="220" dur="0.9s" begin="5.2s; t_loop.repeat(1)+4.9s" fill="freeze"/>
-      </rect>
-    </clipPath>
-  </defs>
-
-  <!-- Terminal Window Outer Frame -->
-  <rect width="{w}" height="{h}" rx="14" fill="url(#term-bg)" stroke="#701A3D" stroke-width="1.2"/>
-
-  <!-- Title bar -->
-  <rect width="{w}" height="36" rx="14" fill="url(#term-hdr)"/>
-  <rect y="22" width="{w}" height="14" fill="url(#term-hdr)"/>
-  <line x1="0" y1="36" x2="{w}" y2="36" stroke="#451126" stroke-width="1"/>
-
-  <!-- Control dots -->
-  <circle cx="26" cy="18" r="5.5" fill="#701A3D"/>
-  <circle cx="44" cy="18" r="5.5" fill="#A24A70"/>
-  <circle cx="62" cy="18" r="5.5" fill="#C77B9B"/>
-
-  <!-- Title bar info -->
-  <text x="{w/2}" y="22" text-anchor="middle" font-family="{MONO}" font-size="11.5" fill="#C77B9B" letter-spacing="1" opacity="0.9">siddharth@workstation: ~ (zsh)</text>
-  <text x="{w-28}" y="22" text-anchor="end" font-family="{MONO}" font-size="10" fill="#E5B5C7" letter-spacing="1" opacity="0.5">● zsh · 80x24 · UTF-8</text>
-
-  <!-- ================= LINE 1 ================= -->
-  <!-- Prompt 1 -->
-  <text x="32" y="75" font-family="{MONO}" font-size="13" font-weight="700" fill="#C77B9B" letter-spacing="0.5">siddharth@pvpsit:~$</text>
-  
-  <!-- Command 1 typed -->
-  <g clip-path="url(#cp-cmd1)">
-    <text x="230" y="75" font-family="{MONO}" font-size="13" font-weight="500" fill="#F8F0F3">whoami</text>
-  </g>
-
-  <!-- Output 1 (fades in) -->
-  <g opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="1.3s; t_loop.repeat(1)+1.0s" fill="freeze"/>
-    <text x="48" y="105" font-family="{MONO}" font-size="12.5" fill="#E5B5C7">
-      <tspan fill="#F8F0F3" font-weight="600">Siddharth Meka</tspan> — B.Tech Computer Science (2024–2028) @ PVPSIT, Andhra Pradesh
-    </text>
-  </g>
-
-  <!-- ================= LINE 2 ================= -->
-  <!-- Prompt 2 (appears at 2.4s) -->
-  <g opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.2s" begin="2.4s; t_loop.repeat(1)+2.1s" fill="freeze"/>
-    <text x="32" y="155" font-family="{MONO}" font-size="13" font-weight="700" fill="#C77B9B" letter-spacing="0.5">siddharth@pvpsit:~$</text>
-  </g>
-
-  <!-- Command 2 typed -->
-  <g clip-path="url(#cp-cmd2)">
-    <text x="230" y="155" font-family="{MONO}" font-size="13" font-weight="500" fill="#F8F0F3">cat current_stack.json</text>
-  </g>
-
-  <!-- Output 2 (fades in) -->
-  <g opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="3.9s; t_loop.repeat(1)+3.6s" fill="freeze"/>
-    <text x="48" y="185" font-family="{MONO}" font-size="12" fill="#E5B5C7">
-      <tspan fill="#C77B9B">&#123;</tspan> <tspan fill="#F8F0F3">"focus"</tspan>: [<tspan fill="#E5B5C7">"AI/ML"</tspan>, <tspan fill="#E5B5C7">"Full-Stack"</tspan>], <tspan fill="#F8F0F3">"core"</tspan>: [<tspan fill="#E5B5C7">"React"</tspan>, <tspan fill="#E5B5C7">"FastAPI"</tspan>, <tspan fill="#E5B5C7">"Gemini API"</tspan>, <tspan fill="#E5B5C7">"Java"</tspan>, <tspan fill="#E5B5C7">"Python"</tspan>] <tspan fill="#C77B9B">&#125;</tspan>
-    </text>
-  </g>
-
-  <!-- ================= LINE 3 ================= -->
-  <!-- Prompt 3 (appears at 5.0s) -->
-  <g opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.2s" begin="5.0s; t_loop.repeat(1)+4.7s" fill="freeze"/>
-    <text x="32" y="235" font-family="{MONO}" font-size="13" font-weight="700" fill="#C77B9B" letter-spacing="0.5">siddharth@pvpsit:~$</text>
-  </g>
-
-  <!-- Command 3 typed -->
-  <g clip-path="url(#cp-cmd3)">
-    <text x="230" y="235" font-family="{MONO}" font-size="13" font-weight="500" fill="#F8F0F3">python -m status</text>
-  </g>
-
-  <!-- Output 3 (fades in with green pulse) -->
-  <g opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="6.3s; t_loop.repeat(1)+6.0s" fill="freeze"/>
-    <circle cx="56" cy="261" r="4" fill="#C77B9B">
-      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-    </circle>
-    <text x="68" y="265" font-family="{MONO}" font-size="12" fill="#F8F0F3" font-weight="600">
-      [READY] <tspan fill="#E5B5C7">Actively shipping ResQ &amp; exploring SDE / AI internships for 2025–2026</tspan>
-    </text>
-  </g>
-
-  <!-- Blinking Terminal Cursor -->
-  <rect x="420" y="222" width="8" height="15" rx="1" fill="#C77B9B" opacity="0">
-    <animate attributeName="opacity" values="0;0;1;1;0" dur="0.9s" begin="6.3s; t_loop.repeat(1)+6.0s" repeatCount="indefinite"/>
-  </rect>
-
-  <!-- Bottom Accent Status Line -->
-  <line x1="20" y1="{h-1}" x2="{w-20}" y2="{h-1}" stroke="#701A3D" stroke-opacity="0.5" stroke-width="1"/>
-</svg>"""
-    write_svg("terminal.svg", svg)
-
-# -------------------------------------------------------------
-# 3. Project Card Banner Generator with Micro-Demos (v2)
+# 2. Project Card Banner Generator with Micro-Demos (v2)
 # -------------------------------------------------------------
 def make_project_card(title, subtitle, tags, badge_text, icon_type, filename):
     w, h = 1000, 118
@@ -353,7 +219,6 @@ def make_project_card(title, subtitle, tags, badge_text, icon_type, filename):
 # -------------------------------------------------------------
 def make_snake():
     w, h = 1000, 200
-    # Generate 53 columns x 7 rows of contribution tiles in burgundy gradient
     cols = 53
     rows = 7
     cell = 12
@@ -363,24 +228,31 @@ def make_snake():
 
     LEVELS = ["#190B12", "#451126", "#701A3D", "#A24A70", "#C77B9B"]
     
+    # Try fetching real contributions
+    real_levels = []
+    try:
+        import urllib.request, json
+        c_req = urllib.request.Request("https://github-contributions-api.jogruber.de/v4/siddharth-meka-16?y=last", headers={"User-Agent": "profile-activity"})
+        with urllib.request.urlopen(c_req, timeout=10) as r:
+            c_data = json.load(r)
+        days = c_data.get("contributions", [])
+        for d in days:
+            lvl = d.get("level", 0)
+            real_levels.append(min(max(0, lvl), 4))
+    except Exception:
+        pass
+
     rects = []
-    # Seeded pattern for realistic activity distribution
     random.seed(168)
+    idx = 0
     for c in range(cols):
         for r in range(rows):
-            # simulate recent activity being slightly denser
-            prob = random.random()
-            if prob < 0.25:
-                lvl = 0
-            elif prob < 0.55:
-                lvl = 1
-            elif prob < 0.78:
-                lvl = 2
-            elif prob < 0.92:
-                lvl = 3
+            if idx < len(real_levels):
+                lvl = real_levels[idx]
             else:
-                lvl = 4
-            
+                prob = random.random()
+                lvl = 0 if prob < 0.3 else 1 if prob < 0.6 else 2 if prob < 0.8 else 3 if prob < 0.95 else 4
+            idx += 1
             x = x0 + c * (cell + gap)
             y = y0 + r * (cell + gap)
             rects.append(f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" fill="{LEVELS[lvl]}"/>')
@@ -592,10 +464,7 @@ def main():
     make_section_header("05", "GitHub Activity", "Contributions & Workflows", "section-05-activity.svg")
     make_section_header("06", "Professional Links", "Connect & Collaborate", "section-06-links.svg")
 
-    # 2. Interactive Terminal (v2)
-    make_terminal()
-
-    # 3. Project cards with animated micro-demos (v2)
+    # 2. Project cards with animated micro-demos (v2)
     make_project_card("ResQ", "Real-Time Disaster Coordination & AI Relief Platform",
                       ["Next.js", "React", "TypeScript", "Supabase", "Gemini API"],
                       "AI RELIEF SYSTEM", "resq", "project-resq.svg")

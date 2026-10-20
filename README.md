@@ -12,10 +12,6 @@
 
 I'm a Computer Science Engineering student at Prasad V Potluri Siddhartha Institute of Technology (B.Tech, 2024–2028) in Andhra Pradesh, India. I'm interested in AI/ML, full-stack development and problem-solving, and I like turning those interests into practical applications. I work with Java, Python, React, Next.js, FastAPI, Supabase and the Gemini API, and I'm looking for Software Development or AI/ML internships.
 
-<p align="center">
-  <img src="assets/terminal.svg" alt="Interactive Terminal — Siddharth Meka" width="100%">
-</p>
-
 ## <img src="assets/section-02-projects.svg" alt="Featured Projects" width="100%">
 
 <img src="assets/project-resq.svg" alt="ResQ — Real-Time Disaster Coordination and AI Relief Platform. Stack: Next.js, React, TypeScript, Supabase, Gemini API." width="100%">

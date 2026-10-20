@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Generate assets/activity.svg from real GitHub contribution data.
 
-Run by .github/workflows/activity.yml with the workflow's built-in GITHUB_TOKEN.
-No secrets are written to the output. If the API call fails, the existing SVG is left untouched.
+Run by .github/workflows/activity.yml with the workflow's built-in GITHUB_TOKEN,
+or locally/fallback via public endpoints.
+No secrets are written to the output. If all API calls fail, the existing SVG is left untouched.
 Usage: python scripts/generate_activity.py [--login siddharth-meka-16] [--out assets/activity.svg]
 """
 import argparse, datetime as dt, json, os, sys, urllib.request
@@ -29,7 +30,7 @@ DIM = ' fill-opacity="0.35"'
 LEVELS = ["#451126", "#701A3D", "#A24A70", "#C77B9B", "#E5B5C7"]  # palette steps between wine and pale rose
 
 
-def fetch(login, token):
+def fetch_graphql(login, token):
     req = urllib.request.Request(
         "https://api.github.com/graphql",
         data=json.dumps({"query": QUERY, "variables": {"login": login}}).encode(),
@@ -48,6 +49,63 @@ def fetch(login, token):
         "repos": u["repositories"]["totalCount"],
         "stars": sum(n["stargazerCount"] for n in u["repositories"]["nodes"]),
     }
+
+
+def fetch_public(login):
+    # 1. User profile for repos count
+    u_req = urllib.request.Request(f"https://api.github.com/users/{login}", headers={"User-Agent": "profile-activity"})
+    with urllib.request.urlopen(u_req, timeout=20) as r:
+        u_data = json.load(r)
+    repos_count = u_data.get("public_repos", 0)
+
+    # 2. Public repos for stars count
+    r_req = urllib.request.Request(f"https://api.github.com/users/{login}/repos?per_page=100", headers={"User-Agent": "profile-activity"})
+    with urllib.request.urlopen(r_req, timeout=20) as r:
+        r_data = json.load(r)
+    stars_count = sum(repo.get("stargazers_count", 0) for repo in r_data)
+
+    # 3. Contributions calendar via reliable public provider
+    c_req = urllib.request.Request(f"https://github-contributions-api.jogruber.de/v4/{login}?y=last", headers={"User-Agent": "profile-activity"})
+    with urllib.request.urlopen(c_req, timeout=20) as r:
+        c_data = json.load(r)
+
+    days = c_data.get("contributions", [])
+    total = c_data.get("total", {}).get("lastYear", sum(d.get("count", 0) for d in days))
+
+    weeks = []
+    dates = []
+    cw = []
+    cd = []
+    for d in days:
+        cw.append(d.get("count", 0))
+        cd.append(d.get("date", ""))
+        if len(cw) == 7:
+            weeks.append(cw)
+            dates.append(cd)
+            cw, cd = [], []
+    if cw:
+        while len(cw) < 7:
+            cw.append(0)
+            cd.append("")
+        weeks.append(cw)
+        dates.append(cd)
+
+    return {
+        "total": total,
+        "weeks": weeks,
+        "dates": dates,
+        "repos": repos_count,
+        "stars": stars_count,
+    }
+
+
+def fetch(login, token=None):
+    if token:
+        try:
+            return fetch_graphql(login, token)
+        except Exception as e:
+            print(f"GraphQL fetch failed ({e}), falling back to public endpoint...")
+    return fetch_public(login)
 
 
 def longest_streak(weeks):
@@ -97,10 +155,14 @@ def render(data, login):
                 f'  <text x="{x}" y="128" font-family="{MONO}" font-size="12" letter-spacing="1.5" fill="#C77B9B">{l1}</text>',
                 f'  <text x="{x}" y="146" font-family="{MONO}" font-size="12" letter-spacing="1.5" fill="#C77B9B" fill-opacity="0.75">{l2}</text>']
     # month labels (live only)
-    if live:
+    if live and dates:
         last = None
         for wi, d in enumerate(dates):
-            m = dt.date.fromisoformat(d[0]).strftime("%b").upper()
+            if not d or not d[0]: continue
+            try:
+                m = dt.date.fromisoformat(d[0]).strftime("%b").upper()
+            except Exception:
+                continue
             if m != last and wi < len(dates) - 2:
                 out.append(f'  <text x="{x0 + wi * (cell + gap)}" y="{y0 - 10}" font-family="{MONO}" font-size="11" letter-spacing="1" fill="#C77B9B" fill-opacity="0.8">{m}</text>')
                 last = m
@@ -133,14 +195,12 @@ def main():
         data = json.load(open(a.from_json))
     else:
         token = os.environ.get("GITHUB_TOKEN")
-        if not token:
-            sys.exit("GITHUB_TOKEN is not set; leaving existing file untouched")
         try:
             data = fetch(a.login, token)
-        except Exception as e:  # keep the previous SVG if the API fails
+        except Exception as e:
             sys.exit(f"Could not fetch data ({e}); leaving existing file untouched")
     os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
-    open(a.out, "w").write(render(data, a.login))
+    open(a.out, "w", encoding="utf-8").write(render(data, a.login))
     print("wrote", a.out)
 
 
