@@ -26,7 +26,7 @@
   <!-- Top Right Live Metric Counters (Positioned safely with 280px margin) -->
   <g transform="translate(540, 24)">
     <g transform="translate(0, 0)">
-      <text x="0" y="24" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">57</text>
+      <text x="0" y="24" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="28" font-weight="700" fill="#F8F0F3">60</text>
       <text x="0" y="40" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9" font-weight="600" fill="#C77B9B" letter-spacing="1">CONTRIBUTIONS</text>
     </g>
 

@@ -26,6 +26,33 @@ LEVELS = ["#190B12", "#451126", "#701A3D", "#A24A70", "#C77B9B", "#E5B5C7"]
 def esc(text):
     return sax.escape(str(text))
 
+def fetch_leetcode(username="Siddharth_OP"):
+    url = "https://leetcode.com/graphql"
+    payload = {
+        "query": """
+        query getUserProfile($username: String!) {
+          allQuestionsCount { difficulty count }
+          matchedUser(username: $username) {
+            username
+            submitStats: submitStatsGlobal {
+              acSubmissionNum { difficulty count submissions }
+              totalSubmissionNum { difficulty count submissions }
+            }
+            profile { ranking }
+            userCalendar { streak totalActiveDays }
+          }
+        }
+        """,
+        "variables": {"username": username}
+    }
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
+    )
+    with urllib.request.urlopen(req, timeout=8) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
 def fetch_public(login):
     repos_count = 6
     stars_count = 6
@@ -348,6 +375,63 @@ def main():
         print(f"Successfully generated {glance_out} with live stats!")
     except Exception as e:
         print(f"Warning: could not generate github-glance ({e})")
+
+    # Also generate leetcode.svg (Live Algorithmic Telemetry)
+    lc_out = os.path.join(out_dir, "leetcode.svg") if out_dir else "assets/leetcode.svg"
+    try:
+        from generate_assets import make_leetcode_radial
+        lc_stats = {
+            "total": 142, "easy": 95, "med": 44, "hard": 3,
+            "total_easy": 972, "total_med": 2131, "total_hard": 984, "total_q": 4087,
+            "acceptance": 71.5, "streak": 11, "active_days": 78, "ranking": 1247511
+        }
+        try:
+            lc_raw = fetch_leetcode("Siddharth_OP")
+            user = lc_raw.get("data", {}).get("matchedUser")
+            if user:
+                ac_list = {x["difficulty"]: x["count"] for x in user.get("submitStats", {}).get("acSubmissionNum", [])}
+                tot_sub = {x["difficulty"]: x["submissions"] for x in user.get("submitStats", {}).get("totalSubmissionNum", [])}
+                ac_sub = {x["difficulty"]: x["submissions"] for x in user.get("submitStats", {}).get("acSubmissionNum", [])}
+                all_q = {x["difficulty"]: x["count"] for x in lc_raw.get("data", {}).get("allQuestionsCount", [])}
+
+                tot_all_sub = tot_sub.get("All", 0)
+                tot_ac_sub = ac_sub.get("All", 0)
+                acc = round((tot_ac_sub / tot_all_sub * 100), 1) if tot_all_sub > 0 else 71.5
+
+                lc_stats["total"] = ac_list.get("All", 142)
+                lc_stats["easy"] = ac_list.get("Easy", 95)
+                lc_stats["med"] = ac_list.get("Medium", 44)
+                lc_stats["hard"] = ac_list.get("Hard", 3)
+                lc_stats["total_easy"] = all_q.get("Easy", 972)
+                lc_stats["total_med"] = all_q.get("Medium", 2131)
+                lc_stats["total_hard"] = all_q.get("Hard", 984)
+                lc_stats["total_q"] = all_q.get("All", 4087)
+                lc_stats["acceptance"] = acc
+                lc_stats["ranking"] = user.get("profile", {}).get("ranking", 1247511)
+                cal = user.get("userCalendar") or {}
+                lc_stats["streak"] = cal.get("streak", 11)
+                lc_stats["active_days"] = cal.get("totalActiveDays", 78)
+        except Exception as e:
+            print(f"Using cached LeetCode stats ({e})")
+
+        make_leetcode_radial(
+            total=lc_stats["total"],
+            easy=lc_stats["easy"],
+            med=lc_stats["med"],
+            hard=lc_stats["hard"],
+            total_easy=lc_stats["total_easy"],
+            total_med=lc_stats["total_med"],
+            total_hard=lc_stats["total_hard"],
+            total_q=lc_stats["total_q"],
+            acceptance=lc_stats["acceptance"],
+            streak=lc_stats["streak"],
+            active_days=lc_stats["active_days"],
+            ranking=lc_stats["ranking"],
+            filename=lc_out
+        )
+        print(f"Successfully generated {lc_out} with live stats!")
+    except Exception as e:
+        print(f"Warning: could not generate leetcode ({e})")
 
 if __name__ == "__main__":
     main()

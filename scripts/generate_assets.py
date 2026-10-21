@@ -594,6 +594,246 @@ def make_github_glance(stars=6, commits=57, prs=2, issues=0, repos=8, filename="
   <!-- Outer Animated Neon Pink Moving Border -->
   {neon_border(w, h, rx=16, dur="8s", dash=150)}
 </svg>"""
+# -------------------------------------------------------------
+# 6.5 LeetCode Radial Bento Card (Concentric Gauge & Mastery Telemetry)
+# -------------------------------------------------------------
+def make_leetcode_radial(total=142, easy=95, med=44, hard=3, total_easy=972, total_med=2131, total_hard=984, total_q=4087, acceptance=71.5, streak=11, active_days=78, ranking=1247511, filename="leetcode.svg"):
+    import math
+    w, h = 1000, 280
+    cx, cy = 175, 142
+
+    # Radii and circumferences for 3 concentric rings
+    r1, r2, r3 = 90, 72, 54
+    c1 = 2 * math.pi * r1  # ~565.49
+    c2 = 2 * math.pi * r2  # ~452.39
+    c3 = 2 * math.pi * r3  # ~339.29
+
+    # Proportional sweeps for visual elegance
+    # Easy: 95 solved -> ~64% sweep
+    f1 = min(0.92, max(0.12, (easy / 150) * 0.95))
+    dash1 = f1 * c1
+    gap1 = c1 - dash1
+
+    # Med: 44 solved -> ~55% sweep
+    f2 = min(0.90, max(0.10, (med / 80) * 0.95))
+    dash2 = f2 * c2
+    gap2 = c2 - dash2
+
+    # Hard: 3 solved -> ~30% sweep
+    f3 = min(0.85, max(0.08, (hard / 12) * 0.95))
+    dash3 = f3 * c3
+    gap3 = c3 - dash3
+
+    # Progress bar fill widths (out of 370px)
+    w_easy = int(370 * min(1.0, max(0.06, easy / 200)))
+    w_med = int(370 * min(1.0, max(0.06, med / 100)))
+    w_hard = int(370 * min(1.0, max(0.06, hard / 20)))
+
+    pct_easy = (easy / total_easy * 100)
+    pct_med = (med / total_med * 100)
+    pct_hard = (hard / total_hard * 100)
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="LeetCode Algorithmic Mastery - {total} Problems Solved">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="lc-card-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14080F"/>
+      <stop offset="60%" stop-color="#10070C"/>
+      <stop offset="100%" stop-color="#0A0307"/>
+    </linearGradient>
+
+    <!-- Radial Hub Ambient Spotlight -->
+    <radialGradient id="lc-spotlight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.38"/>
+      <stop offset="70%" stop-color="#451126" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Neon Glow Filter -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="hub-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#C77B9B" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Progress Bar Gradients -->
+    <linearGradient id="easy-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C77B9B"/>
+      <stop offset="100%" stop-color="#E5B5C7"/>
+    </linearGradient>
+    <linearGradient id="med-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#701A3D"/>
+      <stop offset="100%" stop-color="#C77B9B"/>
+    </linearGradient>
+    <linearGradient id="hard-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#451126"/>
+      <stop offset="100%" stop-color="#A24A70"/>
+    </linearGradient>
+
+    <!-- Ring Gradients -->
+    <linearGradient id="ring-easy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F0F3"/>
+      <stop offset="100%" stop-color="#E5B5C7"/>
+    </linearGradient>
+    <linearGradient id="ring-med" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E5B5C7"/>
+      <stop offset="100%" stop-color="#C77B9B"/>
+    </linearGradient>
+    <linearGradient id="ring-hard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C77B9B"/>
+      <stop offset="100%" stop-color="#701A3D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card Background -->
+  <rect width="{w}" height="{h}" rx="16" fill="url(#lc-card-bg)"/>
+
+  <!-- Radial Hub Ambient Light -->
+  <circle cx="{cx}" cy="{cy}" r="135" fill="url(#lc-spotlight)"/>
+
+  <!-- ================= LEFT: CONCENTRIC RADIAL GAUGE ================= -->
+  <g id="radial-hub">
+    <!-- Ring 1 (Easy, Outer) -->
+    <circle cx="{cx}" cy="{cy}" r="{r1}" fill="none" stroke="#230E19" stroke-width="8.5"/>
+    <circle cx="{cx}" cy="{cy}" r="{r1}" fill="none" stroke="url(#ring-easy)" stroke-width="8.5"
+            stroke-linecap="round" stroke-dasharray="{dash1:.1f} {gap1:.1f}"
+            transform="rotate(-90 {cx} {cy})"/>
+
+    <!-- Ring 2 (Medium, Middle) -->
+    <circle cx="{cx}" cy="{cy}" r="{r2}" fill="none" stroke="#230E19" stroke-width="8.5"/>
+    <circle cx="{cx}" cy="{cy}" r="{r2}" fill="none" stroke="url(#ring-med)" stroke-width="8.5"
+            stroke-linecap="round" stroke-dasharray="{dash2:.1f} {gap2:.1f}"
+            transform="rotate(-90 {cx} {cy})"/>
+
+    <!-- Ring 3 (Hard, Inner) -->
+    <circle cx="{cx}" cy="{cy}" r="{r3}" fill="none" stroke="#230E19" stroke-width="8.5"/>
+    <circle cx="{cx}" cy="{cy}" r="{r3}" fill="none" stroke="url(#ring-hard)" stroke-width="8.5"
+            stroke-linecap="round" stroke-dasharray="{dash3:.1f} {gap3:.1f}"
+            transform="rotate(-90 {cx} {cy})"/>
+
+    <!-- Centerpiece Typography -->
+    <g filter="url(#hub-shadow)">
+      <text x="{cx}" y="{cy - 8}" text-anchor="middle" font-family="{SERIF}" font-size="38" font-weight="700" fill="#F8F0F3">{total}</text>
+    </g>
+    <text x="{cx}" y="{cy + 12}" text-anchor="middle" font-family="{MONO}" font-size="10" font-weight="700" fill="#C77B9B" letter-spacing="2.8">SOLVED</text>
+    <text x="{cx}" y="{cy + 28}" text-anchor="middle" font-family="{MONO}" font-size="8.5" fill="#8E6B7A" letter-spacing="1">{total_q:,} POOL</text>
+
+    <!-- Gauge Legend -->
+    <g transform="translate(0, 0)">
+      <circle cx="75" cy="254" r="4" fill="#E5B5C7"/>
+      <text x="85" y="258" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#E5B5C7">EASY {easy}</text>
+
+      <circle cx="165" cy="254" r="4" fill="#C77B9B"/>
+      <text x="175" y="258" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#C77B9B">MED {med}</text>
+
+      <circle cx="245" cy="254" r="4" fill="#A24A70"/>
+      <text x="255" y="258" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#A24A70">HARD {hard}</text>
+    </g>
+  </g>
+
+  <!-- ================= RIGHT: MASTERY BENTO PANEL ================= -->
+  <g transform="translate(340, 24)">
+    <!-- Container Box -->
+    <rect width="636" height="232" rx="12" fill="#14080F" stroke="#451126" stroke-width="1.2"/>
+
+    <!-- Subtle Inner Top Glow -->
+    <rect width="636" height="1" fill="#701A3D" opacity="0.6"/>
+
+    <!-- Header Line -->
+    <text x="22" y="30" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="2">04  ·  ALGORITHMIC DISCIPLINE</text>
+
+    <!-- Handle & Rank Capsule Badge -->
+    <g transform="translate(422, 14)">
+      <rect width="192" height="24" rx="12" fill="#190B12" stroke="#701A3D" stroke-width="1.2"/>
+      <!-- LeetCode hex icon -->
+      <g transform="translate(14, 12) scale(0.65)">
+        <path d="M0 -6 L5 -3 L5 3 L0 6 L-5 3 L-5 -3 Z" fill="none" stroke="#C77B9B" stroke-width="1.6"/>
+        <path d="M-1.5 -1.5 L1.5 0 L-1.5 1.5" fill="none" stroke="#F8F0F3" stroke-width="1.4" stroke-linecap="round"/>
+      </g>
+      <text x="26" y="16" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#F8F0F3">@Siddharth_OP</text>
+      <line x1="118" y1="4" x2="118" y2="20" stroke="#701A3D" stroke-width="1"/>
+      <text x="126" y="16" font-family="{MONO}" font-size="9" fill="#C77B9B">TOP 30%</text>
+    </g>
+
+    <!-- Title & Subtitle -->
+    <text x="22" y="60" font-family="{SERIF}" font-size="20" font-weight="600" fill="#F8F0F3" letter-spacing="0.2">Data Structures &amp; Problem Solving</text>
+    <text x="614" y="60" text-anchor="end" font-family="{MONO}" font-size="10.5" fill="#8E6B7A">GLOBAL RANK #{ranking:,}</text>
+
+    <!-- ================= 3 PROGRESS BARS ================= -->
+    <!-- Easy Bar -->
+    <g transform="translate(22, 74)">
+      <text x="0" y="14" font-family="{MONO}" font-size="11" font-weight="700" fill="#E5B5C7" letter-spacing="1">EASY</text>
+      <rect x="68" y="5" width="370" height="10" rx="5" fill="#1D0A14" stroke="#3D1224" stroke-width="1"/>
+      <rect x="68" y="5" width="{w_easy}" height="10" rx="5" fill="url(#easy-grad)"/>
+      <text x="452" y="14" font-family="{MONO}" font-size="11" font-weight="700" fill="#F8F0F3">{easy} <tspan fill="#8E6B7A" font-weight="400">/ {total_easy}</tspan></text>
+      <text x="592" y="14" text-anchor="end" font-family="{MONO}" font-size="10.5" fill="#C77B9B">({pct_easy:.1f}%)</text>
+    </g>
+
+    <!-- Medium Bar -->
+    <g transform="translate(22, 102)">
+      <text x="0" y="14" font-family="{MONO}" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="1">MEDIUM</text>
+      <rect x="68" y="5" width="370" height="10" rx="5" fill="#1D0A14" stroke="#3D1224" stroke-width="1"/>
+      <rect x="68" y="5" width="{w_med}" height="10" rx="5" fill="url(#med-grad)"/>
+      <text x="452" y="14" font-family="{MONO}" font-size="11" font-weight="700" fill="#F8F0F3">{med} <tspan fill="#8E6B7A" font-weight="400">/ {total_med:,}</tspan></text>
+      <text x="592" y="14" text-anchor="end" font-family="{MONO}" font-size="10.5" fill="#C77B9B">({pct_med:.1f}%)</text>
+    </g>
+
+    <!-- Hard Bar -->
+    <g transform="translate(22, 130)">
+      <text x="0" y="14" font-family="{MONO}" font-size="11" font-weight="700" fill="#A24A70" letter-spacing="1">HARD</text>
+      <rect x="68" y="5" width="370" height="10" rx="5" fill="#1D0A14" stroke="#3D1224" stroke-width="1"/>
+      <rect x="68" y="5" width="{w_hard}" height="10" rx="5" fill="url(#hard-grad)"/>
+      <text x="452" y="14" font-family="{MONO}" font-size="11" font-weight="700" fill="#F8F0F3">{hard} <tspan fill="#8E6B7A" font-weight="400">/ {total_hard}</tspan></text>
+      <text x="592" y="14" text-anchor="end" font-family="{MONO}" font-size="10.5" fill="#C77B9B">({pct_hard:.1f}%)</text>
+    </g>
+
+    <!-- ================= BOTTOM TELEMETRY STRIP ================= -->
+    <g transform="translate(22, 168)">
+      <!-- Metric 1: Acceptance Rate -->
+      <g transform="translate(0, 0)">
+        <rect width="186" height="48" rx="8" fill="#10070C" stroke="#701A3D" stroke-width="1"/>
+        <text x="14" y="18" font-family="{MONO}" font-size="9" fill="#C77B9B" letter-spacing="1.2">ACCEPTANCE RATE</text>
+        <text x="14" y="38" font-family="{MONO}" font-size="15" font-weight="700" fill="#F8F0F3">{acceptance}% <tspan font-size="9.5" font-weight="400" fill="#8E6B7A">(218/305)</tspan></text>
+      </g>
+
+      <!-- Metric 2: Active Streak -->
+      <g transform="translate(202, 0)">
+        <rect width="186" height="48" rx="8" fill="#10070C" stroke="#701A3D" stroke-width="1"/>
+        <text x="14" y="18" font-family="{MONO}" font-size="9" fill="#C77B9B" letter-spacing="1.2">ACTIVE STREAK</text>
+        <text x="14" y="38" font-family="{MONO}" font-size="14.5" font-weight="700" fill="#F8F0F3">🔥 {streak} DAYS <tspan font-size="9.5" font-weight="400" fill="#8E6B7A">active</tspan></text>
+      </g>
+
+      <!-- Metric 3: Total Active Days -->
+      <g transform="translate(404, 0)">
+        <rect width="190" height="48" rx="8" fill="#10070C" stroke="#701A3D" stroke-width="1"/>
+        <text x="14" y="18" font-family="{MONO}" font-size="9" fill="#C77B9B" letter-spacing="1.2">TOTAL PRACTICE</text>
+        <text x="14" y="38" font-family="{MONO}" font-size="14.5" font-weight="700" fill="#F8F0F3">{active_days} DAYS <tspan font-size="9.5" font-weight="400" fill="#8E6B7A">logged</tspan></text>
+      </g>
+    </g>
+
+    <!-- Bento Inner Moving Border -->
+    <rect width="634" height="230" x="1" y="1" rx="11" fill="none"
+          stroke="#C77B9B" stroke-width="2.2" stroke-linecap="round" opacity="0.45"
+          stroke-dasharray="70 850" stroke-dashoffset="0" filter="url(#neon-glow)">
+      <animate attributeName="stroke-dashoffset" from="0" to="-920" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect width="634" height="230" x="1" y="1" rx="11" fill="none"
+          stroke="#F8F0F3" stroke-width="1.4" stroke-linecap="round"
+          stroke-dasharray="70 850" stroke-dashoffset="0">
+      <animate attributeName="stroke-dashoffset" from="0" to="-920" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Outer Animated Neon Pink Moving Border -->
+  {neon_border(w, h, rx=16, dur="8s", dash=150)}
+</svg>"""
     write_svg(filename, svg)
 
 # -------------------------------------------------------------
@@ -806,6 +1046,9 @@ def main():
     # 5. GitHub At A Glance Card (Matching Screenshot 1)
     make_github_glance(stars=6, commits=57, prs=2, issues=0, repos=8, filename="github-glance.svg")
 
+    # 5.5 LeetCode Radial Bento Card (Real Live Stats from @Siddharth_OP)
+    make_leetcode_radial(total=142, easy=95, med=44, hard=3, total_easy=972, total_med=2131, total_hard=984, total_q=4087, acceptance=71.5, streak=11, active_days=78, ranking=1247511, filename="leetcode.svg")
+
     # 6. Certifications Shelf
     make_certifications()
 
@@ -816,7 +1059,7 @@ def main():
     make_two_tone_pill("email", "EMAIL", "siddharthmeka168@gmail.com", 92, 248, "pill-email.svg")
     make_two_tone_pill("linkedin", "LINKEDIN", "siddharth-meka", 104, 146, "pill-linkedin.svg")
     make_two_tone_pill("github", "GITHUB", "siddharth-meka-16", 94, 166, "pill-github.svg")
-    make_two_tone_pill("leetcode", "LEETCODE", "siddharth-meka-16", 106, 164, "pill-leetcode.svg")
+    make_two_tone_pill("leetcode", "LEETCODE", "Siddharth_OP", 106, 142, "pill-leetcode.svg")
 
     # 9. Grand Luxury Footer Hero (Matching Screenshot 2)
     make_luxury_footer("siddharth-footer.svg")

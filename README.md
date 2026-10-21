@@ -50,6 +50,10 @@ I'm a Computer Science Engineering student at **Prasad V Potluri Siddhartha Inst
 
 <img src="assets/github-glance.svg" alt="GitHub at a glance — Lifetime & Annual Metrics" width="100%">
 
+<a href="https://leetcode.com/u/Siddharth_OP/">
+  <img src="assets/leetcode.svg" alt="LeetCode Algorithmic Mastery — 142 Problems Solved" width="100%">
+</a>
+
 <a href="https://github.com/siddharth-meka-16">
   <img src="assets/activity.svg" alt="A year of building — Real GitHub Activity & Animated Snake" width="100%">
 </a>
@@ -65,7 +69,7 @@ I'm a Computer Science Engineering student at **Prasad V Potluri Siddhartha Inst
 <p align="center">
   <a href="https://github.com/siddharth-meka-16"><img src="assets/pill-github.svg" alt="GitHub: siddharth-meka-16" height="38"></a>
   &nbsp;&nbsp;
-  <a href="https://leetcode.com/u/siddharth-meka-16"><img src="assets/pill-leetcode.svg" alt="LeetCode: siddharth-meka-16" height="38"></a>
+  <a href="https://leetcode.com/u/Siddharth_OP/"><img src="assets/pill-leetcode.svg" alt="LeetCode: Siddharth_OP" height="38"></a>
 </p>
 
 <p align="center">
