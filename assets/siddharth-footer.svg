@@ -15,8 +15,23 @@
       <stop offset="50%" stop-color="#C77B9B" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
     </linearGradient>
-    <filter id="text-glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
+    <!-- Animated Light Sheen Gradient for Footer Name -->
+    <linearGradient id="ft-name-sheen" x1="-120%" y1="0%" x2="-20%" y2="0%">
+      <stop offset="0%" stop-color="#F8F0F3"/>
+      <stop offset="42%" stop-color="#F8F0F3"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="58%" stop-color="#F8F0F3"/>
+      <stop offset="100%" stop-color="#F8F0F3"/>
+      <animate attributeName="x1" values="-120%; -120%; 140%; 140%" keyTimes="0; 0.25; 0.65; 1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="-20%; -20%; 240%; 240%" keyTimes="0; 0.25; 0.65; 1" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+    <filter id="ft-aura-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#C77B9B" flood-opacity="0.8"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="16" flood-color="#701A3D" flood-opacity="0.65"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="28" flood-color="#451126" flood-opacity="0.5"/>
+    </filter>
+    <filter id="text-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -46,9 +61,18 @@
     <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite"/>
   </circle>
 
-  <!-- Giant Glowing Brand Name (Screenshot 2 Match) -->
-  <text x="500" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="76" font-weight="700" fill="#C77B9B" opacity="0.55" filter="url(#text-glow)">Siddharth</text>
-  <text x="500" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="76" font-weight="700" fill="#F8F0F3" letter-spacing="1">Siddharth</text>
+  <!-- Ambient Pulsing Name Backlight -->
+  <ellipse cx="500" cy="118" rx="260" ry="60" fill="#701A3D" opacity="0.38" filter="url(#text-glow)">
+    <animate attributeName="opacity" values="0.25;0.65;0.25" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="240;270;240" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Giant Glowing Brand Name with Multi-Tier Aura & Sheen -->
+  <text x="500" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="76" font-weight="700" fill="#C77B9B" opacity="0.7" filter="url(#ft-aura-glow)">
+    Siddharth
+    <animate attributeName="opacity" values="0.45;0.9;0.45" dur="4s" repeatCount="indefinite"/>
+  </text>
+  <text x="500" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="76" font-weight="700" fill="url(#ft-name-sheen)" letter-spacing="1">Siddharth</text>
 
   <!-- Italic Subtitle -->
   <text x="500" y="172" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="18.5" font-style="italic" fill="#E5B5C7" opacity="0.95">Building systems that can explain themselves.</text>
@@ -57,7 +81,7 @@
   <text x="500" y="214" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="4">ENGINEERING INTELLIGENCE  ·  DESIGNING EXPERIENCES</text>
 
   <!-- Subtle Accent Underline -->
-  <line x1="320" y1="236" x2="680" y2="236" stroke="url(#ft-line)" stroke-width="1.2"/>
+  <line x1="320" y1="236" x2="680" y2="236" stroke="url(#ft-line)" stroke-width="1.3"/>
 
   <!-- Animated Neon Pink Moving Border -->
   
