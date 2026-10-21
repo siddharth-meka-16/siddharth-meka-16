@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Generate assets/activity.svg from real GitHub contribution data.
-Luxury Editorial Commit Log & Animated Burgundy Contribution Snake.
+Luxury Editorial Commit Log & Authentic Square-Tile Burgundy Snake.
 
 Run by .github/workflows/activity.yml daily or locally.
 """
@@ -77,7 +77,7 @@ def fetch_public(login):
     }
 
 def render_svg(data, login="siddharth-meka-16"):
-    w, h = 1000, 340
+    w, h = 1000, 336
     total_contribs = data.get("total", 57)
     repos_count = data.get("repos", 6)
     stars_count = data.get("stars", 6)
@@ -86,7 +86,7 @@ def render_svg(data, login="siddharth-meka-16"):
 
     cols, rows = 53, 7
     cell, gap = 12, 4
-    x0, y0 = 64, 138
+    x0, y0 = 64, 140
 
     # Build tiles
     rects = []
@@ -122,17 +122,29 @@ def render_svg(data, login="siddharth-meka-16"):
         if mx < 900:
             month_svgs.append(f'<text x="{mx}" y="{y0 - 12}" font-family="{MONO}" font-size="10" fill="#C77B9B" opacity="0.85">{m}</text>')
 
-    # Orthogonal Snake Path aligned to tile centers
-    # Tile center (c, r) = (x0 + c*16 + 6, y0 + r*16 + 6)
-    # y0 = 138: row 0=144, row 1=160, row 2=176, row 3=192, row 4=208, row 5=224, row 6=240
-    path_d = "M 70 240 L 70 144 L 230 144 L 230 208 L 358 208 L 358 144 L 518 144 L 518 224 L 678 224 L 678 176 L 838 176 L 838 240 L 902 240 L 902 160 L 742 160 L 742 192 L 422 192 L 422 240 Z"
+    # Mathematically exact grid-aligned path (120 steps * 16px = 1920px)
+    path_d = "M 102 162 L 294 162 L 294 226 L 486 226 L 486 162 L 678 162 L 678 226 L 870 226 L 870 146 L 774 146 L 774 194 L 582 194 L 582 146 L 390 146 L 390 210 L 198 210 L 198 242 L 102 242 Z"
 
     # Moving Neon Pink Border for outer card
     p = int(2 * (w + h) - (8 - 6.283) * 16)
     dash = 160
     gap_len = p - dash
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="Commit Log - A year of building &amp; Animated Burgundy Snake">
+    # Food tiles coordinates on the snake route:
+    food_coords = [
+        (64 + 26 * 16, 140 + 5 * 16), # (480, 220)
+        (64 + 44 * 16, 140 + 3 * 16), # (768, 188)
+        (64 + 20 * 16, 140 + 0 * 16), # (384, 140)
+    ]
+    food_svgs = []
+    for fx, fy in food_coords:
+        food_svgs.append(f"""
+    <rect x="{fx}" y="{fy}" width="12" height="12" rx="3" fill="#C77B9B" opacity="0.85">
+      <animate attributeName="opacity" values="0.45;1;0.45" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="{fx+3}" y="{fy+3}" width="6" height="6" rx="1.5" fill="#FFFFFF"/>""")
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="Commit Log - A year of building &amp; Burgundy Contribution Snake">
   <defs>
     <linearGradient id="act-bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#14080F"/>
@@ -152,120 +164,103 @@ def render_svg(data, login="siddharth-meka-16"):
   <rect width="{w}" height="{h}" rx="16" fill="url(#act-bg)"/>
   <rect width="{w}" height="{h}" rx="16" fill="url(#act-glow)"/>
 
-  <!-- Left Eyebrow & Title -->
-  <text x="36" y="38" font-family="{MONO}" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="2">COMMIT LOG  ·  REAL GITHUB ACTIVITY &amp; ANIMATED SNAKE</text>
-  <text x="36" y="68" font-family="{SERIF}" font-size="24" font-weight="600" fill="#F8F0F3">A year of building, <tspan font-style="italic" fill="#E5B5C7">one square at a time.</tspan></text>
+  <!-- Left Eyebrow, Title & Subtitle (Clean, Zero Collision) -->
+  <text x="36" y="38" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="2">05  ·  COMMIT LOG &amp; BURGUNDY SNAKE</text>
+  <text x="36" y="68" font-family="{SERIF}" font-size="26" font-weight="600" fill="#F8F0F3">A year of building.</text>
+  <text x="36" y="88" font-family="{SERIF}" font-size="14.5" font-style="italic" fill="#E5B5C7">One square at a time.</text>
 
-  <!-- Top Right Live Metric Counters -->
-  <g transform="translate(480, 26)">
-    <text x="0" y="24" font-family="{SERIF}" font-size="30" font-weight="700" fill="#F8F0F3">{total_contribs}</text>
-    <text x="0" y="40" font-family="{MONO}" font-size="9" fill="#C77B9B" letter-spacing="1">CONTRIBUTIONS</text>
+  <!-- Top Right Live Metric Counters (Positioned safely with 280px margin) -->
+  <g transform="translate(540, 24)">
+    <g transform="translate(0, 0)">
+      <text x="0" y="24" font-family="{SERIF}" font-size="28" font-weight="700" fill="#F8F0F3">{total_contribs}</text>
+      <text x="0" y="40" font-family="{MONO}" font-size="9" font-weight="600" fill="#C77B9B" letter-spacing="1">CONTRIBUTIONS</text>
+    </g>
 
-    <text x="135" y="24" font-family="{SERIF}" font-size="30" font-weight="700" fill="#F8F0F3">{repos_count}</text>
-    <text x="135" y="40" font-family="{MONO}" font-size="9" fill="#C77B9B" letter-spacing="1">PUBLIC REPOS</text>
+    <g transform="translate(115, 0)">
+      <text x="0" y="24" font-family="{SERIF}" font-size="28" font-weight="700" fill="#F8F0F3">{repos_count}</text>
+      <text x="0" y="40" font-family="{MONO}" font-size="9" font-weight="600" fill="#C77B9B" letter-spacing="1">PUBLIC REPOS</text>
+    </g>
 
-    <text x="260" y="24" font-family="{SERIF}" font-size="30" font-weight="700" fill="#F8F0F3">{stars_count}</text>
-    <text x="260" y="40" font-family="{MONO}" font-size="9" fill="#C77B9B" letter-spacing="1">STARS EARNED</text>
+    <g transform="translate(225, 0)">
+      <text x="0" y="24" font-family="{SERIF}" font-size="28" font-weight="700" fill="#F8F0F3">{stars_count}</text>
+      <text x="0" y="40" font-family="{MONO}" font-size="9" font-weight="600" fill="#C77B9B" letter-spacing="1">STARS EARNED</text>
+    </g>
 
-    <text x="380" y="24" font-family="{SERIF}" font-size="30" font-weight="700" fill="#F8F0F3">{longest_streak}</text>
-    <text x="380" y="40" font-family="{MONO}" font-size="9" fill="#C77B9B" letter-spacing="1">DAY STREAK</text>
+    <g transform="translate(335, 0)">
+      <text x="0" y="24" font-family="{SERIF}" font-size="28" font-weight="700" fill="#F8F0F3">{longest_streak}</text>
+      <text x="0" y="40" font-family="{MONO}" font-size="9" font-weight="600" fill="#C77B9B" letter-spacing="1">DAY STREAK</text>
+    </g>
   </g>
 
   <!-- Month markers -->
   {"".join(month_svgs)}
 
   <!-- Day labels on left -->
-  <text x="36" y="164" font-family="{MONO}" font-size="9.5" fill="#C77B9B" opacity="0.85">MON</text>
-  <text x="36" y="196" font-family="{MONO}" font-size="9.5" fill="#C77B9B" opacity="0.85">WED</text>
-  <text x="36" y="228" font-family="{MONO}" font-size="9.5" fill="#C77B9B" opacity="0.85">FRI</text>
+  <text x="36" y="166" font-family="{MONO}" font-size="9.5" fill="#C77B9B" opacity="0.85">MON</text>
+  <text x="36" y="198" font-family="{MONO}" font-size="9.5" fill="#C77B9B" opacity="0.85">WED</text>
+  <text x="36" y="230" font-family="{MONO}" font-size="9.5" fill="#C77B9B" opacity="0.85">FRI</text>
 
   <!-- Contribution Tiles -->
   <g>
     {"".join(rects)}
   </g>
 
-  <!-- Pulsating Food Morsels on the Snake's Hunt Path -->
-  <g transform="translate(358, 144)">
-    <circle cx="0" cy="0" r="5" fill="#C77B9B" opacity="0.75">
-      <animate attributeName="r" values="3.5;6;3.5" dur="1.3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.3s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="0" cy="0" r="2.8" fill="#F8F0F3"/>
-  </g>
-  <g transform="translate(678, 224)">
-    <circle cx="0" cy="0" r="5" fill="#C77B9B" opacity="0.75">
-      <animate attributeName="r" values="3.5;6;3.5" dur="1.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="0" cy="0" r="2.8" fill="#F8F0F3"/>
-  </g>
-  <g transform="translate(838, 176)">
-    <circle cx="0" cy="0" r="5" fill="#C77B9B" opacity="0.75">
-      <animate attributeName="r" values="3.5;6;3.5" dur="1.2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="0" cy="0" r="2.8" fill="#F8F0F3"/>
-  </g>
-  <g transform="translate(742, 192)">
-    <circle cx="0" cy="0" r="5" fill="#C77B9B" opacity="0.75">
-      <animate attributeName="r" values="3.5;6;3.5" dur="1.4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="0" cy="0" r="2.8" fill="#F8F0F3"/>
-  </g>
-
-  <!-- ============================================== -->
-  <!-- ANIMATED BURGUNDY CONTRIBUTION SNAKE -->
-  <!-- ============================================== -->
-  <!-- Neon Slither Trail -->
-  <path d="{path_d}" fill="none" stroke="#C77B9B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-        stroke-dasharray="100 2080" stroke-dashoffset="0" opacity="0.65">
-    <animate attributeName="stroke-dashoffset" from="0" to="-2180" dur="16s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- Articulated Snake Body Segments (Trailing Chain) -->
-  <!-- Tail Tip (Segment 7) -->
-  <circle cx="0" cy="0" r="2.6" fill="#451126">
-    <animateMotion path="{path_d}" dur="16s" begin="-0.63s" repeatCount="indefinite"/>
-  </circle>
-  <!-- Segment 6 -->
-  <circle cx="0" cy="0" r="3.4" fill="#701A3D">
-    <animateMotion path="{path_d}" dur="16s" begin="-0.54s" repeatCount="indefinite"/>
-  </circle>
-  <!-- Segment 5 -->
-  <circle cx="0" cy="0" r="4.0" fill="#701A3D">
-    <animateMotion path="{path_d}" dur="16s" begin="-0.45s" repeatCount="indefinite"/>
-  </circle>
-  <!-- Segment 4 -->
-  <circle cx="0" cy="0" r="4.5" fill="#A24A70">
-    <animateMotion path="{path_d}" dur="16s" begin="-0.36s" repeatCount="indefinite"/>
-  </circle>
-  <!-- Segment 3 -->
-  <circle cx="0" cy="0" r="5.0" fill="#C77B9B">
-    <animateMotion path="{path_d}" dur="16s" begin="-0.27s" repeatCount="indefinite"/>
-  </circle>
-  <!-- Segment 2 -->
-  <circle cx="0" cy="0" r="5.5" fill="#E5B5C7">
-    <animateMotion path="{path_d}" dur="16s" begin="-0.18s" repeatCount="indefinite"/>
-  </circle>
-  <!-- Segment 1 (Behind Head) -->
-  <circle cx="0" cy="0" r="5.9" fill="#F8F0F3">
-    <animateMotion path="{path_d}" dur="16s" begin="-0.09s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Snake Head with Glowing Aura, Eyes and Directional Heading -->
+  <!-- Pulsating Target Contribution Food Tiles -->
   <g>
-    <!-- Soft Neon Aura -->
-    <circle cx="0" cy="0" r="9.5" fill="#C77B9B" opacity="0.5" filter="url(#neon-glow)"/>
-    <!-- Head Body -->
-    <circle cx="0" cy="0" r="6.6" fill="#F8F0F3"/>
-    <!-- Two Eyes (aligned to motion heading) -->
-    <circle cx="2" cy="-2.2" r="1.3" fill="#10070C"/>
-    <circle cx="2" cy="2.2" r="1.3" fill="#10070C"/>
-    <!-- Red Flickering Tongue -->
-    <line x1="5" y1="0" x2="8.5" y2="0" stroke="#FF4D8D" stroke-width="1.3" stroke-linecap="round"/>
-    <!-- Follow Path with Auto-Rotation -->
-    <animateMotion path="{path_d}" dur="16s" repeatCount="indefinite" rotate="auto"/>
+    {"".join(food_svgs)}
+  </g>
+
+  <!-- ============================================== -->
+  <!-- AUTHENTIC SQUARE-TILE BURGUNDY SNAKE -->
+  <!-- Matches exact grid cells (12x12px, rx=2.8px) -->
+  <!-- ============================================== -->
+
+  <!-- Tail Segment (Lag: 6 steps = -1.0s) -->
+  <g>
+    <rect x="-6" y="-6" width="12" height="12" rx="2.8" fill="#451126"/>
+    <animateMotion path="{path_d}" dur="20s" begin="-1.0000s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Body Segment 5 (Lag: 5 steps = -0.8333s) -->
+  <g>
+    <rect x="-6" y="-6" width="12" height="12" rx="2.8" fill="#701A3D"/>
+    <animateMotion path="{path_d}" dur="20s" begin="-0.8333s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Body Segment 4 (Lag: 4 steps = -0.6667s) -->
+  <g>
+    <rect x="-6" y="-6" width="12" height="12" rx="2.8" fill="#A24A70"/>
+    <animateMotion path="{path_d}" dur="20s" begin="-0.6667s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Body Segment 3 (Lag: 3 steps = -0.5000s) -->
+  <g>
+    <rect x="-6" y="-6" width="12" height="12" rx="2.8" fill="#C77B9B"/>
+    <animateMotion path="{path_d}" dur="20s" begin="-0.5000s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Body Segment 2 (Lag: 2 steps = -0.3333s) -->
+  <g>
+    <rect x="-6" y="-6" width="12" height="12" rx="2.8" fill="#E5B5C7"/>
+    <animateMotion path="{path_d}" dur="20s" begin="-0.3333s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Body Segment 1 (Lag: 1 step = -0.1667s) -->
+  <g>
+    <rect x="-6" y="-6" width="12" height="12" rx="2.8" fill="#F8F0F3"/>
+    <animateMotion path="{path_d}" dur="20s" begin="-0.1667s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Snake Head (Tile 12x12 with subtle neon glow & crisp pixel eyes) -->
+  <g>
+    <!-- Soft Glow -->
+    <rect x="-7.5" y="-7.5" width="15" height="15" rx="3.5" fill="#C77B9B" opacity="0.5" filter="url(#neon-glow)"/>
+    <!-- Head Square -->
+    <rect x="-6" y="-6" width="12" height="12" rx="2.8" fill="#FFFFFF"/>
+    <!-- Pixel Eyes -->
+    <circle cx="-2" cy="-2" r="1.1" fill="#701A3D"/>
+    <circle cx="-2" cy="2" r="1.1" fill="#701A3D"/>
+    <animateMotion path="{path_d}" dur="20s" begin="0s" repeatCount="indefinite"/>
   </g>
 
   <!-- Bottom Legend & Info -->
@@ -313,7 +308,7 @@ def main():
 
     with open(a.out, "w", encoding="utf-8") as f:
         f.write(svg_content.strip() + "\n")
-    print(f"Successfully generated {a.out} with live data & Animated Burgundy Snake!")
+    print(f"Successfully generated {a.out} with live data & Authentic Burgundy Snake!")
 
 if __name__ == "__main__":
     main()
