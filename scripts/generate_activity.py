@@ -13,6 +13,10 @@ import sys
 import urllib.request
 import xml.sax.saxutils as sax
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
+
 MONO = "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
 SERIF = "Georgia, 'Times New Roman', 'DejaVu Serif', serif"
 SANS = "'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
@@ -56,6 +60,23 @@ def fetch_public(login):
     except Exception as e:
         print(f"Warning: could not fetch contributions calendar ({e})")
 
+    # 4. Search issues & PRs
+    prs_count = 2
+    issues_count = 0
+    try:
+        p_req = urllib.request.Request(f"https://api.github.com/search/issues?q=author:{login}+type:pr", headers={"User-Agent": "profile-activity"})
+        with urllib.request.urlopen(p_req, timeout=10) as r:
+            prs_count = json.load(r).get("total_count", prs_count)
+    except Exception:
+        pass
+
+    try:
+        i_req = urllib.request.Request(f"https://api.github.com/search/issues?q=author:{login}+type:issue", headers={"User-Agent": "profile-activity"})
+        with urllib.request.urlopen(i_req, timeout=10) as r:
+            issues_count = json.load(r).get("total_count", issues_count)
+    except Exception:
+        pass
+
     # Calculate longest streak
     best_streak = cur = 0
     for d in days:
@@ -73,6 +94,8 @@ def fetch_public(login):
         "repos": repos_count,
         "stars": stars_count,
         "streak": best_streak,
+        "prs": prs_count,
+        "issues": issues_count,
         "days": days
     }
 
@@ -309,6 +332,22 @@ def main():
     with open(a.out, "w", encoding="utf-8") as f:
         f.write(svg_content.strip() + "\n")
     print(f"Successfully generated {a.out} with live data & Authentic Burgundy Snake!")
+
+    # Also generate github-glance.svg
+    glance_out = os.path.join(out_dir, "github-glance.svg") if out_dir else "assets/github-glance.svg"
+    try:
+        from generate_assets import make_github_glance
+        make_github_glance(
+            stars=data.get("stars", 6),
+            commits=data.get("total", 57),
+            prs=data.get("prs", 2),
+            issues=data.get("issues", 0),
+            repos=data.get("repos", 8),
+            filename=glance_out
+        )
+        print(f"Successfully generated {glance_out} with live stats!")
+    except Exception as e:
+        print(f"Warning: could not generate github-glance ({e})")
 
 if __name__ == "__main__":
     main()

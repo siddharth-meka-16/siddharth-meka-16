@@ -1,85 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 120" width="960" height="120">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 280" width="1000" height="280" role="img" aria-label="Siddharth - Building systems that can explain themselves">
   <defs>
-    <!-- Footer background gradient -->
-    <linearGradient id="smf-bg" x1="0%" y1="100%" x2="100%" y2="0%">
+    <linearGradient id="ft-bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#10070C"/>
-      <stop offset="50%" stop-color="#190B12"/>
+      <stop offset="50%" stop-color="#14080F"/>
       <stop offset="100%" stop-color="#10070C"/>
     </linearGradient>
-
-    <!-- Animated line gradient -->
-    <linearGradient id="smf-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#10070C" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#701A3D" stop-opacity="0.6">
-        <animate attributeName="offset" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="50%" stop-color="#C77B9B" stop-opacity="0.8">
-        <animate attributeName="offset" values="0.3;0.5;0.3" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="70%" stop-color="#701A3D" stop-opacity="0.6">
-        <animate attributeName="offset" values="0.5;0.7;0.5" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Footer glow -->
-    <radialGradient id="smf-glow" cx="50%" cy="0%" r="60%">
-      <stop offset="0%" stop-color="#451126" stop-opacity="0.12"/>
+    <radialGradient id="ft-spotlight" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.6"/>
+      <stop offset="45%" stop-color="#451126" stop-opacity="0.25"/>
       <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
     </radialGradient>
-
-    <!-- Grid pattern -->
-    <pattern id="smf-grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#451126" stroke-width="0.25" stroke-opacity="0.1"/>
-    </pattern>
-
-    <!-- Clip -->
-    <clipPath id="smf-clip">
-      <rect x="0" y="0" width="960" height="120" rx="6" ry="6"/>
-    </clipPath>
+    <linearGradient id="ft-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#C77B9B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="text-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
 
-  <g clip-path="url(#smf-clip)">
-    <!-- Background -->
-    <rect width="960" height="120" fill="url(#smf-bg)"/>
-    <rect width="960" height="120" fill="url(#smf-glow)"/>
-    <rect width="960" height="120" fill="url(#smf-grid)" opacity="0.5"/>
+  <!-- Frame Background -->
+  <rect width="1000" height="280" rx="16" fill="url(#ft-bg)"/>
+  <rect width="1000" height="280" rx="16" fill="url(#ft-spotlight)"/>
 
-    <!-- Top animated line -->
-    <line x1="80" y1="2" x2="880" y2="2" stroke="url(#smf-line-grad)" stroke-width="1"/>
+  <!-- Subtle Starlight Particles -->
+  <circle cx="160" cy="80" r="1.5" fill="#E5B5C7" opacity="0.4"/>
+  <circle cx="280" cy="190" r="1.2" fill="#C77B9B" opacity="0.5"/>
+  <circle cx="740" cy="90" r="1.5" fill="#E5B5C7" opacity="0.4"/>
+  <circle cx="850" cy="180" r="1.2" fill="#C77B9B" opacity="0.5"/>
+  <circle cx="500" cy="40" r="2.2" fill="#F8F0F3" opacity="0.75">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
 
-    <!-- Thin separator lines -->
-    <line x1="200" y1="60" x2="380" y2="60" stroke="#451126" stroke-width="0.4" opacity="0.2"/>
-    <line x1="580" y1="60" x2="760" y2="60" stroke="#451126" stroke-width="0.4" opacity="0.2"/>
+  <!-- Giant Glowing Brand Name (Screenshot 2 Match) -->
+  <text x="500" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="76" font-weight="700" fill="#C77B9B" opacity="0.55" filter="url(#text-glow)">Siddharth</text>
+  <text x="500" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="76" font-weight="700" fill="#F8F0F3" letter-spacing="1">Siddharth</text>
 
-    <!-- Corner accents -->
-    <path d="M 16 12 L 16 6 L 22 6" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
-    <path d="M 944 12 L 944 6 L 938 6" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
-    <path d="M 16 108 L 16 114 L 22 114" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
-    <path d="M 944 108 L 944 114 L 938 114" fill="none" stroke="#701A3D" stroke-width="0.6" opacity="0.25"/>
+  <!-- Italic Subtitle -->
+  <text x="500" y="172" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="18.5" font-style="italic" fill="#E5B5C7" opacity="0.95">Building systems that can explain themselves.</text>
 
-    <!-- Geometric diamond motif -->
-    <g transform="translate(480, 38)" opacity="0.3">
-      <rect x="-6" y="-6" width="12" height="12" fill="none" stroke="#C77B9B" stroke-width="0.5" transform="rotate(45)">
-        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
-      </rect>
-      <rect x="-10" y="-10" width="20" height="20" fill="none" stroke="#701A3D" stroke-width="0.3" transform="rotate(45)">
-        <animateTransform attributeName="transform" type="rotate" from="45" to="405" dur="20s" repeatCount="indefinite"/>
-      </rect>
-    </g>
+  <!-- Precision Monospace Sub-Brand -->
+  <text x="500" y="214" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="4">ENGINEERING INTELLIGENCE  ·  DESIGNING EXPERIENCES</text>
 
-    <!-- Signature text -->
-    <text x="480" y="72" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#C77B9B" letter-spacing="4" opacity="0.55" font-weight="300">SIDDHARTH MEKA</text>
+  <!-- Subtle Accent Underline -->
+  <line x1="320" y1="236" x2="680" y2="236" stroke="url(#ft-line)" stroke-width="1.2"/>
 
-    <!-- Tagline -->
-    <text x="480" y="92" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#E5B5C7" letter-spacing="2" opacity="0.3">Crafted with curiosity and code</text>
+  <!-- Animated Neon Pink Moving Border -->
+  
+  <!-- Static Base Border -->
+  <rect width="1000" height="280" rx="16" fill="none" stroke="#701A3D" stroke-opacity="0.5" stroke-width="1.2"/>
 
-    <!-- Status dot -->
-    <circle cx="424" cy="69" r="2" fill="#701A3D" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.15;0.4" dur="3s" repeatCount="indefinite"/>
-    </circle>
+  <!-- Neon Glow Soft Filter Layer -->
+  <rect width="998" height="278" x="1" y="1" rx="15" fill="none"
+        stroke="#C77B9B" stroke-width="3" stroke-linecap="round" opacity="0.45"
+        stroke-dasharray="160 2372" stroke-dashoffset="0" filter="url(#neon-glow)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-2532" dur="8s" repeatCount="indefinite"/>
+  </rect>
 
-    <!-- Bottom subtle line -->
-    <line x1="320" y1="108" x2="640" y2="108" stroke="#451126" stroke-width="0.3" opacity="0.2"/>
-  </g>
+  <!-- Core Neon Moving Line -->
+  <rect width="998" height="278" x="1" y="1" rx="15" fill="none"
+        stroke="#F8F0F3" stroke-width="1.8" stroke-linecap="round"
+        stroke-dasharray="160 2372" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="-2532" dur="8s" repeatCount="indefinite"/>
+  </rect>
+    
 </svg>

@@ -48,16 +48,26 @@ I'm a Computer Science Engineering student at **Prasad V Potluri Siddhartha Inst
 
 ## <img src="assets/section-05-activity.svg" alt="05 Commit Log — A year of building, one square at a time" width="100%">
 
-<a href="https://github.com/siddharth-meka-16"><img src="assets/activity.svg" alt="A year of building — Real GitHub Activity & Animated Snake" width="100%"></a>
+<img src="assets/github-glance.svg" alt="GitHub at a glance — Lifetime & Annual Metrics" width="100%">
 
-## <img src="assets/section-06-links.svg" alt="06 Connect — Professional networks" width="100%">
+<a href="https://github.com/siddharth-meka-16">
+  <img src="assets/activity.svg" alt="A year of building — Real GitHub Activity & Animated Snake" width="100%">
+</a>
+
+## <img src="assets/section-06-links.svg" alt="06 Connect — Let's build something worth explaining" width="100%">
 
 <p align="center">
-  <a href="https://github.com/siddharth-meka-16"><img src="assets/link-github.svg" alt="GitHub: siddharth-meka-16" height="38"></a>
+  <a href="mailto:siddharthmeka168@gmail.com"><img src="assets/pill-email.svg" alt="Email: siddharthmeka168@gmail.com" height="38"></a>
   &nbsp;&nbsp;
-  <a href="https://linkedin.com/in/siddharth-meka-a90138355"><img src="assets/link-linkedin.svg" alt="LinkedIn: siddharth-meka-a90138355" height="38"></a>
+  <a href="https://linkedin.com/in/siddharth-meka-a90138355"><img src="assets/pill-linkedin.svg" alt="LinkedIn: siddharth-meka" height="38"></a>
 </p>
 
 <p align="center">
-  <img src="assets/siddharth-footer.svg" alt="Decorative Footer" width="100%">
+  <a href="https://github.com/siddharth-meka-16"><img src="assets/pill-github.svg" alt="GitHub: siddharth-meka-16" height="38"></a>
+  &nbsp;&nbsp;
+  <a href="https://leetcode.com/u/siddharth-meka-16"><img src="assets/pill-leetcode.svg" alt="LeetCode: siddharth-meka-16" height="38"></a>
+</p>
+
+<p align="center">
+  <img src="assets/siddharth-footer.svg" alt="Siddharth — Building systems that can explain themselves" width="100%">
 </p>

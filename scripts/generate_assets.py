@@ -22,10 +22,16 @@ def esc(text):
     return sax.escape(str(text))
 
 def write_svg(filename, content):
-    path = os.path.join(ASSETS_DIR, filename)
+    if os.path.isabs(filename):
+        path = filename
+    elif filename.startswith("assets/") or filename.startswith("assets\\"):
+        path = os.path.join(os.path.dirname(ASSETS_DIR), filename)
+    else:
+        path = os.path.join(ASSETS_DIR, filename)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(content.strip() + "\n")
-    print(f"Generated {filename}")
+    print(f"Generated {os.path.basename(path)}")
 
 def neon_border(w, h, rx=16, dur="8s", dash=130):
     """Generate SVG elements for the moving neon pink border line."""
@@ -53,8 +59,11 @@ def neon_border(w, h, rx=16, dur="8s", dash=130):
 # -------------------------------------------------------------
 # 1. Section Headers
 # -------------------------------------------------------------
-def make_section_header(num_str, eyebrow, title, filename):
+def make_section_header(num_str, eyebrow, title, filename, right_text=None):
     w, h = 1000, 72
+    right_svg = ""
+    if right_text:
+        right_svg = f'<text x="{w-16}" y="22" text-anchor="end" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="1.5">{esc(right_text)}</text>'
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{esc(eyebrow)} - {esc(title)}">
   <defs>
     <linearGradient id="sh-line-{num_str}" x1="0" y1="0" x2="1" y2="0">
@@ -66,6 +75,7 @@ def make_section_header(num_str, eyebrow, title, filename):
 
   <!-- Eyebrow -->
   <text x="4" y="22" font-family="{MONO}" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="2.5">{esc(num_str)}  ·  {esc(eyebrow.upper())}</text>
+  {right_svg}
 
   <!-- Main Title -->
   <text x="4" y="54" font-family="{SERIF}" font-size="28" font-weight="600" fill="#F8F0F3" letter-spacing="0.2">{esc(title)}</text>
@@ -477,33 +487,244 @@ def make_certifications():
     write_svg("certifications.svg", svg)
 
 # -------------------------------------------------------------
-# 6. Action Button Badges
+# 6. GitHub At A Glance Card (Matching Screenshot 1)
+# -------------------------------------------------------------
+def make_github_glance(stars=6, commits=57, prs=2, issues=0, repos=8, filename="github-glance.svg"):
+    w, h = 1000, 270
+    
+    rows = [
+        ("star", "Total Stars Earned:", str(stars)),
+        ("commits", "Total Commits (last year):", str(commits)),
+        ("prs", "Total PRs:", str(prs)),
+        ("issues", "Total Issues:", str(issues)),
+        ("repos", "Contributed to (last year):", str(repos)),
+    ]
+    
+    row_svgs = []
+    ry = 106
+    for icon_type, label, val in rows:
+        if icon_type == "star":
+            icon = '<path d="M0 -6 L1.8 -1.8 L6 -1.8 L2.6 0.8 L3.8 5.2 L0 2.6 L-3.8 5.2 L-2.6 0.8 L-6 -1.8 L-1.8 -1.8 Z" fill="#C77B9B"/>'
+        elif icon_type == "commits":
+            icon = '<circle cx="0" cy="0" r="5.5" fill="none" stroke="#C77B9B" stroke-width="1.3"/><path d="M0 -3 L0 0 L2.2 2.2" fill="none" stroke="#F8F0F3" stroke-width="1.3" stroke-linecap="round"/>'
+        elif icon_type == "prs":
+            icon = '<circle cx="-3" cy="-3.5" r="1.8" fill="none" stroke="#C77B9B" stroke-width="1.2"/><circle cx="-3" cy="3.5" r="1.8" fill="none" stroke="#C77B9B" stroke-width="1.2"/><circle cx="3" cy="-0.8" r="1.8" fill="none" stroke="#C77B9B" stroke-width="1.2"/><path d="M-3 -1.7 L-3 1.7 M-3 0.8 C-1 0.8, 3 2.5, 3 1" fill="none" stroke="#C77B9B" stroke-width="1.2"/>'
+        elif icon_type == "issues":
+            icon = '<circle cx="0" cy="0" r="5.5" fill="none" stroke="#C77B9B" stroke-width="1.3"/><circle cx="0" cy="0" r="2" fill="#F8F0F3"/>'
+        else:
+            icon = '<rect x="-4.5" y="-4.5" width="9" height="9" rx="1.8" fill="none" stroke="#C77B9B" stroke-width="1.2"/><line x1="-4.5" y1="-1" x2="4.5" y2="-1" stroke="#C77B9B" stroke-width="0.9"/><rect x="-1.8" y="-1" width="3.6" height="1.8" rx="0.5" fill="#F8F0F3"/>'
+        
+        row_svgs.append(f"""
+      <g transform="translate(36, {ry})">
+        <circle cx="12" cy="0" r="11" fill="#190B12" stroke="#451126" stroke-width="0.8"/>
+        <g transform="translate(12, 0)">{icon}</g>
+        <text x="32" y="4" font-family="{SANS}" font-size="13" font-weight="500" fill="#E5B5C7">{esc(label)}</text>
+        <line x1="260" y1="2" x2="390" y2="2" stroke="#451126" stroke-width="1" stroke-dasharray="2 4"/>
+        <text x="440" y="5" text-anchor="end" font-family="{SERIF}" font-size="17" font-weight="700" fill="#F8F0F3">{esc(val)}</text>
+      </g>""")
+        ry += 30
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="GitHub at a glance">
+  <defs>
+    <linearGradient id="glance-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14080F"/>
+      <stop offset="60%" stop-color="#10070C"/>
+      <stop offset="100%" stop-color="#190B12"/>
+    </linearGradient>
+    <radialGradient id="glance-glow" cx="0.25" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <rect width="{w}" height="{h}" rx="16" fill="url(#glance-bg)"/>
+  <rect width="{w}" height="{h}" rx="16" fill="url(#glance-glow)"/>
+
+  <!-- Left Header -->
+  <text x="36" y="38" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="2">METRICS  ·  LIFETIME &amp; ANNUAL ACTIVITY</text>
+  <text x="36" y="70" font-family="{SERIF}" font-size="28" font-weight="600" fill="#F8F0F3">GitHub at a glance</text>
+
+  <!-- Metric Rows (Matching Screenshot 1) -->
+  {"".join(row_svgs)}
+
+  <!-- Right Side Benchmark Bento Box -->
+  <g transform="translate(500, 26)">
+    <rect width="464" height="218" rx="12" fill="#14080F" stroke="#451126" stroke-width="1"/>
+    <rect x="0" y="0" width="464" height="28" rx="12" fill="#190B12"/>
+    <rect x="0" y="16" width="464" height="12" fill="#190B12"/>
+    <line x1="0" y1="28" x2="464" y2="28" stroke="#451126" stroke-width="1"/>
+    <text x="18" y="18" font-family="{MONO}" font-size="10" font-weight="700" fill="#C77B9B" letter-spacing="1.5">DEVELOPER PROFILE SUMMARY</text>
+
+    <!-- Radar / Activity Pulse in top corner -->
+    <circle cx="436" cy="14" r="4" fill="#C77B9B">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Benchmark Lines -->
+    <g transform="translate(20, 52)">
+      <text x="0" y="0" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">SPECIALIZATION</text>
+      <text x="0" y="18" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">Full-Stack AI &amp; Machine Learning</text>
+
+      <text x="0" y="46" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">ANNUAL CADENCE</text>
+      <text x="0" y="64" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">57 Contributions across 8 Public Repos</text>
+
+      <text x="0" y="92" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">PRODUCTION STACK</text>
+      <text x="0" y="110" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">Next.js · React · FastAPI · Supabase · Python</text>
+
+      <text x="0" y="138" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">PROFILE AVAILABILITY</text>
+      <text x="0" y="156" font-family="{SERIF}" font-size="15" font-weight="600" fill="#E5B5C7">Open for Software &amp; AI/ML Internships</text>
+    </g>
+
+    <!-- Box Neon Moving Border -->
+    <rect width="462" height="216" x="1" y="1" rx="11" fill="none"
+          stroke="#C77B9B" stroke-width="2.2" stroke-linecap="round" opacity="0.45"
+          stroke-dasharray="70 850" stroke-dashoffset="0" filter="url(#neon-glow)">
+      <animate attributeName="stroke-dashoffset" from="0" to="-920" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect width="462" height="216" x="1" y="1" rx="11" fill="none"
+          stroke="#F8F0F3" stroke-width="1.4" stroke-linecap="round"
+          stroke-dasharray="70 850" stroke-dashoffset="0">
+      <animate attributeName="stroke-dashoffset" from="0" to="-920" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Outer Animated Neon Pink Moving Border -->
+  {neon_border(w, h, rx=16, dur="8s", dash=150)}
+</svg>"""
+    write_svg(filename, svg)
+
+# -------------------------------------------------------------
+# 7. Two-Tone Segmented Pill Badges (Matching Screenshot 2)
+# -------------------------------------------------------------
+def make_two_tone_pill(icon_type, label, value, w_left, w_right, filename):
+    w, h = w_left + w_right, 38
+    key = filename.replace(".svg", "").replace("-", "_")
+    
+    if icon_type == "email":
+        icon = '<g transform="translate(18, 19) scale(0.72)"><rect x="-10" y="-7" width="20" height="14" rx="2" fill="none" stroke="#C77B9B" stroke-width="1.6"/><path d="M-10 -5 L0 2 L10 -5" fill="none" stroke="#C77B9B" stroke-width="1.6" stroke-linejoin="round"/></g>'
+    elif icon_type == "linkedin":
+        icon = '<g transform="translate(18, 19) scale(0.75)"><rect x="-9" y="-9" width="18" height="18" rx="3" fill="#701A3D" opacity="0.4"/><path d="M-6 -2H-3V5H-6V-2ZM-4.5 -5.5C-3.7 -5.5 -3.2 -4.9 -3.2 -4.1C-3.2 -3.3 -3.7 -2.7 -4.5 -2.7C-5.3 -2.7 -5.8 -3.3 -5.8 -4.1C-5.8 -4.9 -5.3 -5.5 -4.5 -5.5ZM-1.5 -2H1.5V-0.9H1.6C2 -1.6 2.9 -2.2 4.1 -2.2C6.5 -2.2 7 -0.7 7 1.3V5H4V1.7C4 0.8 4 -0.3 2.8 -0.3C1.6 -0.3 1.5 0.5 1.5 1.6V5H-1.5V-2Z" fill="#C77B9B"/></g>'
+    elif icon_type == "github":
+        icon = '<g transform="translate(18, 19) scale(0.68)"><path d="M0 -14C-7.73 -14 -14 -7.73 -14 0C-14 6.19 -9.99 11.43 -4.42 13.28C-3.72 13.41 -3.46 12.98 -3.46 12.61C-3.46 12.28 -3.47 11.19 -3.48 9.99C-7.37 10.84 -8.19 8.97 -8.19 8.97C-8.83 7.35 -9.75 6.92 -9.75 6.92C-11.02 6.05 -9.65 6.07 -9.65 6.07C-8.25 6.17 -7.51 7.51 -7.51 7.51C-6.26 9.65 -4.24 9.03 -3.44 8.67C-3.31 7.76 -2.95 7.14 -2.55 6.79C-5.66 6.44 -8.93 5.24 -8.93 -0.12C-8.93 -1.65 -8.38 -2.9 -7.48 -3.88C-7.62 -4.23 -8.1 -5.65 -7.34 -7.56C-7.34 -7.56 -6.16 -7.94 -3.47 -6.12C-2.35 -6.43 -1.17 -6.59 0 -6.59C1.17 -6.59 2.35 -6.43 3.47 -6.12C6.16 -7.94 7.34 -7.56 7.34 -7.56C8.1 -5.65 7.62 -4.23 7.48 -3.88C8.38 -2.9 8.93 -1.65 8.93 -0.12C8.93 5.25 5.65 6.43 2.54 6.78C3.03 7.2 3.46 8.04 3.46 9.32C3.46 11.16 3.44 12.64 3.44 12.61C3.44 12.98 3.7 13.42 4.42 13.28C9.99 11.43 14 6.19 14 0C14 -7.73 7.73 -14 0 -14Z" fill="#C77B9B"/></g>'
+    else: # leetcode
+        icon = '<g transform="translate(18, 19) scale(0.72)"><path d="M0 -7 L6 -3.5 L6 3.5 L0 7 L-6 3.5 L-6 -3.5 Z" fill="none" stroke="#C77B9B" stroke-width="1.5"/><path d="M-2 -2 L2 0 L-2 2" fill="none" stroke="#F8F0F3" stroke-width="1.3" stroke-linecap="round"/></g>'
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{esc(label)}: {esc(value)}">
+  <defs>
+    <linearGradient id="pill-left-{key}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14080F"/>
+      <stop offset="100%" stop-color="#190B12"/>
+    </linearGradient>
+    <linearGradient id="pill-right-{key}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#701A3D"/>
+      <stop offset="100%" stop-color="#451126"/>
+    </linearGradient>
+    <clipPath id="pill-clip-{key}">
+      <rect width="{w}" height="{h}" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#pill-clip-{key})">
+    <!-- Left dark capsule -->
+    <rect x="0" y="0" width="{w_left}" height="{h}" fill="url(#pill-left-{key})"/>
+    <!-- Right burgundy capsule -->
+    <rect x="{w_left}" y="0" width="{w_right}" height="{h}" fill="url(#pill-right-{key})"/>
+    <!-- Center divider line -->
+    <line x1="{w_left}" y1="0" x2="{w_left}" y2="{h}" stroke="#701A3D" stroke-width="1.2"/>
+  </g>
+
+  <!-- Outer Border -->
+  <rect width="{w}" height="{h}" rx="10" fill="none" stroke="#701A3D" stroke-width="1.2"/>
+
+  <!-- Left Icon & Label -->
+  {icon}
+  <text x="34" y="24" font-family="{MONO}" font-size="10" font-weight="700" fill="#F8F0F3" letter-spacing="1">{esc(label)}</text>
+
+  <!-- Right Value Text -->
+  <text x="{w_left + w_right/2}" y="24" text-anchor="middle" font-family="{MONO}" font-size="10.5" font-weight="600" fill="#F8F0F3">{esc(value)}</text>
+</svg>"""
+    write_svg(filename, svg)
+
+# -------------------------------------------------------------
+# 8. Grand Luxury Footer Hero (Matching Screenshot 2)
+# -------------------------------------------------------------
+def make_luxury_footer(filename="siddharth-footer.svg"):
+    w, h = 1000, 280
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="Siddharth - Building systems that can explain themselves">
+  <defs>
+    <linearGradient id="ft-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10070C"/>
+      <stop offset="50%" stop-color="#14080F"/>
+      <stop offset="100%" stop-color="#10070C"/>
+    </linearGradient>
+    <radialGradient id="ft-spotlight" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0.6"/>
+      <stop offset="45%" stop-color="#451126" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10070C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ft-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#701A3D" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#C77B9B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#701A3D" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="text-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Frame Background -->
+  <rect width="{w}" height="{h}" rx="16" fill="url(#ft-bg)"/>
+  <rect width="{w}" height="{h}" rx="16" fill="url(#ft-spotlight)"/>
+
+  <!-- Subtle Starlight Particles -->
+  <circle cx="160" cy="80" r="1.5" fill="#E5B5C7" opacity="0.4"/>
+  <circle cx="280" cy="190" r="1.2" fill="#C77B9B" opacity="0.5"/>
+  <circle cx="740" cy="90" r="1.5" fill="#E5B5C7" opacity="0.4"/>
+  <circle cx="850" cy="180" r="1.2" fill="#C77B9B" opacity="0.5"/>
+  <circle cx="500" cy="40" r="2.2" fill="#F8F0F3" opacity="0.75">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Giant Glowing Brand Name (Screenshot 2 Match) -->
+  <text x="500" y="128" text-anchor="middle" font-family="{SERIF}" font-size="76" font-weight="700" fill="#C77B9B" opacity="0.55" filter="url(#text-glow)">Siddharth</text>
+  <text x="500" y="128" text-anchor="middle" font-family="{SERIF}" font-size="76" font-weight="700" fill="#F8F0F3" letter-spacing="1">Siddharth</text>
+
+  <!-- Italic Subtitle -->
+  <text x="500" y="172" text-anchor="middle" font-family="{SERIF}" font-size="18.5" font-style="italic" fill="#E5B5C7" opacity="0.95">Building systems that can explain themselves.</text>
+
+  <!-- Precision Monospace Sub-Brand -->
+  <text x="500" y="214" text-anchor="middle" font-family="{MONO}" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="4">ENGINEERING INTELLIGENCE  ·  DESIGNING EXPERIENCES</text>
+
+  <!-- Subtle Accent Underline -->
+  <line x1="320" y1="236" x2="680" y2="236" stroke="url(#ft-line)" stroke-width="1.2"/>
+
+  <!-- Animated Neon Pink Moving Border -->
+  {neon_border(w, h, rx=16, dur="8s", dash=160)}
+</svg>"""
+    write_svg(filename, svg)
+
+# -------------------------------------------------------------
+# 9. Action Button Badges
 # -------------------------------------------------------------
 def make_button(text, icon_type, w, filename):
     h = 38
     key = filename.replace(".svg", "").replace("-", "_")
-    if icon_type == "github":
-        icon = """
-        <g transform="translate(22, 19) scale(0.8)">
-          <path d="M0 -14C-7.73 -14 -14 -7.73 -14 0C-14 6.19 -9.99 11.43 -4.42 13.28C-3.72 13.41 -3.46 12.98 -3.46 12.61C-3.46 12.28 -3.47 11.19 -3.48 9.99C-7.37 10.84 -8.19 8.97 -8.19 8.97C-8.83 7.35 -9.75 6.92 -9.75 6.92C-11.02 6.05 -9.65 6.07 -9.65 6.07C-8.25 6.17 -7.51 7.51 -7.51 7.51C-6.26 9.65 -4.24 9.03 -3.44 8.67C-3.31 7.76 -2.95 7.14 -2.55 6.79C-5.66 6.44 -8.93 5.24 -8.93 -0.12C-8.93 -1.65 -8.38 -2.9 -7.48 -3.88C-7.62 -4.23 -8.1 -5.65 -7.34 -7.56C-7.34 -7.56 -6.16 -7.94 -3.47 -6.12C-2.35 -6.43 -1.17 -6.59 0 -6.59C1.17 -6.59 2.35 -6.43 3.47 -6.12C6.16 -7.94 7.34 -7.56 7.34 -7.56C8.1 -5.65 7.62 -4.23 7.48 -3.88C8.38 -2.9 8.93 -1.65 8.93 -0.12C8.93 5.25 5.65 6.43 2.54 6.78C3.03 7.2 3.46 8.04 3.46 9.32C3.46 11.16 3.44 12.64 3.44 12.61C3.44 12.98 3.7 13.42 4.42 13.28C9.99 11.43 14 6.19 14 0C14 -7.73 7.73 -14 0 -14Z" fill="#C77B9B"/>
-        </g>
-        """
-        text_x = 38
-    elif icon_type == "linkedin":
-        icon = """
-        <g transform="translate(22, 19) scale(0.8)">
-          <rect x="-12" y="-12" width="24" height="24" rx="4" fill="#701A3D" opacity="0.3"/>
-          <path d="M-8 -3H-5V6H-8V-3ZM-6.5 -7.5C-5.5 -7.5 -4.8 -6.7 -4.8 -5.7C-4.8 -4.7 -5.5 -4 -6.5 -4C-7.4 -4 -8.2 -4.7 -8.2 -5.7C-8.2 -6.7 -7.4 -7.5 -6.5 -7.5ZM-3 -3H0V-1.8H0.1C0.5 -2.6 1.6 -3.3 2.9 -3.3C5.7 -3.3 6.3 -1.5 6.3 0.9V6H3.3V1.6C3.3 0.5 3.3 -0.9 1.9 -0.9C0.5 -0.9 0.3 0.2 0.3 1.5V6H-3V-3Z" fill="#C77B9B"/>
-        </g>
-        """
-        text_x = 38
-    else: # arrow/repo button
-        icon = """
-        <g transform="translate(20, 19)">
-          <path d="M-4 0 L4 0 M1 -4 L5 0 L1 4" stroke="#C77B9B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </g>
-        """
-        text_x = 34
+    icon = """
+    <g transform="translate(20, 19)">
+      <path d="M-4 0 L4 0 M1 -4 L5 0 L1 4" stroke="#C77B9B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+    """
+    text_x = 34
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{esc(text)}">
   <defs>
@@ -525,7 +746,7 @@ def main():
     make_section_header("03", "Toolset", "The tools I reach for.", "section-04-skills.svg")
     make_section_header("04", "Credentials", "Verified certifications & honors.", "section-03-certifications.svg")
     make_section_header("05", "Commit Log", "A year of building, one square at a time.", "section-05-activity.svg")
-    make_section_header("06", "Connect", "Professional links & contact.", "section-06-links.svg")
+    make_section_header("06", "Connect", "Let's build something worth explaining.", "section-06-links.svg", right_text="OPEN INBOX →")
 
     # 2. Luxury Project Architecture Cards (Key features, summary bullets & architecture ALL INSIDE THE CARD!)
     make_luxury_project_card(
@@ -579,16 +800,26 @@ def main():
     # 3. The 6-Box Bento Grid (Every single box has its OWN moving neon pink border!)
     make_bento_grid()
 
-    # 4. Unified Commit Log Card
+    # 4. Unified Commit Log Card (Authentic Square-Tile Burgundy Snake)
     make_unified_commit_log()
 
-    # 5. Buttons
-    make_button("VIEW REPOSITORY →", "arrow", 185, "link-repo-resq.svg")
-    make_button("siddharth-meka-16", "github", 195, "link-github.svg")
-    make_button("siddharth-meka", "linkedin", 185, "link-linkedin.svg")
+    # 5. GitHub At A Glance Card (Matching Screenshot 1)
+    make_github_glance(stars=6, commits=57, prs=2, issues=0, repos=8, filename="github-glance.svg")
 
     # 6. Certifications Shelf
     make_certifications()
+
+    # 7. Action Button Badges (Project repo links)
+    make_button("VIEW REPOSITORY →", "arrow", 185, "link-repo-resq.svg")
+
+    # 8. Two-Tone Contact Pills (Matching Screenshot 2)
+    make_two_tone_pill("email", "EMAIL", "siddharthmeka168@gmail.com", 92, 248, "pill-email.svg")
+    make_two_tone_pill("linkedin", "LINKEDIN", "siddharth-meka", 104, 146, "pill-linkedin.svg")
+    make_two_tone_pill("github", "GITHUB", "siddharth-meka-16", 94, 166, "pill-github.svg")
+    make_two_tone_pill("leetcode", "LEETCODE", "siddharth-meka-16", 106, 164, "pill-leetcode.svg")
+
+    # 9. Grand Luxury Footer Hero (Matching Screenshot 2)
+    make_luxury_footer("siddharth-footer.svg")
 
 if __name__ == "__main__":
     main()
