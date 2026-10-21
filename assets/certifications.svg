@@ -14,6 +14,7 @@
   
     <g transform="translate(30, 25)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+      <line x1="16" y1="1" x2="444" y2="1" stroke="#C77B9B" stroke-opacity="0.35" stroke-width="1"/>
       <g transform="translate(26, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -25,6 +26,7 @@
     </g>
     <g transform="translate(510, 25)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+      <line x1="16" y1="1" x2="444" y2="1" stroke="#C77B9B" stroke-opacity="0.35" stroke-width="1"/>
       <g transform="translate(26, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -36,6 +38,7 @@
     </g>
     <g transform="translate(30, 125)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+      <line x1="16" y1="1" x2="444" y2="1" stroke="#C77B9B" stroke-opacity="0.35" stroke-width="1"/>
       <g transform="translate(26, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -47,6 +50,7 @@
     </g>
     <g transform="translate(510, 125)">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+      <line x1="16" y1="1" x2="444" y2="1" stroke="#C77B9B" stroke-opacity="0.35" stroke-width="1"/>
       <g transform="translate(26, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>

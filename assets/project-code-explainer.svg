@@ -42,15 +42,15 @@
   
     <g transform="translate(36, 164)">
       <circle cx="3" cy="-3.5" r="2.5" fill="#C77B9B"/>
-      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11.5"><tspan font-weight="700" fill="#F8F0F3">Code Intelligence: </tspan><tspan fill="#E5B5C7" opacity="0.9">Explains syntax &amp; semantics, detects bugs &amp; audits complexity</tspan></text>
+      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11" letter-spacing="0.1"><tspan font-weight="700" fill="#F8F0F3">Code Intelligence: </tspan><tspan fill="#E5B5C7" opacity="0.9">Explains syntax &amp; semantics, detects bugs &amp; audits complexity</tspan></text>
     </g>
     <g transform="translate(36, 185)">
       <circle cx="3" cy="-3.5" r="2.5" fill="#C77B9B"/>
-      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11.5"><tspan font-weight="700" fill="#F8F0F3">FastAPI Backend: </tspan><tspan fill="#E5B5C7" opacity="0.9">Sub-180ms real-time AST parsing &amp; structured insights engine</tspan></text>
+      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11" letter-spacing="0.1"><tspan font-weight="700" fill="#F8F0F3">FastAPI Backend: </tspan><tspan fill="#E5B5C7" opacity="0.9">Sub-180ms real-time AST parsing &amp; structured insights engine</tspan></text>
     </g>
     <g transform="translate(36, 206)">
       <circle cx="3" cy="-3.5" r="2.5" fill="#C77B9B"/>
-      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11.5"><tspan font-weight="700" fill="#F8F0F3">Developer Feedback: </tspan><tspan fill="#E5B5C7" opacity="0.9">Clean diagnostics &amp; recommendations to debug and optimize</tspan></text>
+      <text x="14" y="0" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="11" letter-spacing="0.1"><tspan font-weight="700" fill="#F8F0F3">Developer Feedback: </tspan><tspan fill="#E5B5C7" opacity="0.9">Clean diagnostics &amp; recommendations to debug and optimize</tspan></text>
     </g>
 
   <!-- 3 Big Metric Counters -->

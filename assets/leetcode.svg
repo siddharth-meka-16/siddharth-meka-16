@@ -112,7 +112,7 @@
     <rect width="636" height="1" fill="#701A3D" opacity="0.6"/>
 
     <!-- Header Line -->
-    <text x="22" y="30" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="2">04  ·  ALGORITHMIC DISCIPLINE</text>
+    <text x="22" y="30" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="2">ALGORITHMIC DISCIPLINE  ·  LEETCODE PROFILE</text>
 
     <!-- Handle & Rank Capsule Badge -->
     <g transform="translate(422, 14)">

@@ -25,15 +25,12 @@
 
         <!-- Items list -->
         
-        <text x="20" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Java</text>
-        <rect x="64" y="36" width="54" height="16" rx="8" fill="#701A3D"/>
-                <text x="91" y="48" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9" font-weight="700" fill="#F8F0F3">CORE</text>
-        <text x="20" y="74" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Python</text>
-        
-        <text x="20" y="100" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">C / C++</text>
-        
-        <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">TypeScript · JavaScript</text>
-        
+        <text x="18" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Java</text>
+        <rect x="240" y="36" width="44" height="15" rx="7.5" fill="#701A3D"/>
+                <text x="262" y="47" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8" font-weight="700" fill="#F8F0F3" letter-spacing="0.5">CORE</text>
+        <text x="18" y="74" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Python</text>
+        <text x="18" y="100" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">C / C++</text>
+        <text x="18" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">TypeScript · JavaScript</text>
 
         <!-- Base box border -->
         <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
@@ -62,15 +59,12 @@
 
         <!-- Items list -->
         
-        <text x="20" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Deep Learning</text>
-        <rect x="154" y="36" width="54" height="16" rx="8" fill="#701A3D"/>
-                <text x="181" y="48" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9" font-weight="700" fill="#F8F0F3">CORE</text>
-        <text x="20" y="74" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">scikit-learn · XGBoost</text>
-        
-        <text x="20" y="100" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Neural Networks &amp; NLP</text>
-        
-        <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Feature Engineering</text>
-        
+        <text x="18" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Deep Learning</text>
+        <rect x="240" y="36" width="44" height="15" rx="7.5" fill="#701A3D"/>
+                <text x="262" y="47" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8" font-weight="700" fill="#F8F0F3" letter-spacing="0.5">CORE</text>
+        <text x="18" y="74" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">scikit-learn · XGBoost</text>
+        <text x="18" y="100" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Neural Networks &amp; NLP</text>
+        <text x="18" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Feature Engineering</text>
 
         <!-- Base box border -->
         <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
@@ -99,15 +93,12 @@
 
         <!-- Items list -->
         
-        <text x="20" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Next.js · React</text>
-        <rect x="174" y="36" width="54" height="16" rx="8" fill="#701A3D"/>
-                <text x="201" y="48" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9" font-weight="700" fill="#F8F0F3">CORE</text>
-        <text x="20" y="74" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">HTML5 · Vanilla CSS</text>
-        
-        <text x="20" y="100" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Tailwind CSS</text>
-        
-        <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Responsive &amp; GIS UI</text>
-        
+        <text x="18" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Next.js · React</text>
+        <rect x="240" y="36" width="44" height="15" rx="7.5" fill="#701A3D"/>
+                <text x="262" y="47" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8" font-weight="700" fill="#F8F0F3" letter-spacing="0.5">CORE</text>
+        <text x="18" y="74" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">HTML5 · Vanilla CSS</text>
+        <text x="18" y="100" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Tailwind CSS</text>
+        <text x="18" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Responsive &amp; GIS UI</text>
 
         <!-- Base box border -->
         <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
@@ -136,15 +127,12 @@
 
         <!-- Items list -->
         
-        <text x="20" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">FastAPI</text>
-        <rect x="94" y="36" width="54" height="16" rx="8" fill="#701A3D"/>
-                <text x="121" y="48" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9" font-weight="700" fill="#F8F0F3">CORE</text>
-        <text x="20" y="74" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Node.js · Express</text>
-        
-        <text x="20" y="100" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">REST APIs · Microservices</text>
-        
-        <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">JWT Auth · RBAC</text>
-        
+        <text x="18" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">FastAPI</text>
+        <rect x="240" y="36" width="44" height="15" rx="7.5" fill="#701A3D"/>
+                <text x="262" y="47" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8" font-weight="700" fill="#F8F0F3" letter-spacing="0.5">CORE</text>
+        <text x="18" y="74" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Node.js · Express</text>
+        <text x="18" y="100" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">REST APIs · Microservices</text>
+        <text x="18" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">JWT Auth · RBAC</text>
 
         <!-- Base box border -->
         <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
@@ -173,15 +161,12 @@
 
         <!-- Items list -->
         
-        <text x="20" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Supabase</text>
-        <rect x="104" y="36" width="54" height="16" rx="8" fill="#701A3D"/>
-                <text x="131" y="48" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9" font-weight="700" fill="#F8F0F3">CORE</text>
-        <text x="20" y="74" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">SQL · MySQL</text>
-        
-        <text x="20" y="100" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">PostgreSQL</text>
-        
-        <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Vercel Deployment</text>
-        
+        <text x="18" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Supabase</text>
+        <rect x="240" y="36" width="44" height="15" rx="7.5" fill="#701A3D"/>
+                <text x="262" y="47" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8" font-weight="700" fill="#F8F0F3" letter-spacing="0.5">CORE</text>
+        <text x="18" y="74" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">SQL · MySQL</text>
+        <text x="18" y="100" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">PostgreSQL</text>
+        <text x="18" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Vercel Deployment</text>
 
         <!-- Base box border -->
         <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>
@@ -210,15 +195,12 @@
 
         <!-- Items list -->
         
-        <text x="20" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Data Structures &amp; Algorithms</text>
-        <rect x="304" y="36" width="54" height="16" rx="8" fill="#701A3D"/>
-                <text x="331" y="48" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="9" font-weight="700" fill="#F8F0F3">CORE</text>
-        <text x="20" y="74" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">OOP · DBMS</text>
-        
-        <text x="20" y="100" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Operating Systems · Networks</text>
-        
-        <text x="20" y="126" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="16" font-weight="600" fill="#F8F0F3">Git · GitHub · VS Code</text>
-        
+        <text x="18" y="48" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="15" font-weight="600" fill="#F8F0F3">Data Structures &amp; Algorithms</text>
+        <rect x="240" y="36" width="44" height="15" rx="7.5" fill="#701A3D"/>
+                <text x="262" y="47" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8" font-weight="700" fill="#F8F0F3" letter-spacing="0.5">CORE</text>
+        <text x="18" y="74" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">OOP · DBMS</text>
+        <text x="18" y="100" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Operating Systems · Networks</text>
+        <text x="18" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">Git · GitHub · VS Code</text>
 
         <!-- Base box border -->
         <rect width="300" height="150" rx="12" fill="none" stroke="#701A3D" stroke-opacity="0.4" stroke-width="1"/>

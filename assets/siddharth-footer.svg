@@ -31,9 +31,15 @@
   <rect width="1000" height="280" rx="16" fill="url(#ft-bg)"/>
   <rect width="1000" height="280" rx="16" fill="url(#ft-spotlight)"/>
 
-  <!-- Subtle Starlight Particles -->
+  <!-- Subtle Starlight Constellation Particles -->
   <circle cx="160" cy="80" r="1.5" fill="#E5B5C7" opacity="0.4"/>
   <circle cx="280" cy="190" r="1.2" fill="#C77B9B" opacity="0.5"/>
+  <circle cx="380" cy="70" r="1.8" fill="#F8F0F3" opacity="0.6">
+    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="620" cy="70" r="1.8" fill="#F8F0F3" opacity="0.6">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
   <circle cx="740" cy="90" r="1.5" fill="#E5B5C7" opacity="0.4"/>
   <circle cx="850" cy="180" r="1.2" fill="#C77B9B" opacity="0.5"/>
   <circle cx="500" cy="40" r="2.2" fill="#F8F0F3" opacity="0.75">

@@ -92,7 +92,6 @@ def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, bullets
     w, h = 1000, 336
     key = filename.replace(".svg", "").replace("-", "_")
 
-    # Bullets rendering inside the card (Key Features + Summary)
     bullet_svgs = []
     by = 164
     for b in bullets:
@@ -104,7 +103,7 @@ def make_luxury_project_card(eyebrow, title, one_liner, built_highlight, bullets
         bullet_svgs.append(f"""
     <g transform="translate(36, {by})">
       <circle cx="3" cy="-3.5" r="2.5" fill="#C77B9B"/>
-      <text x="14" y="0" font-family="{SANS}" font-size="11.5">{content}</text>
+      <text x="14" y="0" font-family="{SANS}" font-size="11" letter-spacing="0.1">{content}</text>
     </g>""")
         by += 21
 
@@ -367,13 +366,15 @@ def make_bento_grid():
         item_svgs = []
         iy = 48
         for name, is_primary in b["items"]:
-            badge = ""
             if is_primary:
-                badge = f"""<rect x="{len(name)*10 + 24}" y="{iy-12}" width="54" height="16" rx="8" fill="#701A3D"/>
-                <text x="{len(name)*10 + 51}" y="{iy}" text-anchor="middle" font-family="{MONO}" font-size="9" font-weight="700" fill="#F8F0F3">CORE</text>"""
-            item_svgs.append(f"""
-        <text x="20" y="{iy}" font-family="{SERIF}" font-size="16" font-weight="600" fill="#F8F0F3">{esc(name)}</text>
+                badge = f"""<rect x="{bw - 60}" y="{iy-12}" width="44" height="15" rx="7.5" fill="#701A3D"/>
+                <text x="{bw - 38}" y="{iy-1}" text-anchor="middle" font-family="{MONO}" font-size="8" font-weight="700" fill="#F8F0F3" letter-spacing="0.5">CORE</text>"""
+                item_svgs.append(f"""
+        <text x="18" y="{iy}" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">{esc(name)}</text>
         {badge}""")
+            else:
+                item_svgs.append(f"""
+        <text x="18" y="{iy}" font-family="{SANS}" font-size="12.5" font-weight="500" fill="#E5B5C7" opacity="0.9">{esc(name)}</text>""")
             iy += 26
 
         card_elements.append(f"""
@@ -456,6 +457,7 @@ def make_certifications():
         cards_svg.append(f"""
     <g transform="translate({cx}, {cy})">
       <rect width="460" height="85" rx="12" fill="#14080F" stroke="#701A3D" stroke-opacity="0.75" stroke-width="1.1"/>
+      <line x1="16" y1="1" x2="444" y2="1" stroke="#C77B9B" stroke-opacity="0.35" stroke-width="1"/>
       <g transform="translate(26, 42)">
         <circle cx="0" cy="0" r="14" fill="#10070C" stroke="#C77B9B" stroke-width="1.2"/>
         <path d="M -5 0 L -1 4 L 6 -3" fill="none" stroke="#E5B5C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -519,8 +521,9 @@ def make_github_glance(stars=6, commits=57, prs=2, issues=0, repos=8, filename="
         <circle cx="12" cy="0" r="11" fill="#190B12" stroke="#451126" stroke-width="0.8"/>
         <g transform="translate(12, 0)">{icon}</g>
         <text x="32" y="4" font-family="{SANS}" font-size="13" font-weight="500" fill="#E5B5C7">{esc(label)}</text>
-        <line x1="260" y1="2" x2="390" y2="2" stroke="#451126" stroke-width="1" stroke-dasharray="2 4"/>
-        <text x="440" y="5" text-anchor="end" font-family="{SERIF}" font-size="17" font-weight="700" fill="#F8F0F3">{esc(val)}</text>
+        <line x1="244" y1="2" x2="388" y2="2" stroke="#451126" stroke-width="1" stroke-dasharray="2 4"/>
+        <rect x="398" y="-11" width="48" height="22" rx="6" fill="#190B12" stroke="#701A3D" stroke-width="1"/>
+        <text x="422" y="5" text-anchor="middle" font-family="{MONO}" font-size="13" font-weight="700" fill="#F8F0F3">{esc(val)}</text>
       </g>""")
         ry += 30
 
@@ -565,17 +568,21 @@ def make_github_glance(stars=6, commits=57, prs=2, issues=0, repos=8, filename="
 
     <!-- Benchmark Lines -->
     <g transform="translate(20, 52)">
-      <text x="0" y="0" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">SPECIALIZATION</text>
-      <text x="0" y="18" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">Full-Stack AI &amp; Machine Learning</text>
+      <circle cx="2" cy="-3" r="2.2" fill="#C77B9B"/>
+      <text x="12" y="0" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#C77B9B" letter-spacing="1">SPECIALIZATION</text>
+      <text x="12" y="19" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">Full-Stack AI &amp; Machine Learning</text>
 
-      <text x="0" y="46" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">ANNUAL CADENCE</text>
-      <text x="0" y="64" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">57 Contributions across 8 Public Repos</text>
+      <circle cx="2" cy="43" r="2.2" fill="#C77B9B"/>
+      <text x="12" y="46" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#C77B9B" letter-spacing="1">ANNUAL CADENCE</text>
+      <text x="12" y="65" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">57 Contributions across 8 Public Repos</text>
 
-      <text x="0" y="92" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">PRODUCTION STACK</text>
-      <text x="0" y="110" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">Next.js · React · FastAPI · Supabase · Python</text>
+      <circle cx="2" cy="89" r="2.2" fill="#C77B9B"/>
+      <text x="12" y="92" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#C77B9B" letter-spacing="1">PRODUCTION STACK</text>
+      <text x="12" y="111" font-family="{SERIF}" font-size="15" font-weight="600" fill="#F8F0F3">Next.js · React · FastAPI · Supabase · Python</text>
 
-      <text x="0" y="138" font-family="{MONO}" font-size="9.5" fill="#C77B9B" letter-spacing="1">PROFILE AVAILABILITY</text>
-      <text x="0" y="156" font-family="{SERIF}" font-size="15" font-weight="600" fill="#E5B5C7">Open for Software &amp; AI/ML Internships</text>
+      <circle cx="2" cy="135" r="2.2" fill="#E5B5C7"/>
+      <text x="12" y="138" font-family="{MONO}" font-size="9.5" font-weight="700" fill="#E5B5C7" letter-spacing="1">PROFILE AVAILABILITY</text>
+      <text x="12" y="157" font-family="{SERIF}" font-size="15" font-weight="600" fill="#E5B5C7">Open for Software &amp; AI/ML Internships</text>
     </g>
 
     <!-- Box Neon Moving Border -->
@@ -747,7 +754,7 @@ def make_leetcode_radial(total=142, easy=95, med=44, hard=3, total_easy=972, tot
     <rect width="636" height="1" fill="#701A3D" opacity="0.6"/>
 
     <!-- Header Line -->
-    <text x="22" y="30" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="2">04  ·  ALGORITHMIC DISCIPLINE</text>
+    <text x="22" y="30" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#C77B9B" letter-spacing="2">ALGORITHMIC DISCIPLINE  ·  LEETCODE PROFILE</text>
 
     <!-- Handle & Rank Capsule Badge -->
     <g transform="translate(422, 14)">
@@ -926,9 +933,15 @@ def make_luxury_footer(filename="siddharth-footer.svg"):
   <rect width="{w}" height="{h}" rx="16" fill="url(#ft-bg)"/>
   <rect width="{w}" height="{h}" rx="16" fill="url(#ft-spotlight)"/>
 
-  <!-- Subtle Starlight Particles -->
+  <!-- Subtle Starlight Constellation Particles -->
   <circle cx="160" cy="80" r="1.5" fill="#E5B5C7" opacity="0.4"/>
   <circle cx="280" cy="190" r="1.2" fill="#C77B9B" opacity="0.5"/>
+  <circle cx="380" cy="70" r="1.8" fill="#F8F0F3" opacity="0.6">
+    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="620" cy="70" r="1.8" fill="#F8F0F3" opacity="0.6">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
   <circle cx="740" cy="90" r="1.5" fill="#E5B5C7" opacity="0.4"/>
   <circle cx="850" cy="180" r="1.2" fill="#C77B9B" opacity="0.5"/>
   <circle cx="500" cy="40" r="2.2" fill="#F8F0F3" opacity="0.75">
@@ -980,12 +993,14 @@ def make_button(text, icon_type, w, filename):
     write_svg(filename, svg)
 
 def main():
-    # 1. Section headers
-    make_section_header("01", "Introduction", "Curiosity, code, and practical intelligence.", "section-01-introduction.svg")
-    make_section_header("02", "Featured Work", "Selected systems & architecture platforms.", "section-02-projects.svg")
-    make_section_header("03", "Toolset", "The tools I reach for.", "section-04-skills.svg")
-    make_section_header("04", "Credentials", "Verified certifications & honors.", "section-03-certifications.svg")
-    make_section_header("05", "Commit Log", "A year of building, one square at a time.", "section-05-activity.svg")
+    # 1. Section headers with rich right-side captions
+    make_section_header("01", "Introduction", "Curiosity, code, and practical intelligence.", "section-01-introduction.svg", right_text="B.TECH CSE · 2024–2028")
+    make_section_header("02", "Featured Work", "Selected systems & architecture platforms.", "section-02-projects.svg", right_text="PRODUCTION & RESEARCH →")
+    make_section_header("03", "Toolset", "The tools I reach for.", "section-03-skills.svg", right_text="6-BOX BENTO SUITE")
+    make_section_header("03", "Toolset", "The tools I reach for.", "section-04-skills.svg", right_text="6-BOX BENTO SUITE")  # compatibility alias
+    make_section_header("04", "Credentials", "Verified certifications & honors.", "section-04-certifications.svg", right_text="OFFICIAL RECORDS")
+    make_section_header("04", "Credentials", "Verified certifications & honors.", "section-03-certifications.svg", right_text="OFFICIAL RECORDS")  # compatibility alias
+    make_section_header("05", "Commit Log & Telemetry", "A year of building, one square at a time.", "section-05-activity.svg", right_text="LIVE TELEMETRY · 365 DAYS")
     make_section_header("06", "Connect", "Let's build something worth explaining.", "section-06-links.svg", right_text="OPEN INBOX →")
 
     # 2. Luxury Project Architecture Cards (Key features, summary bullets & architecture ALL INSIDE THE CARD!)
