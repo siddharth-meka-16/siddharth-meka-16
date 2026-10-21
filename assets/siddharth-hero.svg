@@ -22,6 +22,25 @@
     <linearGradient id="sh-mono" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#F8F0F3"/><stop offset="1" stop-color="#E5B5C7"/>
     </linearGradient>
+    <!-- Animated Light Sheen Gradients for Name -->
+    <linearGradient id="sh-sheen-sid" x1="-120%" y1="0%" x2="-20%" y2="0%">
+      <stop offset="0%" stop-color="#F8F0F3"/>
+      <stop offset="42%" stop-color="#F8F0F3"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="58%" stop-color="#F8F0F3"/>
+      <stop offset="100%" stop-color="#F8F0F3"/>
+      <animate attributeName="x1" values="-120%; -120%; 140%; 140%" keyTimes="0; 0.25; 0.65; 1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="-20%; -20%; 240%; 240%" keyTimes="0; 0.25; 0.65; 1" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="sh-sheen-meka" x1="-120%" y1="0%" x2="-20%" y2="0%">
+      <stop offset="0%" stop-color="#E5B5C7"/>
+      <stop offset="42%" stop-color="#E5B5C7"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="58%" stop-color="#E5B5C7"/>
+      <stop offset="100%" stop-color="#E5B5C7"/>
+      <animate attributeName="x1" values="-120%; -120%; 140%; 140%" keyTimes="0; 0.3; 0.7; 1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="-20%; -20%; 240%; 240%" keyTimes="0; 0.3; 0.7; 1" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
     <pattern id="sh-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#C77B9B" stroke-opacity="0.07"/></pattern>
     <pattern id="sh-gridm" width="125" height="125" patternUnits="userSpaceOnUse"><path d="M125 0H0V125" fill="none" stroke="#C77B9B" stroke-opacity="0.12"/></pattern>
     <radialGradient id="sh-fade" cx="0.75" cy="0.45" r="0.75"><stop offset="0.1" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
@@ -61,12 +80,30 @@
     <!-- eyebrow -->
     <rect x="60" y="121" width="34" height="2" fill="#C77B9B"/>
     <text x="104" y="127" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'DejaVu Sans Mono', monospace" font-size="14" letter-spacing="3.5" fill="#C77B9B">CSE · AI/ML · FULL-STACK</text>
-    <!-- name -->
-    <text x="56" y="226" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="94" letter-spacing="-1" fill="#F8F0F3">Siddharth</text>
-    <text x="56" y="318" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-style="italic" font-size="94" letter-spacing="-1" fill="#E5B5C7">Meka<tspan fill="#C77B9B" font-style="normal">.</tspan></text>
+    <!-- name with staggered float entrance & ambient sheen -->
+    <g id="sh-name-group">
+      <!-- Siddharth -->
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 18; 0 0" keyTimes="0; 1" dur="1s" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1"/>
+        <animate attributeName="opacity" values="0; 1" keyTimes="0; 1" dur="1s" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1"/>
+        <text x="56" y="226" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="94" letter-spacing="-1" fill="url(#sh-sheen-sid)">Siddharth</text>
+      </g>
+      <!-- Meka. -->
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 18; 0 18; 0 0" keyTimes="0; 0.22; 1" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0 0 1 1; 0.16 1 0.3 1"/>
+        <animate attributeName="opacity" values="0; 0; 1" keyTimes="0; 0.22; 1" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0 0 1 1; 0.16 1 0.3 1"/>
+        <text x="56" y="318" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-style="italic" font-size="94" letter-spacing="-1" fill="url(#sh-sheen-meka)">Meka<tspan fill="#C77B9B" font-style="normal">.<animate attributeName="fill" values="#C77B9B; #FFFFFF; #C77B9B" dur="3s" begin="1.2s" repeatCount="indefinite"/></tspan></text>
+      </g>
+    </g>
+
+    <!-- Accent rule expanding out smoothly -->
     <rect x="60" y="336" width="320" height="4" rx="2" fill="url(#sh-rule)" filter="url(#sh-soft)">
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="6s" repeatCount="indefinite"/></rect>
-    <rect x="60" y="337" width="320" height="2" rx="1" fill="url(#sh-rule)"/>
+      <animate attributeName="width" values="0; 0; 320" keyTimes="0; 0.3; 1" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0 0 1 1; 0.16 1 0.3 1"/>
+      <animate attributeName="opacity" values="0.5; 1; 0.5" dur="6s" begin="1.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="60" y="337" width="320" height="2" rx="1" fill="url(#sh-rule)">
+      <animate attributeName="width" values="0; 0; 320" keyTimes="0; 0.3; 1" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0 0 1 1; 0.16 1 0.3 1"/>
+    </rect>
     <!-- positioning -->
     <text x="60" y="378" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="21" letter-spacing="3" fill="#E5B5C7">COMPUTER SCIENCE ENGINEERING</text>
     <text x="60" y="409" font-family="'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="21" letter-spacing="3" fill="#C77B9B">AI/ML  |  FULL-STACK DEVELOPMENT</text>
