@@ -88,7 +88,7 @@
       <text x="175" y="134" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="38" font-weight="700" fill="#F8F0F3">142</text>
     </g>
     <text x="175" y="154" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" fill="#C77B9B" letter-spacing="2.8">SOLVED</text>
-    <text x="175" y="170" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8.5" fill="#8E6B7A" letter-spacing="1">4,087 POOL</text>
+    <text x="175" y="170" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8.5" fill="#8E6B7A" letter-spacing="1">4,095 POOL</text>
 
     <!-- Gauge Legend -->
     <g transform="translate(0, 0)">
@@ -129,7 +129,7 @@
 
     <!-- Title & Subtitle -->
     <text x="22" y="60" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-size="20" font-weight="600" fill="#F8F0F3" letter-spacing="0.2">Data Structures &amp; Problem Solving</text>
-    <text x="614" y="60" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#8E6B7A">GLOBAL RANK #1,249,437</text>
+    <text x="614" y="60" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#8E6B7A">GLOBAL RANK #1,250,015</text>
 
     <!-- ================= 3 PROGRESS BARS ================= -->
     <!-- Easy Bar -->
@@ -137,7 +137,7 @@
       <text x="0" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#E5B5C7" letter-spacing="1">EASY</text>
       <rect x="68" y="5" width="370" height="10" rx="5" fill="#1D0A14" stroke="#3D1224" stroke-width="1"/>
       <rect x="68" y="5" width="175" height="10" rx="5" fill="url(#easy-grad)"/>
-      <text x="452" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#F8F0F3">95 <tspan fill="#8E6B7A" font-weight="400">/ 972</tspan></text>
+      <text x="452" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#F8F0F3">95 <tspan fill="#8E6B7A" font-weight="400">/ 974</tspan></text>
       <text x="592" y="14" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#C77B9B">(9.8%)</text>
     </g>
 
@@ -146,7 +146,7 @@
       <text x="0" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#C77B9B" letter-spacing="1">MEDIUM</text>
       <rect x="68" y="5" width="370" height="10" rx="5" fill="#1D0A14" stroke="#3D1224" stroke-width="1"/>
       <rect x="68" y="5" width="162" height="10" rx="5" fill="url(#med-grad)"/>
-      <text x="452" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#F8F0F3">44 <tspan fill="#8E6B7A" font-weight="400">/ 2,131</tspan></text>
+      <text x="452" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#F8F0F3">44 <tspan fill="#8E6B7A" font-weight="400">/ 2,135</tspan></text>
       <text x="592" y="14" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#C77B9B">(2.1%)</text>
     </g>
 
@@ -155,7 +155,7 @@
       <text x="0" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#A24A70" letter-spacing="1">HARD</text>
       <rect x="68" y="5" width="370" height="10" rx="5" fill="#1D0A14" stroke="#3D1224" stroke-width="1"/>
       <rect x="68" y="5" width="55" height="10" rx="5" fill="url(#hard-grad)"/>
-      <text x="452" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#F8F0F3">3 <tspan fill="#8E6B7A" font-weight="400">/ 984</tspan></text>
+      <text x="452" y="14" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" font-weight="700" fill="#F8F0F3">3 <tspan fill="#8E6B7A" font-weight="400">/ 986</tspan></text>
       <text x="592" y="14" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" fill="#C77B9B">(0.3%)</text>
     </g>
 
